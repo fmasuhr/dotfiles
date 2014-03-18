@@ -1,0 +1,13 @@
+# exclude files
+--nosql
+
+# add given extensions to existing types
+--type-add=css=.less,.sass,.scss
+--type-add=ruby=.builder,.rake
+
+# set new types for given extensions
+--type-set=config=.cfg,.ini,.conf
+--type-set=markdown=.md
+--type-set=plain=.txt
+--type-set=mustache=.mustache
+--type-set=coffee=.coffee
