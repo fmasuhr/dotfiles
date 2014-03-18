@@ -1,3 +1,6 @@
 # Rails
 alias rdbt="RAILS_ENV=test be rake db:drop db:create db:schema:load"
 alias rdbty="RAILS_ENV=test be rake db:drop db:create db:schema:load_from_yml"
+
+# Local configuration
+[[ -f $HOME/.aliases.local ]] && source $HOME/.aliases.local
