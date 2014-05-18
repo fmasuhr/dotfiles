@@ -49,7 +49,7 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew bundler git rails history)
+plugins=(brew bundler git history rails)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -68,9 +68,9 @@ eval "$(rbenv init -)"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+  export EDITOR="vim"
 else
-  export EDITOR='subl'
+  export EDITOR="subl"
 fi
 
 # Compilation flags

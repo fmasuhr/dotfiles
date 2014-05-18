@@ -2,7 +2,7 @@ DO_NOT_SYMLINK = %w[Rakefile README.md]
 
 task :default => :install
 
-desc "install .files into home directory"
+desc 'install .files into home directory'
 task :install do
   replace_all = false
   (Dir['*'] - DO_NOT_SYMLINK).each do |file|
