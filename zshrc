@@ -70,7 +70,7 @@ eval "$(rbenv init -)"
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='mate'
+  export EDITOR='subl'
 fi
 
 # Compilation flags
