@@ -1,18 +1,19 @@
-DO_NOT_SYMLINK = %w[Rakefile README.md]
+DO_NOT_SYMLINK = %w( LICENSE Rakefile README.md )
 
-task :default => :install
+task default: :install
 
-desc 'install .files into home directory'
+desc 'symlink .files into home directory'
 task :install do
   replace_all = false
   (Dir['*'] - DO_NOT_SYMLINK).each do |file|
-    if File.exist?(File.join(ENV['HOME'], ".#{file}"))
-      if File.identical?(file, File.join(ENV['HOME'], ".#{file}"))
-        puts "identical ~/.#{file}"
+    symlink = File.join(ENV['HOME'], ".#{file}")
+    if File.exist?(symlink)
+      if File.identical?(file, symlink)
+        puts "Symlink to ~/.#{file} already exists"
       elsif replace_all
         replace_file(file)
       else
-        print "overwrite ~/.#{file}? [ynaq] "
+        print "Overwrite ~/.#{file}? [ynaq] "
         case $stdin.gets.chomp
         when 'a'
           replace_all = true
@@ -22,7 +23,7 @@ task :install do
         when 'q'
           exit
         else
-          puts "skipping ~/.#{file}"
+          puts "skipped symlinking ~/.#{file}"
         end
       end
     else
@@ -32,11 +33,11 @@ task :install do
 end
 
 def replace_file(file)
-  system %Q{rm -rf "$HOME/.#{file}"}
+  `rm -rf "$HOME/.#{file}"`
   link_file(file)
 end
 
 def link_file(file)
-  puts "linking ~/.#{file}"
-  system %Q{ln -s "$PWD/#{file}" "$HOME/.#{file}"}
+  `ln -s "$PWD/#{file}" "$HOME/.#{file}"`
+  puts "Created symlink ~/.#{file}"
 end
