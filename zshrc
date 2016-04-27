@@ -49,6 +49,7 @@ plugins=(brew bundler git history rails)
 
 # User configuration
 
+export HOMEBREW_NO_ANALYTICS=1
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
