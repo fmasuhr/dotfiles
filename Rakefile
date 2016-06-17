@@ -1,4 +1,4 @@
-DO_NOT_SYMLINK = %w( LICENSE Rakefile README.md )
+DO_NOT_SYMLINK = %w( .gitignore LICENSE Rakefile README.md )
 
 task default: :install
 
