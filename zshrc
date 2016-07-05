@@ -60,6 +60,7 @@ export PATH=$GOROOT/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
+source /usr/local/share/zsh/site-functions/_aws
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
