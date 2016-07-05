@@ -53,6 +53,12 @@ export HOMEBREW_NO_ANALYTICS=1
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
+# Go Lang configuration
+export GOPATH=$HOME/golang
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$GOROOT/bin:$PATH
+export PATH=$GOPATH/bin:$PATH
+
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
