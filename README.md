@@ -8,7 +8,6 @@ Run the following commands in your terminal.
 
 ```sh
 git clone git://github.com/fmasuhr/dotfiles ~/.dotfiles
-cd ~/.dotfiles
 ```
 
 ### Homebrew
