@@ -6,6 +6,7 @@ brew 'mas'
 brew 'node'
 brew 'rbenv'
 brew 'ruby-build'
+brew 'stow'
 brew 'terraform'
 
 # Casks
