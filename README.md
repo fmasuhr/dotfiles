@@ -9,7 +9,15 @@ Run the following commands in your terminal.
 ```sh
 git clone git://github.com/fmasuhr/dotfiles ~/.dotfiles
 cd ~/.dotfiles
-rake install
+```
+
+### Dotfiles
+
+Use [stow](https://www.gnu.org/software/stow/) to install dotfiles:
+
+```sh
+cd ~/.dotfiles
+stow dotfiles
 ```
 
 ## Make your own customizations
