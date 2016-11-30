@@ -1,11 +1,10 @@
-DO_NOT_SYMLINK = %w( .gitignore LICENSE Rakefile README.md )
-
 task default: :install
 
 desc 'symlink .files into home directory'
 task :install do
   replace_all = false
-  (Dir['*'] - DO_NOT_SYMLINK).each do |file|
+  Dir['dotfiles/*'].each do |path|
+    file = path.split('/').last
     symlink = File.join(ENV['HOME'], ".#{file}")
     if File.exist?(symlink)
       if File.identical?(file, symlink)
@@ -38,6 +37,6 @@ def replace_file(file)
 end
 
 def link_file(file)
-  `ln -s "$PWD/#{file}" "$HOME/.#{file}"`
+  `ln -s "$PWD/dotfiles/#{file}" "$HOME/.#{file}"`
   puts "Created symlink ~/.#{file}"
 end
