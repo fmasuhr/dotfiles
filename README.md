@@ -4,7 +4,6 @@ These are config files to set up my working environment.
 
 ## Installation
 
-
 Run the following commands in your terminal.
 
 ```sh
