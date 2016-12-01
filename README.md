@@ -2,36 +2,34 @@
 
 These are config files to set up my working environment.
 
-## Installation
+## Prequisites
 
-Run the following commands in your terminal.
-
-```sh
-git clone git://github.com/fmasuhr/dotfiles ~/.dotfiles
-```
-
-### Homebrew
-
-Instal Command Line Tools for Xcode: `xcode-select --install`, https://developer.apple.com/downloads or [Xcode](https://itunes.apple.com/us/app/xcode/id497799835)
-
-Get [Homebrew](http://brew.sh):
+* Mac running macOS Sierra or OS X El Capitan
+* Command Line Tools for Xcode: `xcode-select --install`, https://developer.apple.com/downloads or [Xcode](https://itunes.apple.com/us/app/xcode/id497799835)
+* [Homebrew](http://brew.sh)
 ```sh
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Instal all missing applications/packages:
+## Installation
+
+Run the following step in your terminal to install the complete environment
 ```sh
+git clone git://github.com/fmasuhr/dotfiles ~/.dotfiles
 cd ~/.dotfiles
-brew bundle
+make
 ```
 
-### Dotfiles
-
-Use [stow](https://www.gnu.org/software/stow/) to install dotfiles:
-
+To install applications/packages via Homebrew only:
 ```sh
 cd ~/.dotfiles
-stow dotfiles
+make bundle
+```
+
+Only updating dotfiles via [stow](https://www.gnu.org/software/stow/):
+```sh
+cd ~/.dotfiles
+make stow
 ```
 
 ## Make your own customizations
