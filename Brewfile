@@ -13,8 +13,11 @@ brew 'terraform'
 tap 'caskroom/cask'
 cask 'chefdk'
 cask 'elm-platform'
+cask 'hipchat'
+cask 'skype'
 cask 'vagrant'
 cask 'virtualbox'
+cask 'vlc'
 
 # Mac App Store
 mas 'HTTP Client', id: 418138339
