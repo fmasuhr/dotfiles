@@ -7,7 +7,7 @@ default: bundle stow /usr/local/lib/node_modules/coffee-script /usr/local/lib/no
 bundle: /usr/local/bin/brew
 	brew bundle
 
-stow: ~/.oh-my-zsh
+stow: bundle ~/.oh-my-zsh
 	stow -R dotfiles
 
 # Files
@@ -18,8 +18,8 @@ stow: ~/.oh-my-zsh
 /usr/local/bin/brew:
 	/usr/bin/ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-/usr/local/lib/node_modules/coffee-script: bundle
+/usr/local/lib/node_modules/coffee-script: # "bundle" cant be a dependency. It is phony and will trigger target everytime
 	npm install -g coffee-script
 
-/usr/local/lib/node_modules/coffeelint: bundle
+/usr/local/lib/node_modules/coffeelint: # "bundle" cant be a dependency. It is phony and will trigger target everytime
 	npm install -g coffeelint
