@@ -1,13 +1,13 @@
 .PHONY: bundle stow
 
-default: bundle stow ~/.oh-my-zsh
+default: bundle stow
 
 # Tasks
 
 bundle: /usr/local/bin/brew
 	brew bundle
 
-stow:
+stow: ~/.oh-my-zsh
 	stow -R dotfiles
 
 # Files
