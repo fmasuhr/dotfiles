@@ -6,10 +6,6 @@ These are config files to set up my working environment.
 
 * Mac running macOS Sierra or OS X El Capitan
 * Command Line Tools for Xcode: `xcode-select --install`, https://developer.apple.com/downloads or [Xcode](https://itunes.apple.com/us/app/xcode/id497799835)
-* [Homebrew](http://brew.sh)
-```sh
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
 
 ## Installation
 
