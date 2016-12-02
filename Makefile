@@ -25,6 +25,7 @@ stow: bundle ~/.oh-my-zsh
 	curl "https://packagecontrol.io/Package%20Control.sublime-package" > "$@"
 
 ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User:
+	mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Packages
 	ln -s $(PWD)/sublime-settings "$@"
 
 /usr/local/bin/brew:
