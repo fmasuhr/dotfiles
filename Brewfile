@@ -1,6 +1,7 @@
 # Brew core packages
 tap 'homebrew/core'
 brew 'awscli'
+brew 'coffeescript'
 brew 'go'
 brew 'mas'
 brew 'node'
