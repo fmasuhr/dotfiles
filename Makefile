@@ -4,11 +4,11 @@ default: bundle stow ~/.rbenv/versions/2.2.4 ~/Library/Application\ Support/Subl
 
 # Tasks
 
-bundle: /usr/local/bin/brew
+bundle: | /usr/local/bin/brew
 	brew update
 	brew bundle
 
-stow: bundle ~/.oh-my-zsh
+stow: | bundle ~/.oh-my-zsh
 	stow -R dotfiles
 
 # Files
