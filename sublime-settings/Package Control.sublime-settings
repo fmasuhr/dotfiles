@@ -1,0 +1,22 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Alignment",
+		"Better CoffeeScript",
+		"DashDoc",
+		"Elm Language Support",
+		"Git",
+		"Github Tools",
+		"JSHint Gutter",
+		"LESS",
+		"Markdown Preview",
+		"Package Control",
+		"Pretty JSON",
+		"Prolog",
+		"Terraform"
+	]
+}

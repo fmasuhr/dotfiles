@@ -1,0 +1,59 @@
+{
+	"always_show_minimap_viewport": true,
+	"bold_folder_labels": true,
+	"create_window_at_startup": false,
+	"ensure_newline_at_eof_on_save": true,
+	"fade_fold_buttons": false,
+	"file_exclude_patterns":
+	[
+		"*.a",
+		"*.class",
+		"*.db",
+		"*.dll",
+		"*.dylib",
+		"*.exe",
+		"*.idb",
+		"*.js.map",
+		"*.lib",
+		"*.log",
+		"*.min.js",
+		"*.ncb",
+		"*.o",
+		"*.obj",
+		"*.pdb",
+		"*.psd",
+		"*.pyc",
+		"*.pyo",
+		"*.sdf",
+		"*.so",
+		"*.sublime-workspace",
+		"*.suo",
+		".DS_Store"
+	],
+	"folder_exclude_patterns":
+	[
+		".git",
+		".hg",
+		".svn",
+		"bower_components",
+		"cache",
+		"coverage",
+		"CVS",
+		"node_modules"
+	],
+	"font_size": 12,
+	"highlight_line": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"indent_to_bracket": true,
+	"rulers":
+	[
+		120
+	],
+	"scroll_past_end": false,
+	"tab_size": 2,
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true
+}
