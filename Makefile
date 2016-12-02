@@ -21,6 +21,7 @@ stow: bundle ~/.oh-my-zsh
 	rbenv rehash
 
 ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package:
+	mkdir ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages
 	curl "https://packagecontrol.io/Package%20Control.sublime-package" > "$@"
 
 ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User:
