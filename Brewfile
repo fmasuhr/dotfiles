@@ -33,6 +33,9 @@ cask 'vagrant'
 cask 'virtualbox'
 cask 'vlc'
 
+tap 'caskroom/versions'
+cask 'dash2'
+
 # Mac App Store
 mas 'HTTP Client', id: 418138339
 mas 'Reeder',      id: 880001334
