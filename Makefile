@@ -1,17 +1,27 @@
-.PHONY: bundle stow
-
-default: bundle stow ~/.rbenv/versions/2.2.4 ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+.PHONY: default
+default: bundle stow $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/.rbenv/versions/2.2.4 ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 
 # Tasks
 
+.PHONY: bundle
 bundle: | /usr/local/bin/brew
 	brew update
 	brew bundle
 
+.PHONY: stow
 stow: | bundle ~/.oh-my-zsh
 	stow -R dotfiles
 
 # Files
+
+$(GOPATH)/bin: | stow
+	mkdir -p $(GOPATH)/bin
+
+$(GOPATH)/pkg: | stow
+	mkdir -p $(GOPATH)/pkg
+
+$(GOPATH)/src: | stow
+	mkdir -p $(GOPATH)/src
 
 ~/.oh-my-zsh:
 	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
