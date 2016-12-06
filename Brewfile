@@ -1,10 +1,13 @@
 # Brew core packages
 tap 'homebrew/core'
+brew 'autoconf' # dependency of ruby-build formula
 brew 'awscli'
 brew 'coffeescript'
 brew 'go'
 brew 'mas'
 brew 'node'
+brew 'openssl' # dependency of node, ruby-build formulae
+brew 'pkg-config' # dependency of node, ruby-build formulae
 brew 'rbenv'
 brew 'ruby-build'
 brew 'stow'
