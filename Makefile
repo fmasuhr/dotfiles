@@ -29,7 +29,6 @@ $(GOPATH)/src: | stow
 ~/.rbenv/versions/2.2.5: | bundle
 	rbenv install 2.2.5
 	rbenv global 2.2.5
-	rbenv rehash
 
 ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package:
 	mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages
