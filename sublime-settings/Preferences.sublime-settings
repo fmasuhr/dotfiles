@@ -48,6 +48,7 @@
 		"Vintage"
 	],
 	"indent_to_bracket": true,
+	"remember_full_screen": true,
 	"rulers":
 	[
 		120

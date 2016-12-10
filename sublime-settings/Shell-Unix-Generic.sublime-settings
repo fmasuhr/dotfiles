@@ -1,6 +1,10 @@
 {
   "extensions":
   [
-    "zshrc"
+    ".ackrc",
+    ".aliases",
+    ".powconfig",
+    ".zshrc",
+    "local"
   ]
 }
