@@ -17,6 +17,8 @@
 		"Package Control",
 		"Pretty JSON",
 		"Prolog",
+		"SublimeLinter",
+		"SublimeLinter-coffeelint",
 		"Terraform"
 	]
 }

@@ -1,5 +1,5 @@
 .PHONY: default
-default: bundle stow $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/.rbenv/versions/2.2.5 ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+default: bundle stow $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/.rbenv/versions/2.2.5 ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User /usr/local/lib/node_modules/coffeelint
 
 # Tasks
 
@@ -40,3 +40,6 @@ $(GOPATH)/src: | stow
 
 /usr/local/bin/brew:
 	/usr/bin/ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+/usr/local/lib/node_modules/coffeelint: | bundle
+	npm install -g coffeelint
