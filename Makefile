@@ -1,5 +1,5 @@
 .PHONY: default
-default: bundle stow $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/.rbenv/versions/2.2.5 ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User /usr/local/lib/node_modules/coffeelint
+default: bundle stow $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/.rbenv/versions/2.2.5 ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User /usr/local/lib/node_modules/coffeelint /usr/local/lib/node_modules/eslint
 
 # Tasks
 
@@ -43,3 +43,6 @@ $(GOPATH)/src: | stow
 
 /usr/local/lib/node_modules/coffeelint: | bundle
 	npm install -g coffeelint
+
+/usr/local/lib/node_modules/eslint: | bundle
+	npm install -g eslint
