@@ -4,6 +4,7 @@
     ".ackrc",
     ".aliases",
     ".powconfig",
+    ".zprofile",
     ".zshrc",
     "local"
   ]

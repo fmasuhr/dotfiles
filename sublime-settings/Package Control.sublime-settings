@@ -19,6 +19,7 @@
 		"SublimeLinter",
 		"SublimeLinter-coffeelint",
 		"SublimeLinter-contrib-eslint",
+		"SublimeLinter-rubocop",
 		"Terraform"
 	]
 }
