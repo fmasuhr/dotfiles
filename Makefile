@@ -10,7 +10,7 @@ bundle: | /usr/local/bin/brew
 
 .PHONY: stow
 stow: | bundle ~/.oh-my-zsh
-	stow -R dotfiles
+	stow -t "$(HOME)" -R dotfiles
 
 # Files
 
