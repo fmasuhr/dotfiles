@@ -28,6 +28,13 @@ cd ~/.dotfiles
 make stow
 ```
 
+## Theme
+
+As theme for my console/editors i use [Solarized Dark](http://ethanschoonover.com/solarized).
+
+* [Terminal](https://github.com/altercation/solarized/pull/314)
+* [Sequel Pro](https://github.com/altercation/solarized/pull/133)
+
 ## Make your own customizations
 
 Put customizations in dotfiles appended with `.local`:
