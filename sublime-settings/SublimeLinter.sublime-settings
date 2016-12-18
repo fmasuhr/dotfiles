@@ -1,0 +1,5 @@
+{
+  "default": {
+    "lint_mode": "save only"
+  }
+}
