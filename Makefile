@@ -1,5 +1,5 @@
 .PHONY: default
-default: bundle stow $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/.rbenv/versions/2.2.5 ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User /usr/local/lib/node_modules/coffeelint /usr/local/lib/node_modules/eslint
+default: softwareupdate bundle stow $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/.rbenv/versions/2.2.5 ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User /usr/local/lib/node_modules/coffeelint /usr/local/lib/node_modules/eslint
 
 # Tasks
 
@@ -7,6 +7,10 @@ default: bundle stow $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/.rbenv/versions
 bundle: | /usr/local/bin/brew
 	brew update
 	brew bundle
+
+.PHONY: softwareupdate
+softwareupdate:
+	softwareupdate -ai --verbose
 
 .PHONY: stow
 stow: | bundle ~/.oh-my-zsh
