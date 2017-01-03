@@ -7,6 +7,7 @@ default: softwareupdate bundle stow $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/
 bundle: | /usr/local/bin/brew
 	brew update
 	brew bundle
+	mas upgrade
 	brew cleanup
 	brew cask cleanup
 
