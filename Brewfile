@@ -16,6 +16,7 @@ brew 'terraform'
 # Casks
 tap 'caskroom/cask'
 cask '1password'
+cask 'xbox360-controller-driver'
 cask 'caffeine'
 cask 'chefdk'
 cask 'cyberduck'
