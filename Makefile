@@ -1,3 +1,5 @@
+RUBY_VERSION = $(shell cat .ruby-version)
+
 .PHONY: default
 default: softwareupdate stow bundle npm gems $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 
@@ -16,7 +18,7 @@ npm: | bundle
 	npm install -g coffeelint eslint
 
 .PHONY: gems
-gems: | ~/.rbenv/versions/2.2.5
+gems: | ~/.rbenv/versions/$(RUBY_VERSION)
 	gem install bundler rubocop
 
 .PHONY: softwareupdate
@@ -41,9 +43,9 @@ $(GOPATH)/src: | stow
 ~/.oh-my-zsh:
 	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-~/.rbenv/versions/2.2.5: | bundle
-	rbenv install 2.2.5
-	rbenv global 2.2.5
+~/.rbenv/versions/$(RUBY_VERSION): | bundle
+	rbenv install $(RUBY_VERSION)
+	rbenv global $(RUBY_VERSION)
 
 ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package:
 	mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages
