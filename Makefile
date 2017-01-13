@@ -1,5 +1,5 @@
 .PHONY: default
-default: softwareupdate bundle stow $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/.rbenv/versions/2.2.5 ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User /usr/local/lib/node_modules/coffeelint /usr/local/lib/node_modules/eslint
+default: softwareupdate stow bundle npm gems $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 
 # Tasks
 
@@ -10,6 +10,14 @@ bundle: | /usr/local/bin/brew
 	mas upgrade
 	brew cleanup
 	brew cask cleanup
+
+.PHONY: npm
+npm: | bundle
+	npm install -g coffeelint eslint
+
+.PHONY: gems
+gems: | ~/.rbenv/versions/2.2.5
+	gem install bundler rubocop
 
 .PHONY: softwareupdate
 softwareupdate:
@@ -47,9 +55,3 @@ $(GOPATH)/src: | stow
 
 /usr/local/bin/brew:
 	/usr/bin/ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-/usr/local/lib/node_modules/coffeelint: | bundle
-	npm install -g coffeelint
-
-/usr/local/lib/node_modules/eslint: | bundle
-	npm install -g eslint
