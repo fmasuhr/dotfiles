@@ -15,6 +15,7 @@ brew 'rbenv'
 brew 'redis'
 brew 'ruby-build'
 brew 'stow'
+brew 'swi-prolog'
 brew 'terraform'
 
 # Casks
