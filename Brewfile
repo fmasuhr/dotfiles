@@ -38,16 +38,13 @@ cask 'spotify'
 cask 'steam'
 cask 'sublime-text'
 cask 'tunnelblick'
+cask 'vagrant'
 cask 'virtualbox'
 cask 'vlc'
 cask 'xbox360-controller-driver'
 
 tap 'caskroom/versions'
 cask 'dash2'
-
-# Unofficial
-tap 'fmasuhr/unofficial'
-cask 'vagrant-1.8'
 
 # Mac App Store
 mas 'HTTP Client', id: 418138339
