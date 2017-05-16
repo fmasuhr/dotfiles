@@ -1,5 +1,5 @@
 engines:
 
-  # https://docs.codeclimate.com/docs/shellcheck
-  shellcheck:
-    enabled: true
+  # https://docs.codeclimate.com/v1.0/docs/markdownlint
+  markdownlint:
+     enabled: true
