@@ -18,6 +18,9 @@ brew 'stow'
 brew 'swi-prolog'
 brew 'terraform'
 
+tap 'codeclimate/formulae'
+brew 'codeclimate'
+
 # Casks
 tap 'caskroom/cask'
 cask '1password'
