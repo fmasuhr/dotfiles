@@ -44,6 +44,8 @@ cask 'tunnelblick'
 cask 'vagrant'
 cask 'virtualbox'
 cask 'vlc'
+
+tap 'caskroom/drivers'
 cask 'xbox360-controller-driver'
 
 tap 'caskroom/versions'
