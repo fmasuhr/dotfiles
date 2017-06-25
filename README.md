@@ -32,6 +32,15 @@ cd ~/.dotfiles
 make stow
 ```
 
+## macOS Preferences
+
+Setting up a new Mac and all preferences the way i am used to:
+
+```sh
+cd ~/.dotfiles
+make macos
+```
+
 ## Theme
 
 As theme for my console/editors i use [Solarized Dark](http://ethanschoonover.com/solarized).
@@ -45,3 +54,7 @@ Put customizations in dotfiles appended with `.local`:
 
 * `~/.aliases.local`
 * `~/.zshrc.local`
+
+## Credits
+
+* Mathias Bynens [macOS Defaults](https://mths.be/macos)

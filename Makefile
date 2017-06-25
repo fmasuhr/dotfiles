@@ -13,6 +13,10 @@ bundle: | /usr/local/bin/brew
 	brew cleanup
 	brew cask cleanup
 
+.PHONY: macos
+macos:
+	./macos
+
 .PHONY: npm
 npm: | bundle
 	npm install -g coffeelint eslint
