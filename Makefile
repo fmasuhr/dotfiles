@@ -1,4 +1,5 @@
 RUBY_VERSION = $(shell cat .ruby-version)
+ZSH ?= ~/.oh-my-zsh
 
 .PHONY: default
 default: softwareupdate stow bundle npm gems $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
@@ -21,6 +22,10 @@ macos:
 npm: | bundle
 	npm install -g coffeelint eslint
 
+.PHONY: oh-my-zsh
+oh-my-zsh: | $(ZSH)
+	sh $(ZSH)/tools/upgrade.sh
+
 .PHONY: gems
 gems: | ~/.rbenv/versions/$(RUBY_VERSION)
 	gem install bundler rubocop
@@ -30,7 +35,7 @@ softwareupdate:
 	softwareupdate -ai --verbose
 
 .PHONY: stow
-stow: | bundle ~/.oh-my-zsh
+stow: | bundle oh-my-zsh
 	stow -t "$(HOME)" -R dotfiles
 
 # Files
@@ -44,7 +49,7 @@ $(GOPATH)/pkg: | stow
 $(GOPATH)/src: | stow
 	mkdir -p $(GOPATH)/src
 
-~/.oh-my-zsh:
+$(ZSH):
 	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 ~/.rbenv/versions/$(RUBY_VERSION): | bundle
