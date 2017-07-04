@@ -1,4 +1,5 @@
 RUBY_VERSION = $(shell cat .ruby-version)
+GOPATH ?= ~/golang
 ZSH ?= ~/.oh-my-zsh
 
 .PHONY: default
