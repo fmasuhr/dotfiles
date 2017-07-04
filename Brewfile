@@ -18,8 +18,10 @@ brew 'stow'
 brew 'swi-prolog'
 brew 'terraform'
 
-tap 'codeclimate/formulae'
-brew 'codeclimate'
+# Codeclimate requires a running Docker daemon during installation
+# https://github.com/codeclimate/codeclimate
+# tap 'codeclimate/formulae'
+# brew 'codeclimate'
 
 # Casks
 tap 'caskroom/cask'
