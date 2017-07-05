@@ -1,12 +1,13 @@
-# Rails
-alias rdbt="RAILS_ENV=test be rake db:drop db:create db:schema:load"
-alias rdbty="RAILS_ENV=test be rake db:drop db:create db:schema:load_from_yml"
-
-# Timestamp
-alias ts="date +%Y%m%d%H%M%S"
-
 # macOS
 alias afk="open -a ScreenSaverEngine"
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
+
+# Date/Time
+alias timestamp="date +%Y%m%d%H%M%S"
+alias timer="echo 'Timer started. Stop with Ctrl-D.' && date && time cat && date"
 
 # Local configuration
 [[ -f $HOME/.aliases.local ]] && source $HOME/.aliases.local
