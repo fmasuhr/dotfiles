@@ -58,6 +58,9 @@ defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
+# Silent clicking
+defaults write com.apple.AppleMultitouchTrackpad ActuationStrength -int 0
+
 # Use scroll gesture with the Ctrl (^) modifier key to zoom
 defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
 defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
@@ -72,6 +75,9 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 # Require password after sleep or screen saver begins
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 5
+
+# Start after idle for certain time (in seconds)
+defaults -currentHost write com.apple.screensaver idleTime -int 600
 
 # Enable subpixel font rendering on non-Apple LCDs
 # Reference: https://github.com/kevinSuttle/macOS-Defaults/issues/17#issuecomment-266633501
@@ -121,12 +127,33 @@ defaults write com.apple.dock wvous-tl-modifier -int 0
 # Top right screen corner → Start screen saver
 defaults write com.apple.dock wvous-tr-corner -int 5
 defaults write com.apple.dock wvous-tr-modifier -int 0
-# Bottom left screen corner → Mission Control
-defaults write com.apple.dock wvous-bl-corner -int 5
-defaults write com.apple.dock wvous-bl-modifier -int 0
-# Bottom right screen corner → Desktop
+# Bottom left screen corner → Desktop
 defaults write com.apple.dock wvous-bl-corner -int 4
 defaults write com.apple.dock wvous-bl-modifier -int 0
+# Bottom right screen corner → Mission Control
+defaults write com.apple.dock wvous-br-corner -int 2
+defaults write com.apple.dock wvous-br-modifier -int 0
+
+###############################################################################
+# Accessibility                                                               #
+###############################################################################
+
+# Zoom using scroll gesture with the Ctrl (^) modifier key
+defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
+defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
+
+###############################################################################
+# Security & Privacy                                                          #
+###############################################################################
+
+# Turn on Firewall
+sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
+
+# Deny downloaded signed apps
+sudo defaults write /Library/Preferences/com.apple.alf allowdownloadsignedenabled -int 0
+
+# Disables guest account
+sudo defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -int 0
 
 ###############################################################################
 # Safari & WebKit                                                             #
@@ -176,6 +203,9 @@ defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
 ###############################################################################
 # Spotlight                                                                   #
 ###############################################################################
+
+# Disable Spotlight search suggestions
+defaults write com.apple.lookup.shared LookupSuggestionsDisabled -int 1
 
 # Change indexing order and disable some search results
 # Yosemite-specific search results (remove them if you are using macOS 10.9 or older):
