@@ -1,56 +1,64 @@
 # dotfiles
 
-These are config files to set up my working environment.
+These are my config files to set a working environment
 
-## Prequisites
+## Getting Started
 
-* Mac running macOS Sierra or OS X El Capitan
-* Command Line Tools for Xcode: `xcode-select --install`, <https://developer.apple.com/downloads>
-  or [Xcode](https://itunes.apple.com/us/app/xcode/id497799835)
+### Prequisites
 
-## Installation
+* Mac running OS X El Capitan (10.11) or higher
+* Command Line Tools for Xcode: `xcode-select --install`, [download](https://developer.apple.com/downloads)
+  or use [Xcode](https://itunes.apple.com/us/app/xcode/id497799835)
 
-Run the following step in your terminal to install the complete environment
+### Installation
+
+Clone the GitHub repository somewhere (i preferer `~/.dotfiles`) on to your machine
 
 ```sh
 git clone git://github.com/fmasuhr/dotfiles ~/.dotfiles
+```
+
+Use [make](https://www.gnu.org/software/make/) inside the cloned repository to setup the complete environment
+
+```sh
 cd ~/.dotfiles
 make
 ```
 
-To install applications/packages via Homebrew only:
+This command can be also used later on to update the environment e.g. on a daily base.
+
+If necessary you can also install Homebrew packages only
 
 ```sh
-cd ~/.dotfiles
 make bundle
 ```
 
-Only updating dotfiles via [stow](https://www.gnu.org/software/stow/):
+Or trigger an update of dotfiles via [stow](https://www.gnu.org/software/stow/)
 
 ```sh
-cd ~/.dotfiles
 make stow
 ```
 
-## macOS Preferences
+### macOS Preferences
 
-Setting up a new Mac and all preferences the way i am used to:
+Setting up a new Mac and all preferences the way i am used to i use the `defaults` command.
+This is not included in the environment setup as it is not necessary to execute this regulary
 
 ```sh
-cd ~/.dotfiles
 make macos
 ```
 
-## Theme
+### Theme
 
 As theme for my console/editors i use [Solarized Dark](http://ethanschoonover.com/solarized).
+They need to be installed manually
 
 * [Terminal](https://github.com/altercation/solarized/pull/314)
 * [Sequel Pro](https://github.com/altercation/solarized/pull/133)
 
-## Make your own customizations
+## Customization
 
-Put customizations in dotfiles appended with `.local`:
+Make your own customizations locally by placing one of the following files into your home folder
 
 * `~/.aliases.local`
 * `~/.zshrc.local`
@@ -58,3 +66,4 @@ Put customizations in dotfiles appended with `.local`:
 ## Credits
 
 * Mathias Bynens [macOS Defaults](https://mths.be/macos)
+* https://github.com/joeyhoer/starter
