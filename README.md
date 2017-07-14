@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/fmasuhr/dotfiles.svg?branch=master)](https://travis-ci.org/fmasuhr/dotfiles)
+[![Issue Count](https://codeclimate.com/github/fmasuhr/dotfiles/badges/issue_count.svg)](https://codeclimate.com/github/fmasuhr/dotfiles)
+
 # dotfiles
 
 These are my config files to set a working environment
@@ -66,4 +69,4 @@ Make your own customizations locally by placing one of the following files into 
 ## Credits
 
 * Mathias Bynens [macOS Defaults](https://mths.be/macos)
-* https://github.com/joeyhoer/starter
+* <https://github.com/joeyhoer/starter>
