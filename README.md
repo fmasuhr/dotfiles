@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/fmasuhr/dotfiles.svg?branch=master)](https://travis-ci.org/fmasuhr/dotfiles)
+[![Issue Count](https://codeclimate.com/github/fmasuhr/dotfiles/badges/issue_count.svg)](https://codeclimate.com/github/fmasuhr/dotfiles)
+
 # dotfiles
 
 These are my config files to set a working environment
