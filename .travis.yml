@@ -1,0 +1,30 @@
+os: osx
+
+osx_image: xcode8.3
+
+before_script:
+  # Replace some binaries with a script that exits quickly, otherwise the Travis build will time out or fail.
+  - mkdir $HOME/bin
+
+  - printf '#!'"/usr/bin/env bash\necho 'softwareupdate is overridden to allow Travis build to succeed.'" > $HOME/bin/softwareupdate
+  - chmod +x $HOME/bin/softwareupdate
+
+  - printf '#!'"/usr/bin/env bash\necho 'mas is overridden to allow Travis build to succeed.'" > $HOME/bin/mas
+  - chmod +x $HOME/bin/mas
+
+  - printf '#!'"/usr/bin/env bash\necho 'chsh is overridden to allow Travis build to succeed.'" > $HOME/bin/chsh
+  - chmod +x $HOME/bin/chsh
+  - printf '#!'"/usr/bin/env bash\necho 'zsh is overridden to allow Travis build to succeed.'" > $HOME/bin/zsh
+  - chmod +x $HOME/bin/zsh
+
+  - printf '#!'"/usr/bin/env bash\necho 'stow is overridden to allow Travis build to succeed.'" > $HOME/bin/stow
+  - chmod +x $HOME/bin/stow
+
+  # Uninstall homebrew as the homebrew installation is tested
+  - ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)" -- -f
+
+  # Uninstall rvm as the installation of Rubies is tested
+  - rvm implode --force
+
+script:
+  - make
