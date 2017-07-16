@@ -88,6 +88,8 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
 
+[[ -f $HOME/.functions ]] && source $HOME/.functions
+
 export RUBYOPT=rubygems
 
 eval "$(rbenv init -)"

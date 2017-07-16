@@ -1,0 +1,11 @@
+# GitHub
+github-ratelimit() {
+    if [ "$1" ]; then
+        curl -H "Authorization: token $1" https://api.github.com/rate_limit
+    else
+        curl https://api.github.com/rate_limit
+    fi
+}
+
+# Local configuration
+[[ -f $HOME/.functions.local ]] && source $HOME/.functions.local

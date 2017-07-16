@@ -64,6 +64,7 @@ They need to be installed manually
 Make your own customizations locally by placing one of the following files into your home folder
 
 * `~/.aliases.local`
+* `~/.functions.local`
 * `~/.zshrc.local`
 
 ## Credits
