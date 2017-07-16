@@ -1,4 +1,4 @@
-# GitHub
+# Check GitHub API rate limit
 github-ratelimit() {
     if [ "$1" ]; then
         curl --silent -H "Authorization: token $1" https://api.github.com/rate_limit | jq '.rate'
