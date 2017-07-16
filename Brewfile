@@ -5,6 +5,7 @@ brew 'awscli'
 brew 'coffeescript'
 brew 'go'
 brew 'icu4c'                      # dependency of node formulae
+brew 'jq'
 brew 'mas'
 brew 'mysql'
 brew 'node'

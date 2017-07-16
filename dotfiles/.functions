@@ -1,9 +1,9 @@
 # GitHub
 github-ratelimit() {
     if [ "$1" ]; then
-        curl -H "Authorization: token $1" https://api.github.com/rate_limit
+        curl --silent -H "Authorization: token $1" https://api.github.com/rate_limit | jq '.rate'
     else
-        curl https://api.github.com/rate_limit
+        curl --silent https://api.github.com/rate_limit | jq '.rate'
     fi
 }
 
