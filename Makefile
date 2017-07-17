@@ -21,7 +21,7 @@ macos:
 
 .PHONY: npm
 npm: | bundle
-	npm install -g coffeelint eslint
+	npm install -g coffeelint eslint npm
 
 .PHONY: oh-my-zsh
 oh-my-zsh: | $(ZSH)
