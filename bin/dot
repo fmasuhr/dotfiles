@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Run make in dotfiles the folder
+make -C $DOTFILES $1
