@@ -2,7 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # Shortcut to this dotfiles
-export DOTFILES=$(dirname "$(dirname "$(stat -f %Y $HOME/.zshrc)")")
+export DOTFILES=$HOME/$(dirname "$(dirname "$(stat -f %Y $HOME/.zshrc)")")
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
