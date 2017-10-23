@@ -21,25 +21,31 @@ Clone the GitHub repository somewhere (i preferer `~/.dotfiles`) on to your mach
 git clone git://github.com/fmasuhr/dotfiles ~/.dotfiles
 ```
 
-Use [make](https://www.gnu.org/software/make/) inside the cloned repository to setup the complete environment
+For the inital setup you need to execute the `dot` executable once inside the cloned repository to setup the complete environment
 
 ```sh
 cd ~/.dotfiles
-make
+./bin/dot
 ```
 
-This command can be also used later on to update the environment e.g. on a daily base.
+## Features
+
+After the first initialization there is a shortcut available which can be used to later on to update the complete environment (which should be done e.g. on a daily base)
+
+```sh
+dot
+```
 
 If necessary you can also install Homebrew packages only
 
 ```sh
-make bundle
+dot bundle
 ```
 
 Or trigger an update of dotfiles via [stow](https://www.gnu.org/software/stow/)
 
 ```sh
-make stow
+dot stow
 ```
 
 ### macOS Preferences
@@ -48,7 +54,7 @@ Setting up a new Mac and all preferences the way i am used to i use the `default
 This is not included in the environment setup as it is not necessary to execute this regulary
 
 ```sh
-make macos
+dot macos
 ```
 
 ### Theme
