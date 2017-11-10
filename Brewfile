@@ -51,7 +51,7 @@ cask 'virtualbox'
 cask 'vlc'
 
 tap 'caskroom/drivers'
-cask 'xbox360-controller-driver'
+cask 'xbox360-controller-driver-unofficial'
 
 tap 'caskroom/versions'
 cask 'dash2'
