@@ -77,3 +77,4 @@ Make your own customizations locally by placing one of the following files into 
 
 * Mathias Bynens [macOS Defaults](https://mths.be/macos)
 * <https://github.com/joeyhoer/starter>
+* <https://github.com/altercation/solarized>
