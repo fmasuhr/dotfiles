@@ -4,6 +4,7 @@ brew 'autoconf'                   # dependency of ruby-build formula
 brew 'awscli'
 brew 'coffeescript'
 brew 'go'
+brew 'graphviz'
 brew 'icu4c'                      # dependency of node formulae
 brew 'jq'
 brew 'mas'
