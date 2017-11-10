@@ -256,6 +256,7 @@ sudo mdutil -E / > /dev/null
 defaults write com.apple.Terminal ShowLineMarks -int 0
 
 # Use a modified version of the Solarized Dark theme by default in Terminal.app
+# https://github.com/altercation/solarized/pull/314
 osascript <<EOD
 
 tell application "Terminal"
