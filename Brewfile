@@ -31,6 +31,7 @@ cask '1password'
 cask 'caffeine'
 cask 'chefdk'
 cask 'cyberduck'
+cask 'dash'
 cask 'docker'
 cask 'dropbox'
 cask 'elm-platform'
@@ -51,10 +52,7 @@ cask 'virtualbox'
 cask 'vlc'
 
 tap 'caskroom/drivers'
-cask 'xbox360-controller-driver'
-
-tap 'caskroom/versions'
-cask 'dash2'
+cask 'xbox360-controller-driver-unofficial'
 
 # Mac App Store
 mas 'HTTP Client', id: 418138339
