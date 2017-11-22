@@ -70,9 +70,9 @@ source /usr/local/share/zsh/site-functions/_aws
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+  export EDITOR="vim"
 else
-  export EDITOR='subl -w'
+  export EDITOR="subl -w"
 fi
 
 # Compilation flags
@@ -80,6 +80,14 @@ fi
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Rubygems configuation
+export RUBYOPT=rubygems
+eval "$(rbenv init -)"
+
+# NVM configuration
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -92,10 +100,6 @@ fi
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
 
 [[ -f $HOME/.functions ]] && source $HOME/.functions
-
-export RUBYOPT=rubygems
-
-eval "$(rbenv init -)"
 
 # Local configuration
 [[ -f $HOME/.zshrc.local ]] && source $HOME/.zshrc.local
