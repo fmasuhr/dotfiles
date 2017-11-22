@@ -70,9 +70,9 @@ source /usr/local/share/zsh/site-functions/_aws
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+  export EDITOR="vim"
 else
-  export EDITOR='subl -w'
+  export EDITOR="subl -w"
 fi
 
 # Compilation flags
@@ -80,6 +80,35 @@ fi
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Rubygems configuation
+export RUBYOPT=rubygems
+eval "$(rbenv init -)"
+
+# NVM configuration
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+
+# https://github.com/creationix/nvm#zsh
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use --silent
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    nvm use default --silent
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -92,10 +121,6 @@ fi
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
 
 [[ -f $HOME/.functions ]] && source $HOME/.functions
-
-export RUBYOPT=rubygems
-
-eval "$(rbenv init -)"
 
 # Local configuration
 [[ -f $HOME/.zshrc.local ]] && source $HOME/.zshrc.local

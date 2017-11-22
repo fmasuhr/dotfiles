@@ -1,3 +1,4 @@
+NODE_VERSION = $(shell cat .nvmrc)
 RUBY_VERSION = $(shell cat .ruby-version)
 GOPATH ?= ~/golang
 ZSH ?= ~/.oh-my-zsh
@@ -20,8 +21,10 @@ macos:
 	./macos
 
 .PHONY: npm
-npm: | bundle
-	npm install -g coffeelint eslint npm
+npm: | ~/.nvm/versions/node/v$(NODE_VERSION)
+	. "/usr/local/opt/nvm/nvm.sh"; \
+		nvm use default; \
+		npm install -g coffeelint eslint npm
 
 .PHONY: oh-my-zsh
 oh-my-zsh: | $(ZSH)
@@ -52,6 +55,15 @@ $(GOPATH)/src: | stow
 
 $(ZSH):
 	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+~/.nvm:
+	mkdir ~/.nvm
+
+# First source the NVM functions to make it available to MAKE
+~/.nvm/versions/node/v$(NODE_VERSION): | ~/.nvm bundle
+	. "/usr/local/opt/nvm/nvm.sh"; \
+		nvm install $(NODE_VERSION); \
+		nvm alias default $(NODE_VERSION)
 
 ~/.rbenv/versions/$(RUBY_VERSION): | bundle
 	rbenv install $(RUBY_VERSION)

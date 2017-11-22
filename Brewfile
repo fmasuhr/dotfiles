@@ -9,7 +9,8 @@ brew 'icu4c'                      # dependency of node formulae
 brew 'jq'
 brew 'mas'
 brew 'mysql'
-brew 'node'
+brew 'node'                       # dependency of coffeescript formula
+brew 'nvm'
 brew 'openssl'                    # dependency of node, ruby-build formulae
 brew 'packer'
 brew 'pkg-config'                 # dependency of node, ruby-build formulae
