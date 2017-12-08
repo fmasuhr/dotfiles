@@ -4,7 +4,7 @@ GOPATH ?= ~/golang
 ZSH ?= ~/.oh-my-zsh
 
 .PHONY: default
-default: softwareupdate stow bundle npm gems $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+default: softwareupdate stow bundle npm gems $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/.nvm/versions/node/v$(NODE_VERSION) ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 
 # Tasks
 
@@ -21,9 +21,9 @@ macos:
 	./macos
 
 .PHONY: npm
-npm: | ~/.nvm/versions/node/v$(NODE_VERSION)
+npm: | bundle
 	. "/usr/local/opt/nvm/nvm.sh"; \
-		nvm use default; \
+		nvm use system; \
 		npm install -g coffeelint eslint npm
 
 .PHONY: oh-my-zsh
