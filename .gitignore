@@ -1,6 +1,3 @@
-# bundler cache
-/dotfiles/.bundle/cache
-
 # Sublime Text files
 oscrypto-ca-bundle.crt
 Package Control.ca-bundle
