@@ -22,7 +22,7 @@
 		"Random Everything",
 		"SublimeLinter",
 		"SublimeLinter-coffeelint",
-		"SublimeLinter-contrib-eslint",
+		"SublimeLinter-eslint",
 		"SublimeLinter-rubocop",
 		"Terraform"
 	]
