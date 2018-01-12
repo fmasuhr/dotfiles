@@ -6,8 +6,8 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 
 # Date/Time
-alias timestamp="date +%Y%m%d%H%M%S"
 alias timer="echo 'Timer started. Stop with Ctrl-D.' && date && time cat && date"
+alias timestamp="date +%Y%m%d%H%M%S"
 
 # Local configuration
 [[ -f $HOME/.aliases.local ]] && source $HOME/.aliases.local
