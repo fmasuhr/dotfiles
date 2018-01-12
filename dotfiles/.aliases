@@ -8,6 +8,7 @@ alias localip="ipconfig getifaddr en0"
 # Date/Time
 alias timer="echo 'Timer started. Stop with Ctrl-D.' && date && time cat && date"
 alias timestamp="date +%Y%m%d%H%M%S"
+alias week='date +%V'
 
 # Local configuration
 [[ -f $HOME/.aliases.local ]] && source $HOME/.aliases.local
