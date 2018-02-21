@@ -32,7 +32,7 @@ oh-my-zsh: | $(ZSH)
 
 .PHONY: gems
 gems: | ~/.rbenv/versions/$(RUBY_VERSION)
-	gem install bundler rubocop scss_lint
+	gem install bundler mdl rubocop scss_lint
 
 .PHONY: softwareupdate
 softwareupdate:

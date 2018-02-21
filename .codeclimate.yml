@@ -3,3 +3,5 @@ engines:
   # https://docs.codeclimate.com/docs/markdownlint
   markdownlint:
     enabled: true
+    issue_override:
+      severity: minor
