@@ -4,7 +4,7 @@ GOPATH ?= ~/golang
 ZSH ?= ~/.oh-my-zsh
 
 .PHONY: default
-default: softwareupdate stow bundle npm gems $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/.nvm/versions/node/v$(NODE_VERSION) ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+default: softwareupdate stow bundle npm gems $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/.nvm/versions/node/v$(NODE_VERSION) ~/.terraform.d/plugin-cache ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 
 # Tasks
 
@@ -68,6 +68,9 @@ $(ZSH):
 ~/.rbenv/versions/$(RUBY_VERSION): | bundle
 	rbenv install $(RUBY_VERSION)
 	rbenv global $(RUBY_VERSION)
+
+~/.terraform.d/plugin-cache: | stow
+	mkdir -p ~/.terraform.d/plugin-cache
 
 ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package:
 	mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages
