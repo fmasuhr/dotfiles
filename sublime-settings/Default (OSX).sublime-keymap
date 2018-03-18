@@ -1,6 +1,15 @@
 [
+  { "keys": ["alt+command+down"], "command": "next_result",
+    "context":
+    [
+      { "key": "selector", "operator": "equal", "operand": "text.find-in-files" }
+    ]
+  },
+
   { "keys": ["alt+shift+up"], "command": "select_lines", "args": {"forward": false} },
   { "keys": ["alt+shift+down"], "command": "select_lines", "args": {"forward": true} },
-  { "keys": ["ctrl+h"], "command": "dash_doc", "args": { "flip_syntax_sensitive": true }},
+
+  { "keys": ["ctrl+h"], "command": "dash_doc", " args": {"flip_syntax_sensitive": true} },
+
   { "keys": ["super+ctrl+a"], "command": "alignment" } // override sublimelinter_show_all_errors
 ]
