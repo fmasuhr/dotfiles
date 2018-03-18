@@ -1,16 +1,7 @@
 {
-  "protected_regions": [
-    "bookmarks",
-    "lint-annotations",
-    "lint-outlines-illegal",
-    "lint-outlines-violation",
-    "lint-outlines-warning",
-    "lint-underline-illegal",
-    "lint-underline-violation",
-    "lint-underline-warning",
-    "sublimelinter-error-gutter-marks",
+  "protected_regions":
+  [
     "sublimelinter-error-marks",
-    "sublimelinter-warning-gutter-marks",
     "sublimelinter-warning-marks"
   ]
 }
