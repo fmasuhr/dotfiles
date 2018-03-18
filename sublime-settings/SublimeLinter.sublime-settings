@@ -1,7 +1,8 @@
 {
   "gutter_theme": "Blueberry Round",
   "lint_mode": "load_save",
-  "styles": [
+  "styles":
+  [
     {
       "mark_style": "outline",
       "priority": 1,
