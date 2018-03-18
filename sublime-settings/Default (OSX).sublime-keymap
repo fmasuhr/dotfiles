@@ -1,4 +1,11 @@
 [
+  { "keys": ["alt+command+down"], "command": "next_result",
+    "context":
+    [
+      { "key": "selector", "operator": "equal", "operand": "text.find-in-files" }
+    ]
+  },
+
   { "keys": ["alt+shift+up"], "command": "select_lines", "args": {"forward": false} },
   { "keys": ["alt+shift+down"], "command": "select_lines", "args": {"forward": true} },
 
