@@ -1,7 +1,0 @@
-{
-  "protected_regions":
-  [
-    "sublimelinter-error-marks",
-    "sublimelinter-warning-marks"
-  ]
-}

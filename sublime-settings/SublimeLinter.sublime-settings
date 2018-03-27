@@ -1,24 +1,31 @@
 {
   "gutter_theme": "Blueberry Round",
   "lint_mode": "load_save",
+  "linters": {
+    "eslint": {
+      "excludes": "*.html.erb"
+    }
+  },
   "styles":
   [
     {
-      "mark_style": "outline",
-      "priority": 1,
-      "scope": "region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter",
-      "icon": "warning",
-      "types": [
-        "warning"
-      ]
-    },
-    {
+      "icon": "error",
       "mark_style": "outline",
       "priority": 1,
       "scope": "region.redish markup.deleted.sublime_linter markup.error.sublime_linter",
-      "icon": "error",
-      "types": [
+      "types":
+      [
         "error"
+      ]
+    },
+    {
+      "icon": "warning",
+      "mark_style": "outline",
+      "priority": 1,
+      "scope": "region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter",
+      "types":
+      [
+        "warning"
       ]
     }
   ]
