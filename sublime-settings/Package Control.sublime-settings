@@ -23,9 +23,9 @@
 		"Sass",
 		"SublimeLinter",
 		"SublimeLinter-coffeelint",
-		"SublimeLinter-contrib-mdl",
 		"SublimeLinter-contrib-scss-lint",
 		"SublimeLinter-eslint",
+		"SublimeLinter-mdl",
 		"SublimeLinter-rubocop",
 		"Terraform"
 	]
