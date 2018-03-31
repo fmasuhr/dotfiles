@@ -24,7 +24,7 @@ brew 'terraform'
 # Codeclimate requires a running Docker daemon during installation
 # https://github.com/codeclimate/codeclimate
 # tap 'codeclimate/formulae'
-# brew 'codeclimate'
+# brew 'codeclimate/formulae/codeclimate'
 
 # Casks
 tap 'caskroom/cask'
@@ -53,7 +53,7 @@ cask 'virtualbox'
 cask 'vlc'
 
 tap 'caskroom/drivers'
-cask 'xbox360-controller-driver-unofficial'
+cask 'caskroom/drivers/xbox360-controller-driver-unofficial'
 
 # Mac App Store
 mas 'HTTP Client', id: 418138339
