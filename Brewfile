@@ -51,6 +51,7 @@ cask 'tunnelblick'
 cask 'vagrant'
 cask 'virtualbox'
 cask 'vlc'
+cask 'zoomus'
 
 tap 'caskroom/drivers'
 cask 'caskroom/drivers/xbox360-controller-driver-unofficial'
