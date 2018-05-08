@@ -28,7 +28,7 @@ brew 'terraform'
 
 # Casks
 tap 'caskroom/cask'
-# cask '1password'
+cask '1password'
 cask 'caffeine'
 cask 'chefdk'
 cask 'cyberduck'
@@ -55,9 +55,6 @@ cask 'zoomus'
 
 tap 'caskroom/drivers'
 cask 'caskroom/drivers/xbox360-controller-driver-unofficial'
-
-tap 'caskroom/versions'
-cask 'caskroom/versions/1password-beta'
 
 # Mac App Store
 mas 'HTTP Client', id: 418138339
