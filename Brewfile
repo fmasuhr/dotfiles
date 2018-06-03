@@ -27,7 +27,7 @@ brew 'terraform'
 # brew 'codeclimate/formulae/codeclimate'
 
 # Casks
-tap 'caskroom/cask'
+tap 'homebrew/cask'
 cask '1password'
 cask 'caffeine'
 cask 'chefdk'
@@ -53,8 +53,8 @@ cask 'virtualbox'
 cask 'vlc'
 cask 'zoomus'
 
-tap 'caskroom/drivers'
-cask 'caskroom/drivers/xbox360-controller-driver-unofficial'
+tap 'homebrew/cask-drivers'
+cask 'homebrew/cask-drivers/xbox360-controller-driver-unofficial'
 
 # Mac App Store
 mas 'HTTP Client', id: 418138339
