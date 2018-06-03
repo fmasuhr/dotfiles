@@ -1,19 +1,19 @@
-# Brew core packages
 tap 'homebrew/core'
 brew 'autoconf'                   # dependency of ruby-build formula
 brew 'awscli'
 brew 'coffeescript'
+brew 'elm'
 brew 'go'
 brew 'graphviz'
-brew 'icu4c'                      # dependency of node formulae
+brew 'icu4c'                      # dependency of node formula
 brew 'jq'
 brew 'mas'
 brew 'mysql'
 brew 'node'                       # dependency of coffeescript formula
 brew 'nvm'
-brew 'openssl'                    # dependency of node, ruby-build formulae
+brew 'openssl'                    # dependency of node, ruby-build formula
 brew 'packer'
-brew 'pkg-config'                 # dependency of node, ruby-build formulae
+brew 'pkg-config'                 # dependency of node, ruby-build formula
 brew 'rbenv'
 brew 'redis'
 brew 'ruby-build'
@@ -21,21 +21,13 @@ brew 'stow'
 brew 'swi-prolog'
 brew 'terraform'
 
-# Codeclimate requires a running Docker daemon during installation
-# https://github.com/codeclimate/codeclimate
-# tap 'codeclimate/formulae'
-# brew 'codeclimate/formulae/codeclimate'
-
-# Casks
 tap 'homebrew/cask'
 cask '1password'
 cask 'caffeine'
-cask 'chefdk'
 cask 'cyberduck'
 cask 'dash'
 cask 'docker'
 cask 'dropbox'
-cask 'elm-platform'
 cask 'flux'
 cask 'google-chrome'
 cask 'hex-fiend'
@@ -55,6 +47,14 @@ cask 'zoomus'
 
 tap 'homebrew/cask-drivers'
 cask 'homebrew/cask-drivers/xbox360-controller-driver-unofficial'
+
+tap 'chef/chef'
+cask 'chef/chef/chefdk'
+
+# Codeclimate requires a running Docker daemon during installation
+# https://github.com/codeclimate/codeclimate
+# tap 'codeclimate/formulae'
+# brew 'codeclimate/formulae/codeclimate'
 
 # Mac App Store
 mas 'HTTP Client', id: 418138339
