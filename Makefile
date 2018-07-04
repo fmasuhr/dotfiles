@@ -1,5 +1,9 @@
 NODE_VERSION = $(shell cat .nvmrc)
+NPMS = coffeelint eslint npm
+
 RUBY_VERSION = $(shell cat .ruby-version)
+GEMS = bundler mdl rubocop scss_lint
+
 GOPATH ?= ~/golang
 ZSH ?= ~/.oh-my-zsh
 
@@ -24,7 +28,7 @@ macos:
 npm: | bundle
 	. "/usr/local/opt/nvm/nvm.sh"; \
 		nvm use system; \
-		npm install -g coffeelint eslint npm
+		npm install -g $(NPMS)
 
 .PHONY: oh-my-zsh
 oh-my-zsh: | $(ZSH)
@@ -32,7 +36,7 @@ oh-my-zsh: | $(ZSH)
 
 .PHONY: gems
 gems: | ~/.rbenv/versions/$(RUBY_VERSION)
-	gem install bundler mdl rubocop scss_lint
+	gem install $(GEMS)
 
 .PHONY: softwareupdate
 softwareupdate:
