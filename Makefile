@@ -18,7 +18,6 @@ bundle: | /usr/local/bin/brew
 	brew bundle
 	mas upgrade
 	brew cleanup
-	brew cask cleanup
 
 .PHONY: macos
 macos:
