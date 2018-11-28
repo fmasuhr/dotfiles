@@ -30,7 +30,9 @@
 		"*.so",
 		"*.sublime-workspace",
 		"*.suo",
-		".DS_Store"
+		".DS_Store",
+		"main.tf",
+		"main_override.tf"
 	],
 	"find_selected_text": true,
 	"folder_exclude_patterns":
@@ -38,6 +40,7 @@
 		".git",
 		".hg",
 		".svn",
+		".terraform",
 		"bower_components",
 		"cache",
 		"coverage",
