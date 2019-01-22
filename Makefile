@@ -7,8 +7,10 @@ GEMS = bundler mdl rubocop scss_lint
 GOPATH ?= ~/golang
 ZSH ?= ~/.oh-my-zsh
 
+FOLDER = $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/.nvm ~/.terraform.d/plugin-cache
+
 .PHONY: default
-default: softwareupdate stow bundle npm gems $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/.nvm/versions/node/v$(NODE_VERSION) ~/.terraform.d/plugin-cache ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+default: softwareupdate stow bundle npm gems $(FOLDER) ~/.nvm/versions/node/v$(NODE_VERSION) ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 
 # Tasks
 
@@ -47,20 +49,11 @@ stow: | bundle oh-my-zsh
 
 # Files
 
-$(GOPATH)/bin: | stow
-	mkdir -p $(GOPATH)/bin
-
-$(GOPATH)/pkg: | stow
-	mkdir -p $(GOPATH)/pkg
-
-$(GOPATH)/src: | stow
-	mkdir -p $(GOPATH)/src
+$(FOLDER): | stow
+	mkdir -p $@
 
 $(ZSH):
 	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-~/.nvm:
-	mkdir ~/.nvm
 
 # First source the NVM functions to make it available to MAKE
 ~/.nvm/versions/node/v$(NODE_VERSION): | ~/.nvm bundle
@@ -71,9 +64,6 @@ $(ZSH):
 ~/.rbenv/versions/$(RUBY_VERSION): | bundle
 	rbenv install $(RUBY_VERSION)
 	rbenv global $(RUBY_VERSION)
-
-~/.terraform.d/plugin-cache: | stow
-	mkdir -p ~/.terraform.d/plugin-cache
 
 ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package:
 	mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages
