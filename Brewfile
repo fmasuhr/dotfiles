@@ -7,7 +7,6 @@ brew 'go'
 brew 'graphviz'
 brew 'icu4c'                      # dependency of node formula
 brew 'jq'
-brew 'mas'
 brew 'mysql'
 brew 'node'                       # dependency of coffeescript formula
 brew 'nvm'
@@ -48,6 +47,9 @@ cask 'zoomus'
 
 tap 'homebrew/cask-drivers'
 cask 'xbox360-controller-driver-unofficial'
+
+tap 'mas-cli/tap'
+brew 'mas-cli/tap/mas'
 
 tap 'chef/chef'
 cask 'chef/chef/chefdk'
