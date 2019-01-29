@@ -235,7 +235,7 @@ defaults write com.apple.spotlight orderedItems -array \
   '{"enabled" = 1;"name" = "CONTACT";}' \
   '{"enabled" = 1;"name" = "EVENT_TODO";}' \
   '{"enabled" = 1;"name" = "IMAGES";}' \
-  '{"enabled" = 1;"name" = "BOOKMARKS";}' \
+  '{"enabled" = 0;"name" = "BOOKMARKS";}' \
   '{"enabled" = 1;"name" = "MUSIC";}' \
   '{"enabled" = 1;"name" = "MOVIES";}' \
   '{"enabled" = 1;"name" = "FONTS";}' \
