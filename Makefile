@@ -61,8 +61,9 @@ $(ZSH):
 		nvm install $(NODE_VERSION); \
 		nvm alias default $(NODE_VERSION)
 
+.PHONY: ~/.rbenv/versions/$(RUBY_VERSION)
 ~/.rbenv/versions/$(RUBY_VERSION): | bundle
-	rbenv install $(RUBY_VERSION)
+	rbenv install --skip-existing $(RUBY_VERSION)
 	rbenv global $(RUBY_VERSION)
 
 ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package:
