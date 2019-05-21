@@ -1,4 +1,6 @@
 [
+  { "keys": ["alt+command+down"], "command": "open_url", "args": { "show_menu": false } },
+
   { "keys": ["alt+command+down"], "command": "next_result",
     "context":
     [
