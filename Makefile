@@ -9,8 +9,11 @@ ZSH ?= ~/.oh-my-zsh
 
 FOLDER = $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/.nvm ~/.terraform.d/plugin-cache
 
+SUBLIME_TEXT_PATH = $(HOME)/Library/Application\ Support/Sublime\ Text\ 3
+SUBLIME_PACKAGES = $(SUBLIME_TEXT_PATH)/Packages/User
+
 .PHONY: default
-default: softwareupdate stow bundle npm gems $(FOLDER) ~/.nvm/versions/node/v$(NODE_VERSION) ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+default: softwareupdate stow bundle npm gems $(FOLDER) ~/.nvm/versions/node/v$(NODE_VERSION) ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package $(SUBLIME_PACKAGES)
 
 # Tasks
 
@@ -70,9 +73,9 @@ $(ZSH):
 	mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages
 	curl "https://packagecontrol.io/Package%20Control.sublime-package" > "$@"
 
-~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User:
-	mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Packages
-	ln -s $(PWD)/sublime-settings "$@"
+$(SUBLIME_PACKAGES):
+	mkdir -p "$(SUBLIME_TEXT_PATH)/Packages"
+	ln -s "$(DOTFILES)/sublime-packages/$$(basename "$@")" "$@"
 
 /usr/local/bin/brew:
 	/usr/bin/ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
