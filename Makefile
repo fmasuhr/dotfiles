@@ -10,7 +10,7 @@ ZSH ?= ~/.oh-my-zsh
 FOLDER = $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/.nvm ~/.terraform.d/plugin-cache
 
 SUBLIME_TEXT_PATH = $(HOME)/Library/Application\ Support/Sublime\ Text\ 3
-SUBLIME_PACKAGES = $(SUBLIME_TEXT_PATH)/Packages/User
+SUBLIME_PACKAGES = $(SUBLIME_TEXT_PATH)/Packages/Github\ Tools $(SUBLIME_TEXT_PATH)/Packages/User
 
 .PHONY: default
 default: softwareupdate stow bundle npm gems $(FOLDER) ~/.nvm/versions/node/v$(NODE_VERSION) ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package $(SUBLIME_PACKAGES)
