@@ -9,11 +9,11 @@ ZSH ?= ~/.oh-my-zsh
 
 FOLDER = $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/.nvm ~/.terraform.d/plugin-cache
 
-SUBLIME_TEXT_PATH = $(HOME)/Library/Application\ Support/Sublime\ Text\ 3
-SUBLIME_PACKAGES = $(SUBLIME_TEXT_PATH)/Packages/Github\ Tools $(SUBLIME_TEXT_PATH)/Packages/User
+SUBLIME_PATH = $(HOME)/Library/Application\ Support/Sublime\ Text\ 3
+SUBLIME_PACKAGES = $(SUBLIME_PATH)/Packages/Github\ Tools $(SUBLIME_PATH)/Packages/User
 
 .PHONY: default
-default: softwareupdate stow bundle npm gems $(FOLDER) ~/.nvm/versions/node/v$(NODE_VERSION) ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package $(SUBLIME_PACKAGES)
+default: softwareupdate stow bundle npm gems $(FOLDER) ~/.nvm/versions/node/v$(NODE_VERSION) $(SUBLIME_PATH)/Installed\ Packages/Package\ Control.sublime-package $(SUBLIME_PACKAGES)
 
 # Tasks
 
@@ -69,12 +69,12 @@ $(ZSH):
 	rbenv install --skip-existing $(RUBY_VERSION)
 	rbenv global $(RUBY_VERSION)
 
-~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package:
-	mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages
+$(SUBLIME_PATH)/Installed\ Packages/Package\ Control.sublime-package:
+	mkdir -p "$(SUBLIME_PATH)/Installed Packages"
 	curl "https://packagecontrol.io/Package%20Control.sublime-package" > "$@"
 
 $(SUBLIME_PACKAGES):
-	mkdir -p "$(SUBLIME_TEXT_PATH)/Packages"
+	mkdir -p "$(SUBLIME_PATH)/Packages"
 	ln -s "$(DOTFILES)/sublime-packages/$$(basename "$@")" "$@"
 
 /usr/local/bin/brew:
