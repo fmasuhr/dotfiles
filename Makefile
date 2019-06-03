@@ -13,7 +13,7 @@ SUBLIME_PATH = $(HOME)/Library/Application\ Support/Sublime\ Text\ 3
 SUBLIME_PACKAGES = $(SUBLIME_PATH)/Packages/Github\ Tools $(SUBLIME_PATH)/Packages/User
 
 .PHONY: default
-default: softwareupdate stow bundle npm gems $(FOLDER) ~/.nvm/versions/node/v$(NODE_VERSION) $(SUBLIME_PATH)/Installed\ Packages/Package\ Control.sublime-package $(SUBLIME_PACKAGES)
+default: softwareupdate stow bundle npm gems $(FOLDER) ~/.nvm/versions/node/v$(NODE_VERSION) $(SUBLIME_PACKAGES)
 
 # Tasks
 
@@ -73,7 +73,7 @@ $(SUBLIME_PATH)/Installed\ Packages/Package\ Control.sublime-package:
 	mkdir -p "$(SUBLIME_PATH)/Installed Packages"
 	curl "https://packagecontrol.io/Package%20Control.sublime-package" > "$@"
 
-$(SUBLIME_PACKAGES):
+$(SUBLIME_PACKAGES): | $(SUBLIME_PATH)/Installed\ Packages/Package\ Control.sublime-package
 	mkdir -p "$(SUBLIME_PATH)/Packages"
 	ln -s "$(DOTFILES)/sublime-packages/$$(basename "$@")" "$@"
 
