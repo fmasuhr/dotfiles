@@ -10,7 +10,8 @@ ZSH ?= ~/.oh-my-zsh
 FOLDER = $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/.nvm ~/.terraform.d/plugin-cache
 
 SUBLIME_PATH = $(HOME)/Library/Application\ Support/Sublime\ Text\ 3
-SUBLIME_PACKAGES = $(SUBLIME_PATH)/Packages/Github\ Tools $(SUBLIME_PATH)/Packages/User
+# Find all packages and adjust to sublime packages path
+SUBLIME_PACKAGES = $(shell find ./sublime-packages -depth 1 -type d -print0 | xargs -0 -n1 basename | while read n; do echo $(SUBLIME_PATH)/Packages/$${n}; done | sed 's: :\\ :g' )
 
 .PHONY: default
 default: softwareupdate stow bundle npm gems $(FOLDER) ~/.nvm/versions/node/v$(NODE_VERSION) $(SUBLIME_PACKAGES)
