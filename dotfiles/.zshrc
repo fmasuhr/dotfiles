@@ -57,6 +57,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$DOTFILES/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Go Lang configuration
+export GO111MODULE=on
 export GOPATH=$HOME/golang
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$GOROOT/bin:$PATH
