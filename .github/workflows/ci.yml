@@ -6,8 +6,14 @@ jobs:
   lint:
     runs-on: ubuntu-latest
 
+    env:
+      RUBY_VERSION: '2.5.x'
+
     steps:
     - uses: actions/checkout@v1
+    - uses: actions/setup-ruby@v1
+      with:
+        ruby-version: ${{ env.RUBY_VERSION }}
     - name: Install gems
       run: gem install mdl
     - name: Run Markdown Lint
