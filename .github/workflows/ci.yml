@@ -3,8 +3,8 @@ name: CI
 on: push
 
 jobs:
-  test:
-    runs-on: macos-latest
+  lint:
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v1
@@ -12,5 +12,11 @@ jobs:
       run: gem install mdl
     - name: Run Markdown Lint
       run: mdl --git-recurse .
+
+  test:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v1
     - name: Run make
       run: make
