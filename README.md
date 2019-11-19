@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/fmasuhr/dotfiles.svg?branch=master)](https://travis-ci.org/fmasuhr/dotfiles)
-
 # dotfiles
 
 These are my config files to set a working environment
