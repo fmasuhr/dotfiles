@@ -1,0 +1,16 @@
+name: CI
+
+on: push
+
+jobs:
+  test:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install gems
+      run: gem install mdl
+    - name: Run Markdown Lint
+      run: mdl --git-recurse .
+    - name: Run make
+      run: make
