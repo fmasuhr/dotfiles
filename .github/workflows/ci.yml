@@ -25,15 +25,13 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: TEST
-      run: echo $PATH
+    - name: Mock binaries
+      run: |
+        # Replace some binaries with a script that exits quickly, otherwise the Travis build will time out or fail.
+        mkdir $HOME/bin
+        export PATH=$HOME/bin:$PATH
 
-    # - name: Mock binaries
-    #   run: |
-    #     # Replace some binaries with a script that exits quickly, otherwise the Travis build will time out or fail.
-    #     mkdir $HOME/bin
-
-    #     printf '#!'"/usr/bin/env bash\necho 'mas is overridden to allow Travis build to succeed.'" > $HOME/bin/mas
-    #     chmod +x $HOME/bin/mas
-    # - name: Run make
-    #   run: make
+        printf '#!'"/usr/bin/env bash\necho 'mas is overridden to allow Travis build to succeed.'" > $HOME/bin/mas
+        chmod +x $HOME/bin/mas
+    - name: Run make
+      run: make
