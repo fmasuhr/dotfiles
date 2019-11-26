@@ -19,6 +19,7 @@ brew 'ruby-build'
 brew 'stow'
 brew 'swi-prolog'
 brew 'terraform'
+brew 'wget'
 
 tap 'homebrew/cask'
 cask '1password'
