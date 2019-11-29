@@ -61,7 +61,7 @@ cask 'chef/chef/chefdk'
 # brew 'codeclimate/formulae/codeclimate'
 
 # Mac App Store
-mas 'HTTP Client', id: 418138339
-mas 'Reeder',      id: 880001334
-mas 'Wipr',        id: 1320666476
-mas 'Xcode',       id: 497799835
+mas 'HTTP Client', id: 418_138_339
+mas 'Reeder',      id: 880_001_334
+mas 'Wipr',        id: 132_066_647_6
+mas 'Xcode',       id: 497_799_835
