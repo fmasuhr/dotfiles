@@ -18,3 +18,24 @@ jobs:
       run: gem install mdl
     - name: Run Markdown Lint
       run: mdl --git-recurse .
+
+  test:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Mock binaries
+      run: |
+        # Replace some binaries with a script that exits quickly, otherwise the Travis build will time out or fail.
+        mkdir $HOME/bin
+        export PATH=$HOME/bin:$PATH
+
+        printf '#!'"/usr/bin/env bash\necho 'mas is overridden to allow Travis build to succeed.'" > $HOME/bin/mas
+        chmod +x $HOME/bin/mas
+
+    - run: echo $PATH
+
+    - run: mas
+
+    # - run: make
