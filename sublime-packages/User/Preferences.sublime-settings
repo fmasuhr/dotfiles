@@ -7,6 +7,8 @@
 		"*.eot",
 		"*.gif",
 		"*.ico",
+		"*.infrastructure/**/main.tf",
+		"*.infrastructure/**/main_override.tf",
 		"*.jar",
 		"*.jpeg",
 		"*.jpg",
@@ -18,9 +20,7 @@
 		"*.swf",
 		"*.tga",
 		"*.ttf",
-		"*.zip",
-		"main.tf",
-		"main_override.tf"
+		"*.zip"
 	],
 	"bold_folder_labels": true,
 	"color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
