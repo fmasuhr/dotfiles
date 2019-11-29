@@ -28,8 +28,8 @@ jobs:
     # Replace some binaries with a script that exits quickly, otherwise the build will time out or fail.
     - name: Mock binaries
       run: |
-        printf '#!'"/usr/bin/env bash\necho 'mas is overridden'" > /usr/bin/mas
-        chmod +x /usr/bin/mas
+        printf '#!'"/usr/bin/env bash\necho 'mas is overridden'" > /Users/runner/bin/mas
+        chmod +x /Users/runner/bin/mas
 
     - run: mas
 
