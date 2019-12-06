@@ -54,7 +54,7 @@ brew 'mas-cli/tap/mas'
 
 # Mac App Store
 mas 'HTTP Client', id: 418_138_339
-mas 'Reeder',      id: 880_001_334
+# mas 'Reeder',      id: 880_001_334
 # mas 'Reeder 4',    id: 144_941_248_2
 mas 'Wipr',        id: 132_066_647_6
 mas 'Xcode',       id: 497_799_835
