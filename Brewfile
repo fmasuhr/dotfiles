@@ -53,7 +53,7 @@ tap 'mas-cli/tap'
 brew 'mas-cli/tap/mas'
 
 tap 'chef/chef'
-cask 'chef/chef/chefdk'
+cask 'chefdk'
 
 # Codeclimate requires a running Docker daemon during installation
 # https://github.com/codeclimate/codeclimate
