@@ -11,7 +11,6 @@ brew 'mysql'
 brew 'node'                       # dependency of coffeescript formula
 brew 'nvm'
 brew 'openssl'                    # dependency of node, ruby-build formula
-brew 'packer'
 brew 'pkg-config'                 # dependency of node, ruby-build formula
 brew 'rbenv'
 brew 'redis'
@@ -41,8 +40,6 @@ cask 'spotify'
 cask 'steam'
 cask 'sublime-text'
 cask 'tunnelblick'
-cask 'vagrant'
-cask 'virtualbox'
 cask 'vlc'
 cask 'zoomus'
 
@@ -55,14 +52,9 @@ brew 'mas-cli/tap/mas'
 # tap 'chef/chef'
 # cask 'chefdk'
 
-# Codeclimate requires a running Docker daemon during installation
-# https://github.com/codeclimate/codeclimate
-# tap 'codeclimate/formulae'
-# brew 'codeclimate/formulae/codeclimate'
-
 # Mac App Store
 mas 'HTTP Client', id: 418_138_339
-mas 'Reeder',      id: 880_001_334
+# mas 'Reeder',      id: 880_001_334
 # mas 'Reeder 4',    id: 144_941_248_2
 mas 'Wipr',        id: 132_066_647_6
 mas 'Xcode',       id: 497_799_835
