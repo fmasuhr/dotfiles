@@ -11,7 +11,6 @@ brew 'mysql'
 brew 'node'                       # dependency of coffeescript formula
 brew 'nvm'
 brew 'openssl'                    # dependency of node, ruby-build formula
-brew 'packer'
 brew 'pkg-config'                 # dependency of node, ruby-build formula
 brew 'rbenv'
 brew 'redis'
@@ -41,8 +40,6 @@ cask 'spotify'
 cask 'steam'
 cask 'sublime-text'
 cask 'tunnelblick'
-cask 'vagrant'
-cask 'virtualbox'
 cask 'vlc'
 cask 'zoomus'
 
