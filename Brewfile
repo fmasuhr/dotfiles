@@ -55,11 +55,6 @@ brew 'mas-cli/tap/mas'
 # tap 'chef/chef'
 # cask 'chefdk'
 
-# Codeclimate requires a running Docker daemon during installation
-# https://github.com/codeclimate/codeclimate
-# tap 'codeclimate/formulae'
-# brew 'codeclimate/formulae/codeclimate'
-
 # Mac App Store
 mas 'HTTP Client', id: 418_138_339
 mas 'Reeder',      id: 880_001_334
