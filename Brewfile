@@ -49,9 +49,6 @@ cask 'xbox360-controller-driver-unofficial'
 tap 'mas-cli/tap'
 brew 'mas-cli/tap/mas'
 
-# tap 'chef/chef'
-# cask 'chefdk'
-
 # Mac App Store
 mas 'HTTP Client', id: 418_138_339
 mas 'Reeder 4',    id: 144_941_248_2
