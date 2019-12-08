@@ -22,7 +22,6 @@ brew 'wget'
 
 tap 'homebrew/cask'
 cask '1password'
-cask 'caffeine'
 cask 'cyberduck'
 cask 'dash'
 cask 'docker'
@@ -50,6 +49,7 @@ tap 'mas-cli/tap'
 brew 'mas-cli/tap/mas'
 
 # Mac App Store
+mas 'Amphetamine', id: 937_984_704
 mas 'HTTP Client', id: 418_138_339
 mas 'Reeder 4',    id: 144_941_248_2
 mas 'Wipr',        id: 132_066_647_6
