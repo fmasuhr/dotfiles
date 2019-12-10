@@ -12,7 +12,7 @@ jobs:
       id: rbenv
     - uses: actions/setup-ruby@v1
       with:
-       ruby-version: "${{ steps.rbenv.outputs.RUBY_VERSION }}"
+        ruby-version: "${{ steps.rbenv.outputs.RUBY_VERSION }}"
     - name: Install mdl gem
       run: gem install mdl
     - name: Run Markdown Lint
