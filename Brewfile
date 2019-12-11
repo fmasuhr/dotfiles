@@ -22,7 +22,6 @@ brew 'wget'
 
 tap 'homebrew/cask'
 cask '1password'
-cask 'caffeine'
 cask 'cyberduck'
 cask 'dash'
 cask 'docker'
@@ -41,7 +40,6 @@ cask 'steam'
 cask 'sublime-text'
 cask 'tunnelblick'
 cask 'vlc'
-cask 'zoomus'
 
 tap 'homebrew/cask-drivers'
 cask 'xbox360-controller-driver-unofficial'
@@ -49,12 +47,9 @@ cask 'xbox360-controller-driver-unofficial'
 tap 'mas-cli/tap'
 brew 'mas-cli/tap/mas'
 
-# tap 'chef/chef'
-# cask 'chefdk'
-
 # Mac App Store
+mas 'Amphetamine', id: 937_984_704
 mas 'HTTP Client', id: 418_138_339
-# mas 'Reeder',      id: 880_001_334
-# mas 'Reeder 4',    id: 144_941_248_2
+mas 'Reeder 4',    id: 144_941_248_2
 mas 'Wipr',        id: 132_066_647_6
 mas 'Xcode',       id: 497_799_835

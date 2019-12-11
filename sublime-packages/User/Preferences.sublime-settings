@@ -23,7 +23,6 @@
 		"*.zip"
 	],
 	"bold_folder_labels": true,
-	"color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
 	"create_window_at_startup": false,
 	"drag_text": false,
 	"ensure_newline_at_eof_on_save": true,
