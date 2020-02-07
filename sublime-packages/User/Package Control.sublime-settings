@@ -28,6 +28,7 @@
 		"SublimeLinter-eslint",
 		"SublimeLinter-mdl",
 		"SublimeLinter-rubocop",
+		"Terrafmt",
 		"Terraform"
 	]
 }
