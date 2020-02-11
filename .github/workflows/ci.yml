@@ -8,7 +8,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - run: echo "::set-output name=RUBY_VERSION::$(cat .ruby-version)"
+    - run: echo "::set-output name=RUBY_VERSION::$(cat .ruby-version | sed -E 's/\.[0-9]+$/.x/')"
       id: rbenv
     - uses: actions/setup-ruby@v1
       with:
