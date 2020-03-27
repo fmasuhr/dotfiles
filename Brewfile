@@ -1,6 +1,7 @@
 tap 'homebrew/core'
 brew 'autoconf'                   # dependency of ruby-build formula
 brew 'awscli'
+brew 'awslogs'
 brew 'coffeescript'
 brew 'elm'
 brew 'go'

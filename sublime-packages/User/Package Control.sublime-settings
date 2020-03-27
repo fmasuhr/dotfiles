@@ -29,6 +29,7 @@
 		"SublimeLinter-mdl",
 		"SublimeLinter-rubocop",
 		"Terrafmt",
-		"Terraform"
+		"Terraform",
+		"TypeScript"
 	]
 }
