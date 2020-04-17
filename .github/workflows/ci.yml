@@ -18,7 +18,7 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
 
     # Replace some binaries with a script that exits quickly, otherwise the build will time out or fail.
     - name: Mock binaries
