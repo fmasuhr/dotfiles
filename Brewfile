@@ -1,17 +1,19 @@
 tap 'homebrew/core'
+tap 'homebrew/bundle'
 brew 'autoconf'                   # dependency of ruby-build formula
 brew 'awscli'
 brew 'awslogs'
 brew 'coffeescript'
 brew 'elm'
+brew 'git'
 brew 'go'
 brew 'graphviz'
 brew 'icu4c'                      # dependency of node formula
 brew 'jq'
 brew 'mysql'
-brew 'node'                       # dependency of coffeescript formula
+brew 'node'
 brew 'nvm'
-brew 'openssl'                    # dependency of node, ruby-build formula
+brew 'openssl@1.1'                # dependency of node, ruby-build formula
 brew 'pkg-config'                 # dependency of node, ruby-build formula
 brew 'rbenv'
 brew 'redis'
@@ -51,6 +53,6 @@ brew 'mas-cli/tap/mas'
 # Mac App Store
 mas 'Amphetamine', id: 937_984_704
 mas 'HTTP Client', id: 418_138_339
-mas 'Reeder 4',    id: 144_941_248_2
+mas 'Reeder',      id: 144_941_248_2
 mas 'Wipr',        id: 132_066_647_6
 mas 'Xcode',       id: 497_799_835
