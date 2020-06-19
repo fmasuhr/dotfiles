@@ -21,6 +21,7 @@ brew 'ruby-build'
 brew 'stow'
 brew 'swi-prolog'
 brew 'terraform'
+brew 'tflint'
 brew 'wget'
 
 tap 'homebrew/cask'
