@@ -22,6 +22,7 @@ brew 'stow'
 brew 'swi-prolog'
 brew 'terraform'
 brew 'tflint'
+brew 'the_silver_searcher'
 brew 'wget'
 
 tap 'homebrew/cask'
