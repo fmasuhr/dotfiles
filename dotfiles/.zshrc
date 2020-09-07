@@ -82,6 +82,10 @@ fi
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+# Fix terraform 0.12
+# https://github.com/hashicorp/terraform/issues/23615#issuecomment-610944963
+ulimit -n 1024
+
 # Rubygems configuation
 export RUBYOPT=rubygems
 eval "$(rbenv init -)"
