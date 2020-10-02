@@ -10,6 +10,7 @@ brew 'go'
 brew 'graphviz'
 brew 'icu4c'                      # dependency of node formula
 brew 'jq'
+brew 'mas'
 brew 'mysql'
 brew 'node'
 brew 'nvm'
@@ -20,7 +21,6 @@ brew 'redis'
 brew 'ruby-build'
 brew 'stow'
 brew 'swi-prolog'
-brew 'terraform'
 brew 'tflint'
 brew 'the_silver_searcher'
 brew 'wget'
@@ -46,11 +46,11 @@ cask 'sublime-text'
 cask 'tunnelblick'
 cask 'vlc'
 
+tap 'hashicorp/tap'
+brew 'hashicorp/tap/terraform'
+
 tap 'homebrew/cask-drivers'
 cask 'xbox360-controller-driver-unofficial'
-
-tap 'mas-cli/tap'
-brew 'mas-cli/tap/mas'
 
 # Mac App Store
 mas 'Amphetamine', id: 937_984_704
