@@ -36,7 +36,7 @@ npm: | bundle
 		npm install -g $(NPMS)
 
 .PHONY: oh-my-zsh
-oh-my-zsh: | $(ZSH)
+oh-my-zsh: | $(ZSH) $(ZSH)/custom/themes/af-magic.zsh-theme
 	sh $(ZSH)/tools/upgrade.sh
 
 .PHONY: gems
@@ -55,6 +55,9 @@ stow: | bundle oh-my-zsh
 
 $(FOLDER): | stow
 	mkdir -p $@
+
+$(ZSH)/custom/themes/af-magic.zsh-theme:
+	ln -s "$(DOTFILES)/themes/$$(basename "$@")" "$@"
 
 $(ZSH):
 	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
