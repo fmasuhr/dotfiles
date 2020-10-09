@@ -6,7 +6,7 @@ GEMS = bundler:1.17.3 mdl rubocop scss_lint
 
 GOPATH ?= ~/golang
 
-FOLDER = $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/.nvm ~/.terraform.d/plugin-cache
+FOLDER = ~/github $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/.nvm ~/.terraform.d/plugin-cache
 
 SUBLIME_PATH = $(HOME)/Library/Application\ Support/Sublime\ Text\ 3
 # Find all packages and adjust to sublime packages path
@@ -63,11 +63,11 @@ $(FOLDER): | stow
 	rbenv global $(RUBY_VERSION)
 
 $(SUBLIME_PATH)/Installed\ Packages/Package\ Control.sublime-package:
-	mkdir -p "$(SUBLIME_PATH)/Installed Packages"
+	mkdir -p $(SUBLIME_PATH)/Installed\ Packages
 	curl "https://packagecontrol.io/Package%20Control.sublime-package" > "$@"
 
 $(SUBLIME_PACKAGES): | $(SUBLIME_PATH)/Installed\ Packages/Package\ Control.sublime-package
-	mkdir -p "$(SUBLIME_PATH)/Packages"
+	mkdir -p $(SUBLIME_PATH)/Packages
 	ln -s "$(DOTFILES)/sublime-packages/$$(basename "$@")" "$@"
 
 /usr/local/bin/brew:
