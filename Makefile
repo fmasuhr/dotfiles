@@ -5,7 +5,6 @@ RUBY_VERSION = $(shell cat .ruby-version)
 GEMS = bundler:1.17.3 mdl rubocop scss_lint
 
 GOPATH ?= ~/golang
-ZSH ?= ~/.oh-my-zsh
 
 FOLDER = $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/.nvm ~/.terraform.d/plugin-cache
 
@@ -35,10 +34,6 @@ npm: | bundle
 		nvm use system; \
 		npm install -g $(NPMS)
 
-.PHONY: oh-my-zsh
-oh-my-zsh: | $(ZSH)
-	sh $(ZSH)/tools/upgrade.sh
-
 .PHONY: gems
 gems: | ~/.rbenv/versions/$(RUBY_VERSION)
 	gem install $(GEMS)
@@ -48,16 +43,13 @@ softwareupdate:
 	softwareupdate -ai --verbose
 
 .PHONY: stow
-stow: | bundle oh-my-zsh
+stow: | bundle
 	stow -t "$(HOME)" -R dotfiles
 
 # Files
 
 $(FOLDER): | stow
 	mkdir -p $@
-
-$(ZSH):
-	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # First source the NVM functions to make it available to MAKE
 ~/.nvm/versions/node/v$(NODE_VERSION): | ~/.nvm bundle
