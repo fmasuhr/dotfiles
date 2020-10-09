@@ -12,7 +12,10 @@ ZSH_THEME="af-magic"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(bundler)
+plugins=()
+
+source $ZSH/oh-my-zsh.sh
+source /usr/local/share/zsh/site-functions/_aws
 
 # User configuration
 
@@ -25,9 +28,6 @@ export GOPATH=$HOME/golang
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$GOROOT/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
-
-source $ZSH/oh-my-zsh.sh
-source /usr/local/share/zsh/site-functions/_aws
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
