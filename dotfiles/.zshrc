@@ -15,7 +15,6 @@ ZSH_THEME="af-magic"
 plugins=()
 
 source $ZSH/oh-my-zsh.sh
-source /usr/local/share/zsh/site-functions/_aws
 
 # User configuration
 
