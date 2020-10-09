@@ -7,7 +7,7 @@ GEMS = bundler:1.17.3 mdl rubocop scss_lint
 GOPATH ?= ~/golang
 ZSH ?= ~/.oh-my-zsh
 
-FOLDER = $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/.nvm ~/.terraform.d/plugin-cache
+FOLDER = ~/github $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/.nvm ~/.terraform.d/plugin-cache
 
 SUBLIME_PATH = $(HOME)/Library/Application\ Support/Sublime\ Text\ 3
 # Find all packages and adjust to sublime packages path
@@ -36,7 +36,7 @@ npm: | bundle
 		npm install -g $(NPMS)
 
 .PHONY: oh-my-zsh
-oh-my-zsh: | $(ZSH)
+oh-my-zsh: | $(ZSH) $(ZSH)/custom/themes/af-magic.zsh-theme
 	sh $(ZSH)/tools/upgrade.sh
 
 .PHONY: gems
@@ -56,6 +56,9 @@ stow: | bundle oh-my-zsh
 $(FOLDER): | stow
 	mkdir -p $@
 
+$(ZSH)/custom/themes/af-magic.zsh-theme:
+	ln -s "$(DOTFILES)/themes/$$(basename "$@")" "$@"
+
 $(ZSH):
 	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
@@ -71,12 +74,12 @@ $(ZSH):
 	rbenv global $(RUBY_VERSION)
 
 $(SUBLIME_PATH)/Installed\ Packages/Package\ Control.sublime-package:
-	mkdir -p "$(SUBLIME_PATH)/Installed Packages"
+	mkdir -p $(SUBLIME_PATH)/Installed\ Packages
 	curl "https://packagecontrol.io/Package%20Control.sublime-package" > "$@"
 
 $(SUBLIME_PACKAGES): | $(SUBLIME_PATH)/Installed\ Packages/Package\ Control.sublime-package
-	mkdir -p "$(SUBLIME_PATH)/Packages"
+	mkdir -p $(SUBLIME_PATH)/Packages
 	ln -s "$(DOTFILES)/sublime-packages/$$(basename "$@")" "$@"
 
 /usr/local/bin/brew:
-	/usr/bin/ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
