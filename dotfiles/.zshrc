@@ -49,7 +49,6 @@ export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 
 # https://github.com/creationix/nvm#zsh
-autoload -U add-zsh-hook
 load-nvmrc() {
   local node_version="$(nvm version)"
   local nvmrc_path="$(nvm_find_nvmrc)"
@@ -66,6 +65,7 @@ load-nvmrc() {
     nvm use default --silent
   fi
 }
+autoload -U add-zsh-hook
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
