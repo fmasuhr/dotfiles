@@ -1,18 +1,25 @@
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
+
 # Shortcut to this dotfiles
 export DOTFILES=$HOME/$(dirname "$(dirname "$(stat -f %Y $HOME/.zshrc)")")
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="af-magic"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=()
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 export HOMEBREW_NO_ANALYTICS=1
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$DOTFILES/bin"
-
-source /usr/local/share/zsh/site-functions/_aws
 
 # Go Lang configuration
 export GO111MODULE=on
@@ -41,7 +48,6 @@ export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 
 # https://github.com/creationix/nvm#zsh
-autoload -U add-zsh-hook
 load-nvmrc() {
   local node_version="$(nvm version)"
   local nvmrc_path="$(nvm_find_nvmrc)"
@@ -58,6 +64,7 @@ load-nvmrc() {
     nvm use default --silent
   fi
 }
+autoload -U add-zsh-hook
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 

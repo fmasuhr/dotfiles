@@ -1,5 +1,3 @@
-l='ls -lah'
-
 # macOS
 alias afk="open -a ScreenSaverEngine"
 
