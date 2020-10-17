@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Get authenticated github user as default
+GITHUB_USERNAME=${GITHUB_USERNAME:-$(gh api user | jq -r '.login')}
+PROJECT_PATH=${PROJECT_PATH:-~/github}
+STARED_REPOSITORIES=$(gh api users/$GITHUB_USERNAME/starred --paginate | jq -r '.[] | .full_name')
+
+for repository in $STARED_REPOSITORIES;
+do
+  if [ ! -d "$PROJECT_PATH/$repository" ]; then
+    gh repo clone "git@github.com:$repository.git" $PROJECT_PATH/$repository &
+  else
+    git -C $PROJECT_PATH/$repository pull --rebase=false --quiet &
+  fi
+done
+
+wait
+
+echo "All projects are synced"
