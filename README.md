@@ -67,6 +67,7 @@ Make your own customizations locally by placing one of the following files into 
 * `~/.aliases.local`
 * `~/.functions.local`
 * `~/.zshrc.local`
+* `~/dotfiles/bin.local`
 
 ## Credits
 

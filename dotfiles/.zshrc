@@ -22,7 +22,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export HOMEBREW_NO_ANALYTICS=1
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$DOTFILES/bin"
+export PATH="$DOTFILES/bin.local:$DOTFILES/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # Go Lang configuration
 export GO111MODULE=on
