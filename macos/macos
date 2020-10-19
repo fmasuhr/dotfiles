@@ -2,18 +2,15 @@
 
 # ~/.macos — https://mths.be/macos
 
-# Set dotfiles path for initial execution
-[[ -z "$DOTFILES" ]] && DOTFILES2="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
-osascript -e 'tell application "System Preferences" to quit'
+# osascript -e 'tell application "System Preferences" to quit'
 
 # Ask for the administrator password upfront
-sudo -v
+# sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+# while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 ###############################################################################
 # General UI/UX                                                               #
@@ -84,69 +81,13 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
 
 ###############################################################################
-# Terminal                                                                    #
+# Finish preferences setup                                                    #
 ###############################################################################
 
-# Disable the annoying line marks
-# defaults write com.apple.Terminal ShowLineMarks -int 0
-
-# Use a modified version of the Solarized Dark theme by default in Terminal.app
-# https://github.com/altercation/solarized/pull/314
-osascript <<EOD
-
-tell application "Terminal"
-
-  local allOpenedWindows
-  local initialOpenedWindows
-  local windowID
-  set themeName to "Solarized Dark"
-
-  (* Store the IDs of all the open terminal windows. *)
-  set initialOpenedWindows to id of every window
-
-  (* Open the custom theme so that it gets added to the list
-     of available terminal themes (note: this will open two
-     additional terminal windows). *)
-  do shell script "open '$DOTFILES/themes" & themeName & ".terminal'"
-
-  (* Wait a little bit to ensure that the custom theme is added. *)
-  delay 1
-
-  (* Set the custom theme as the default terminal theme. *)
-  set default settings to settings set themeName
-
-  (* Get the IDs of all the currently opened terminal windows. *)
-  set allOpenedWindows to id of every window
-
-  repeat with windowID in allOpenedWindows
-
-    (* Close the additional windows that were opened in order
-       to add the custom theme to the list of terminal themes. *)
-    if initialOpenedWindows does not contain windowID then
-      close (every window whose id is windowID)
-
-    (* Change the theme for the initial opened terminal windows
-       to remove the need to close them in order for the custom
-       theme to be applied. *)
-    else
-      set current settings of tabs of (every window whose id is windowID) to settings set themeName
-    end if
-
-  end repeat
-
-end tell
-
-EOD
-
-###############################################################################
-# Kill affected applications                                                  #
-###############################################################################
-
-for app in "cfprefsd" \
-  "Finder" \
-  "Safari" \
-  "SystemUIServer" \
-  "Terminal"; do
-  killall "${app}" &> /dev/null
-done
-echo "Done. Note that some of these changes require a logout/restart to take effect."
+# for app in "cfprefsd" \
+#   "Finder" \
+#   "Safari" \
+#   "SystemUIServer" \
+#   killall "${app}" &> /dev/null
+# done
+# echo "Done. Note that some of these changes require a logout/restart to take effect."
