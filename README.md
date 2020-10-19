@@ -60,14 +60,6 @@ To only execute specific preferences e.g. of ther Terminal app you can use:
 dotfiles macos/terminal
 ```
 
-### Theme
-
-As theme for my console/editors i use [Solarized Dark](http://ethanschoonover.com/solarized).
-They need to be installed manually
-
-* [Terminal](https://github.com/altercation/solarized/pull/314)
-* [Sequel Pro](https://github.com/altercation/solarized/pull/133)
-
 ## Customization
 
 Make your own customizations locally by placing one of the following files into your home folder
