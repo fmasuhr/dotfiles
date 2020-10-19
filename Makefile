@@ -27,7 +27,7 @@ bundle: | /usr/local/bin/brew
 
 .PHONY: macos
 macos:
-	./macos
+	./macos/macos
 
 .PHONY: npm
 npm: | bundle
