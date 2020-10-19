@@ -24,9 +24,6 @@ defaults write com.torusknot.SourceTreeNotMAS defaultFolder -string "$HOME/githu
 # Prune tracking branches no longer present on remote(s) on fetch
 defaults write com.torusknot.SourceTreeNotMAS gitFetchPrune -int 1
 
-# Use system git
-defaults write com.torusknot.SourceTreeNotMAS gitCustomPath -string "$(which git)"
-
 # Automatically check for updates
 defaults write com.torusknot.SourceTreeNotMAS SUEnableAutomaticChecks -int 1
 
