@@ -55,4 +55,4 @@ end tell
 EOD
 
 # Finish setup
-echo "Terminal update done."
+echo "Terminal setup done"

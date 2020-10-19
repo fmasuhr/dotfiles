@@ -13,24 +13,6 @@
 # while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 ###############################################################################
-# General UI/UX                                                               #
-###############################################################################
-
-# Set standby delay to 12 hours (default is 1 hour)
-# sudo pmset -a standbydelay 43200
-
-# Expand save panel by default
-# defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
-# defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
-
-# Expand print panel by default
-# defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
-# defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
-
-# Disable the crash reporter
-# defaults write com.apple.CrashReporter DialogType -string "none"
-
-###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
 
@@ -50,17 +32,6 @@
 # Enable subpixel font rendering on non-Apple LCDs
 # Reference: https://github.com/kevinSuttle/macOS-Defaults/issues/17#issuecomment-266633501
 # defaults write NSGlobalDomain AppleFontSmoothing -int 1
-
-###############################################################################
-# Finder                                                                      #
-###############################################################################
-
-# Avoid creating .DS_Store files on network or USB volumes
-# defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-# defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
-
-# Show the ~/Library folder
-# chflags nohidden ~/Library
 
 ###############################################################################
 # Safari & WebKit                                                             #
@@ -85,9 +56,8 @@
 ###############################################################################
 
 # for app in "cfprefsd" \
-#   "Finder" \
 #   "Safari" \
-#   "SystemUIServer" \
+#   "SystemUIServer"; do
 #   killall "${app}" &> /dev/null
 # done
 # echo "Done. Note that some of these changes require a logout/restart to take effect."
