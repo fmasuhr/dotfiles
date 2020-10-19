@@ -54,6 +54,12 @@ This is not included in the environment setup as it is not necessary to execute 
 dotfiles macos
 ```
 
+To only execute specific preferences e.g. of ther Terminal app you can use:
+
+```sh
+dotfiles macos/terminal
+```
+
 ### Theme
 
 As theme for my console/editors i use [Solarized Dark](http://ethanschoonover.com/solarized).
