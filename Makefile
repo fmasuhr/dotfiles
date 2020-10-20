@@ -26,8 +26,11 @@ bundle: | /usr/local/bin/brew
 	brew cleanup
 
 .PHONY: macos
-macos:
-	./macos
+macos: macos/*
+
+.PHONY: macos/*
+macos/*:
+	$@
 
 .PHONY: npm
 npm: | bundle

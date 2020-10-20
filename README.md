@@ -54,13 +54,11 @@ This is not included in the environment setup as it is not necessary to execute 
 dotfiles macos
 ```
 
-### Theme
+To only execute specific preferences e.g. of ther Terminal app you can use:
 
-As theme for my console/editors i use [Solarized Dark](http://ethanschoonover.com/solarized).
-They need to be installed manually
-
-* [Terminal](https://github.com/altercation/solarized/pull/314)
-* [Sequel Pro](https://github.com/altercation/solarized/pull/133)
+```sh
+dotfiles macos/terminal
+```
 
 ## Customization
 
@@ -69,6 +67,22 @@ Make your own customizations locally by placing one of the following files into 
 * `~/.aliases.local`
 * `~/.functions.local`
 * `~/.zshrc.local`
+* `~/dotfiles/bin.local`
+
+## Known issues
+
+### Github Tools Sublime Package
+
+The Github Tools Sublime Text package can only be installed if the [patch](https://github.com/fmasuhr/dotfiles/tree/main/sublime-packages/Github%20Tools)
+is removed. Otherwise Package Control will skip the installation as the package already exists.
+
+As a workaround the patch has to be moved during installation
+
+```sh
+mv ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/Github\ Tools Github\ Tools
+# Move back after installation of Github Tools packages was successful
+mv Github\ Tools ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/Github\ Tools
+```
 
 ## Credits
 

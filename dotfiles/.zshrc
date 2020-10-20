@@ -8,6 +8,9 @@ export DOTFILES=$HOME/$(dirname "$(dirname "$(stat -f %Y $HOME/.zshrc)")")
 # Look in ~/.oh-my-zsh/themes/
 ZSH_THEME="af-magic"
 
+# https://github.com/ohmyzsh/ohmyzsh/issues/6835
+ZSH_DISABLE_COMPFIX=true
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -19,7 +22,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export HOMEBREW_NO_ANALYTICS=1
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$DOTFILES/bin"
+export PATH="$DOTFILES/bin.local:$DOTFILES/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # Go Lang configuration
 export GO111MODULE=on
