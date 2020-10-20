@@ -71,12 +71,10 @@ Make your own customizations locally by placing one of the following files into 
 
 ## Known issues
 
-### Sublime Package Github Tools
+### Github Tools Sublime Package
 
-The Github Tools Sublime Text package can only be installed if the patch
-https://github.com/fmasuhr/dotfiles/tree/main/sublime-packages/Github%20Tools is removed.
-Otherwise Package Control will skip the installation as the package already exists.
-During the initial installation
+The Github Tools Sublime Text package can only be installed if the [patch](https://github.com/fmasuhr/dotfiles/tree/main/sublime-packages/Github%20Tools)
+is removed. Otherwise Package Control will skip the installation as the package already exists.
 
 As a workaround the patch has to be moved during installation
 
