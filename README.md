@@ -69,6 +69,21 @@ Make your own customizations locally by placing one of the following files into 
 * `~/.zshrc.local`
 * `~/dotfiles/bin.local`
 
+## Known issues
+
+### Github Tools Sublime Package
+
+The Github Tools Sublime Text package can only be installed if the [patch](https://github.com/fmasuhr/dotfiles/tree/main/sublime-packages/Github%20Tools)
+is removed. Otherwise Package Control will skip the installation as the package already exists.
+
+As a workaround the patch has to be moved during installation
+
+```sh
+mv ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/Github\ Tools Github\ Tools
+# Move back after installation of Github Tools packages was successful
+mv Github\ Tools ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/Github\ Tools
+```
+
 ## Credits
 
 * Mathias Bynens [macOS Defaults](https://mths.be/macos)
