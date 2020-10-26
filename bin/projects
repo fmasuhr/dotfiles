@@ -2,18 +2,44 @@
 
 # Get authenticated github user as default
 GITHUB_USERNAME=${GITHUB_USERNAME:-$(gh api user | jq -r '.login')}
+
 PROJECT_PATH=${PROJECT_PATH:-~/github}
 STARED_REPOSITORIES=$(gh api users/$GITHUB_USERNAME/starred --paginate | jq -r '.[] | .full_name')
 
+# Get emails of authenticated github user
+EMAILS=($(gh api user/emails --paginate | jq -r '.[] | .email'))
+
 for repository in $STARED_REPOSITORIES;
 do
+  # Clone repository of ot does not exist locally yet
   if [ ! -d "$PROJECT_PATH/$repository" ]; then
-    gh repo clone "git@github.com:$repository.git" $PROJECT_PATH/$repository &
+    # if no 'git config user.email' configure one of the github emails
+    if [ $(git config user.email) == '(none)' ]; then
+      echo "Select the git config user.email for '$repository'"
+
+      # List available emails
+      for i in "${!EMAILS[@]}"; do
+        printf "%s %s\n" "$((i + 1))" "${EMAILS[$i]}"
+      done
+
+      # Get email index input until correct (within range)
+      unset email_index # reset after each repository
+      while [[ ! $email_index =~ ^[0-9]+$ ]]; do
+        read -p "Choose the email to be configured in 'git config user.email' [1-${#EMAILS[@]}]: " email_index
+        ! [[ $email_index -ge 1 && $email_index -le ${#EMAILS[@]}  ]] && unset email_index
+      done
+
+      gh repo clone "git@github.com:$repository.git" $PROJECT_PATH/$repository && git -C $PROJECT_PATH/$repository config user.email "${EMAILS[$((email_index - 1))]}" &
+    else
+      gh repo clone "git@github.com:$repository.git" $PROJECT_PATH/$repository &
+    fi
   else
+    # Pull latest changes into current branch
     git -C $PROJECT_PATH/$repository pull --rebase=false --quiet &
   fi
 done
 
+# Wait for all background tasks to be finished
 wait
 
-echo "All projects are synced"
+echo 'All projects are synced'
