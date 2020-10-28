@@ -31,6 +31,10 @@ jobs:
       run: |
         echo "$HOME/bin" >> $GITHUB_PATH
 
+    - name: Unlink
+      run: |
+        brew unlink node@12
+
     - run: mas
 
     - run: make
