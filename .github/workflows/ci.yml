@@ -36,6 +36,7 @@ jobs:
         brew unlink node@12
         brew unlink python@3.8
         rm '/usr/local/bin/aws'
+        rm '/usr/local/bin/aws_completer'
 
     - run: mas
 
