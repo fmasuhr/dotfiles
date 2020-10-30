@@ -35,7 +35,8 @@ jobs:
       run: |
         brew uninstall node@12
         brew uninstall --ignore-dependencies python@3.8
-        brew uninstall awscli
+        rm '/usr/local/bin/aws'
+        rm '/usr/local/bin/aws_completer'
 
     - run: mas
 
