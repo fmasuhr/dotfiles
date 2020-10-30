@@ -34,7 +34,7 @@ jobs:
     - name: Unlink
       run: |
         brew uninstall node@12
-        brew uninstall python@3.8
+        brew uninstall --ignore-dependencies python@3.8
         brew uninstall awscli
 
     - run: mas
