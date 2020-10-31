@@ -1,5 +1,8 @@
 tap 'homebrew/core'
 tap 'homebrew/bundle'
+brew 'python@3.9', link: false
+brew 'python@3.8'
+
 brew 'autoconf'                   # dependency of ruby-build formula
 brew 'awscli'
 brew 'awslogs'
@@ -36,9 +39,7 @@ cask 'docker'
 cask 'dropbox'
 cask 'flux'
 cask 'google-chrome'
-brew link 'python@3.8'
 cask 'google-cloud-sdk'
-brew link 'python@3.9'
 cask 'hex-fiend'
 cask 'paw'
 cask 'sequel-pro'
