@@ -39,7 +39,7 @@ cask 'docker'
 cask 'dropbox'
 cask 'flux'
 cask 'google-chrome'
-cask 'google-cloud-sdk', depends_on: 'python@3.8'
+cask 'google-cloud-sdk', depends_on: 'python@3.8', conflicts_with: ['python@3.9']
 cask 'hex-fiend'
 cask 'paw'
 cask 'sequel-pro'
