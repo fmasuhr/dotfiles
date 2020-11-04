@@ -1,6 +1,5 @@
 tap 'homebrew/core'
 tap 'homebrew/bundle'
-
 brew 'autoconf'                   # dependency of ruby-build formula
 brew 'awscli'
 brew 'awslogs'
