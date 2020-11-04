@@ -34,10 +34,9 @@ jobs:
     - name: Unlink
       run: |
         brew uninstall node@12
-        brew uninstall --ignore-dependencies python@3.8
         rm '/usr/local/bin/aws'
         rm '/usr/local/bin/aws_completer'
 
     - run: mas
 
-    - run: CLOUDSDK_PYTHON=/usr/local/opt/python@3.8/libexec/bin/python make
+    - run: make
