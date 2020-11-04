@@ -29,10 +29,13 @@ brew 'tflint'
 brew 'the_silver_searcher'
 brew 'wget'
 
+tap 'hashicorp/tap'
+brew 'hashicorp/tap/terraform'
+
 tap 'homebrew/cask'
 cask '1password'
-cask 'cyberduck'
 cask 'battle-net'
+cask 'cyberduck'
 cask 'dash'
 cask 'discord'
 cask 'docker'
@@ -53,15 +56,12 @@ cask 'tunnelblick'
 cask 'vlc'
 cask 'zoomus'
 
-tap 'hashicorp/tap'
-brew 'hashicorp/tap/terraform'
-
 tap 'homebrew/cask-drivers'
 cask 'xbox360-controller-driver-unofficial'
 
 # Mac App Store
 mas 'Amphetamine', id: 937_984_704
 mas 'HTTP Client', id: 418_138_339
-mas 'Reeder',      id: 144_941_248_2
-mas 'Wipr',        id: 132_066_647_6
+mas 'Reeder',      id: 1_449_412_482
+mas 'Wipr',        id: 1_320_666_476
 mas 'Xcode',       id: 497_799_835
