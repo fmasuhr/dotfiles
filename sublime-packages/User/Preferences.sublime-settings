@@ -25,14 +25,14 @@
 	"drag_text": false,
 	"ensure_newline_at_eof_on_save": true,
 	"fade_fold_buttons": false,
-	"find_selected_text": true,
 	"file_exclude_patterns":
 	[
 		"*.pyc",
 		"*.pyo",
 		"*.exe",
 		"*.dll",
-		"*.obj","*.o",
+		"*.obj",
+		"*.o",
 		"*.a",
 		"*.lib",
 		"*.so",
@@ -48,8 +48,9 @@
 		"*.db",
 		"*.sublime-workspace",
 		"generated.tf",
-		"generated_override.tf",
+		"generated_override.tf"
 	],
+	"find_selected_text": true,
 	"folder_exclude_patterns":
 	[
 		".git",
