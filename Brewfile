@@ -59,6 +59,6 @@ cask 'xbox360-controller-driver-unofficial'
 # Mac App Store
 mas 'Amphetamine', id: 937_984_704
 mas 'HTTP Client', id: 418_138_339
-mas 'Reeder',      id: 1_449_412_482
+mas 'Reeder',      id: 1_529_448_980
 mas 'Wipr',        id: 1_320_666_476
 mas 'Xcode',       id: 497_799_835
