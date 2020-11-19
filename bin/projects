@@ -9,7 +9,7 @@ STARED_REPOSITORIES=$(gh api users/${GITHUB_USERNAME}/starred --paginate | jq -r
 # Get emails of authenticated github user
 EMAILS=($(gh api user/emails --paginate | jq -r '.[] | .email'))
 
-# configure
+# Configure formating sequences
 bold=`tput bold`
 green=`tput setaf 2`
 reset=`tput sgr0`
