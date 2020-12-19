@@ -1,6 +1,6 @@
 tap 'homebrew/core'
 tap 'homebrew/bundle'
-brew 'autoconf'                   # dependency of ruby-build formula
+brew 'autoconf' # dependency of ruby-build formula
 brew 'awscli'
 brew 'awslogs'
 brew 'coffeescript'
@@ -9,14 +9,14 @@ brew 'gh'
 brew 'git'
 brew 'go'
 brew 'graphviz'
-brew 'icu4c'                      # dependency of node formula
+brew 'icu4c' # dependency of node formula
 brew 'jq'
 brew 'mas'
 brew 'mysql'
 brew 'node'
 brew 'nvm'
-brew 'openssl@1.1'                # dependency of node, ruby-build formula
-brew 'pkg-config'                 # dependency of node, ruby-build formula
+brew 'openssl@1.1' # dependency of node, ruby-build formula
+brew 'pkg-config' # dependency of node, ruby-build formula
 brew 'rbenv'
 brew 'redis'
 brew 'ruby-build'
@@ -56,9 +56,8 @@ cask 'zoomus'
 tap 'homebrew/cask-drivers'
 cask 'xbox360-controller-driver-unofficial'
 
-# Mac App Store
 mas 'Amphetamine', id: 937_984_704
 mas 'HTTP Client', id: 418_138_339
-mas 'Reeder',      id: 1_529_448_980
-mas 'Wipr',        id: 1_320_666_476
-mas 'Xcode',       id: 497_799_835
+mas 'Reeder', id: 1_529_448_980
+mas 'Wipr', id: 1_320_666_476
+mas 'Xcode', id: 497_799_835
