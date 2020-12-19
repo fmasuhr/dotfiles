@@ -3,19 +3,27 @@
 # Get authenticated github user as default
 GITHUB_USERNAME=${GITHUB_USERNAME:-$(gh api user | jq -r '.login')}
 
-PROJECT_PATH=${PROJECT_PATH:-~/github}
-STARED_REPOSITORIES=$(gh api users/$GITHUB_USERNAME/starred --paginate | jq -r '.[] | .full_name')
+PROJECTS_PATH=${PROJECTS_PATH:-~/github}
+STARED_REPOSITORIES=$(gh api users/${GITHUB_USERNAME}/starred --paginate | jq -r '.[] | .full_name')
 
 # Get emails of authenticated github user
 EMAILS=($(gh api user/emails --paginate | jq -r '.[] | .email'))
 
+# Configure formating sequences
+bold=`tput bold`
+green=`tput setaf 2`
+reset=`tput sgr0`
+
 for repository in $STARED_REPOSITORIES;
 do
-  # Clone repository of ot does not exist locally yet
-  if [ ! -d "$PROJECT_PATH/$repository" ]; then
+  repository_path="${PROJECTS_PATH}/${repository}"
+
+  if [ ! -d $repository_path ]; then
+    # Clone repository as it does not exist locally yet
+
     # if no 'git config user.email' configure one of the github emails
     if [ $(git config user.email) == '(none)' ]; then
-      echo "Select the git config user.email for '$repository'"
+      echo "Select the git config user.email for '${repository}'"
 
       # List available emails
       for i in "${!EMAILS[@]}"; do
@@ -29,17 +37,22 @@ do
         ! [[ $email_index -ge 1 && $email_index -le ${#EMAILS[@]}  ]] && unset email_index
       done
 
-      gh repo clone "git@github.com:$repository.git" $PROJECT_PATH/$repository && git -C $PROJECT_PATH/$repository config user.email "${EMAILS[$((email_index - 1))]}" &
+      gh repo clone "git@github.com:${repository}.git" $repository_path && git -C $repository_path config user.email "${EMAILS[$((email_index - 1))]}" &
     else
-      gh repo clone "git@github.com:$repository.git" $PROJECT_PATH/$repository &
+      gh repo clone "git@github.com:${repository}.git" $repository_path &
     fi
   else
     # Pull latest changes into current branch
-    git -C $PROJECT_PATH/$repository pull --rebase=false --quiet &
+
+    if ! error=$(git -C $repository_path pull --rebase=false --quiet 2>&1); then \
+      echo -e "\
+${bold} ==> ${repository_path}${reset}\n\
+${error}\n"; \
+    fi &
   fi
 done
 
 # Wait for all background tasks to be finished
 wait
 
-echo 'All projects are synced'
+echo "${green}All projects are synced${reset}"

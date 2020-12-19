@@ -11,6 +11,9 @@ ZSH_THEME="af-magic"
 # https://github.com/ohmyzsh/ohmyzsh/issues/6835
 ZSH_DISABLE_COMPFIX=true
 
+# Updates will be triggered manually
+DISABLE_AUTO_UPDATE=true
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
