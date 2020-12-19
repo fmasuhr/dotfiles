@@ -51,7 +51,7 @@ cask 'steam'
 cask 'sublime-text'
 cask 'tunnelblick'
 cask 'vlc'
-cask 'zoomus'
+cask 'zoom'
 
 tap 'homebrew/cask-drivers'
 cask 'xbox360-controller-driver-unofficial'
