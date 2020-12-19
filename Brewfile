@@ -1,22 +1,26 @@
 tap 'homebrew/core'
 tap 'homebrew/bundle'
-brew 'autoconf' # dependency of ruby-build formula
+brew 'autoconf' # dependency of ruby-build
 brew 'awscli'
 brew 'awslogs'
 brew 'coffeescript'
 brew 'elm'
 brew 'gh'
 brew 'git'
+brew 'glib' # dependency of graphviz
 brew 'go'
+brew 'gobject-introspection' # dependency of graphviz
 brew 'graphviz'
-brew 'icu4c' # dependency of node formula
+brew 'icu4c' # dependency of coffeescript, node, graphviz
 brew 'jq'
 brew 'mas'
 brew 'mysql'
 brew 'node'
 brew 'nvm'
-brew 'openssl@1.1' # dependency of node, ruby-build formula
-brew 'pkg-config' # dependency of node, ruby-build formula
+brew 'openssl@1.1' # dependency of ruby-build awscli, awslogs, graphviz, mysql, redis, swi-prolog, wget
+brew 'pango' # dependency of graphviz
+brew 'pkg-config' # dependency of node, graphviz, rbenv, ruby-build
+brew 'python@3.8' # dependency of graphviz
 brew 'rbenv'
 brew 'redis'
 brew 'ruby-build'
