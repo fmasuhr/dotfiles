@@ -33,7 +33,6 @@ jobs:
 
     - name: Unlink
       run: |
-        brew uninstall node@12
         rm '/usr/local/bin/aws'
         rm '/usr/local/bin/aws_completer'
 
