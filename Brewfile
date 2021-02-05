@@ -57,9 +57,6 @@ cask 'tunnelblick'
 cask 'vlc'
 cask 'zoom'
 
-tap 'homebrew/cask-drivers'
-cask 'xbox360-controller-driver-unofficial'
-
 mas 'Amphetamine', id: 937_984_704
 mas 'HTTP Client', id: 418_138_339
 mas 'Reeder', id: 1_529_448_980
