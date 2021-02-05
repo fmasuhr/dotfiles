@@ -49,6 +49,8 @@ ulimit -n 1024
 export RUBYOPT=rubygems
 eval "$(rbenv init -)"
 
+[[ -f $HOME/.gemrc.local ]] && export GEMRC=$HOME/.gemrc.local
+
 # NVM configuration
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
