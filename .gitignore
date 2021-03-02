@@ -10,8 +10,5 @@ Package Control.system-ca-bundle
 Package Control.user-ca-bundle
 SublimeLinter/
 
-# Ignore local binaries
-bin.local
-
 # Brew
 Brewfile.lock.json
