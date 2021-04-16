@@ -1,7 +1,0 @@
-{
-  /*
-    Executable that formats the file contents.
-    The file contents is passed to the executable as STDIN, and expects the full file in return.
-  */
-  "cmd": ["terraform", "fmt", "-"],
-}
