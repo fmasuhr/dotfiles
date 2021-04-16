@@ -31,7 +31,7 @@ brew 'the_silver_searcher'
 brew 'wget'
 
 tap 'hashicorp/tap'
-brew 'hashicorp/tap/terraform'
+brew 'hashicorp/tap/terraform', link: true
 
 tap 'homebrew/cask'
 cask '1password'
