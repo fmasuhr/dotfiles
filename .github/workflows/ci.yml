@@ -36,5 +36,6 @@ jobs:
         rm '/usr/local/bin/aws'
         rm '/usr/local/bin/aws_completer'
         rm '/usr/local/bin/go'
+        rm '/usr/local/bin/gofmt'
 
     - run: make
