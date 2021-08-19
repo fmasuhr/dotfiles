@@ -55,7 +55,6 @@ cask 'steam'
 cask 'sublime-text'
 cask 'tunnelblick'
 cask 'vlc'
-cask 'zoom'
 
 mas 'Amphetamine', id: 937_984_704
 mas 'HTTP Client', id: 418_138_339
