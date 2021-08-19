@@ -2,7 +2,7 @@ NODE_VERSION = $(shell cat .nvmrc)
 NPMS = coffeelint eslint npm stylelint
 
 RUBY_VERSION = $(shell cat .ruby-version)
-GEMS = bundler:1.17.3 mdl rubocop
+GEMS = bundler:2.1.4 mdl rubocop
 
 GOPATH ?= ~/golang
 ZSH ?= ~/.oh-my-zsh
