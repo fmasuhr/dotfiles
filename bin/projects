@@ -22,7 +22,7 @@ do
     # Clone repository as it does not exist locally yet
 
     # if no 'git config user.email' configure one of the github emails
-    if [ $(git config user.email) == '(none)' ]; then
+    if [ $(git -C $repository_path config user.email) == '(none)' ]; then
       echo "Select the git config user.email for '${repository}'"
 
       # List available emails
