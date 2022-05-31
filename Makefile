@@ -36,7 +36,7 @@ macos/*:
 npm: | bundle
 	. "/usr/local/opt/nvm/nvm.sh"; \
 		nvm use system; \
-		npm install -g $(NPMS)
+		npm install --location=global $(NPMS)
 
 .PHONY: oh-my-zsh
 oh-my-zsh: | $(ZSH) $(ZSH)/custom/themes/af-magic.zsh-theme
