@@ -39,3 +39,4 @@ jobs:
         rm '/usr/local/bin/gofmt'
 
     - run: make
+
