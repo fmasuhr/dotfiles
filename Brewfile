@@ -16,7 +16,6 @@ brew 'jq'
 brew 'mas'
 brew 'mysql'
 brew 'node'
-brew 'nvm'
 brew 'openssl@1.1' # dependency of ruby-build awscli, awslogs, graphviz, mysql, redis, swi-prolog, wget
 brew 'pango' # dependency of graphviz
 brew 'pkg-config' # dependency of node, graphviz, rbenv, ruby-build
