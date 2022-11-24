@@ -6,13 +6,10 @@ brew 'awslogs'
 brew 'gh'
 brew 'git'
 brew 'go'
-brew 'icu4c' # dependency of node
 brew 'jq'
 brew 'mas'
-brew 'mysql'
-brew 'node'
-brew 'openssl@1.1' # dependency of ruby-build awscli, awslogs, mysql, wget
-brew 'pkg-config' # dependency of node, rbenv, ruby-build
+brew 'openssl@1.1' # dependency of ruby-build awscli, awslogs, wget
+brew 'pkg-config' # dependency of rbenv, ruby-build
 brew 'rbenv'
 brew 'ruby-build'
 brew 'stow'
