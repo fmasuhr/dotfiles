@@ -1,14 +1,2 @@
-# Sublime Text files
-oscrypto-ca-bundle.crt
-Package Control.ca-bundle
-Package Control.ca-certs/
-Package Control.ca-list
-Package Control.cache/
-Package Control.last-run
-Package Control.merged-ca-bundle
-Package Control.system-ca-bundle
-Package Control.user-ca-bundle
-SublimeLinter/
-
 # Brew
 Brewfile.lock.json

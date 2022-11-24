@@ -1,20 +1,16 @@
 NODE_VERSION = $(shell cat .nvmrc)
-NPMS = eslint npm stylelint
+NPMS = npm
 NVM_DIR ?= $(HOME)/.nvm
 
 RUBY_VERSION = $(shell cat .ruby-version)
-GEMS = bundler mdl rubocop
+GEMS = bundler
 
 ZSH ?= ~/.oh-my-zsh
 
 FOLDER = ~/github ~/.terraform.d/plugin-cache
 
-SUBLIME_PATH = $(HOME)/Library/Application\ Support/Sublime\ Text\ 3
-# Find all packages and adjust to sublime packages path
-SUBLIME_PACKAGES = $(shell find ./sublime-packages -depth 1 -type d -print0 | xargs -0 -n1 basename | while read n; do echo $(SUBLIME_PATH)/Packages/$${n}; done | sed 's: :\\ :g' )
-
 .PHONY: default
-default: softwareupdate stow bundle npm gems $(FOLDER) $(NVM_DIR)/versions/node/v$(NODE_VERSION) $(SUBLIME_PACKAGES)
+default: softwareupdate stow bundle npm gems $(FOLDER) $(NVM_DIR)/versions/node/v$(NODE_VERSION)
 
 # Tasks
 
@@ -84,14 +80,6 @@ $(NVM_DIR)/versions/node/v$(NODE_VERSION): | nvm
 ~/.rbenv/versions/$(RUBY_VERSION): | bundle
 	rbenv install --skip-existing $(RUBY_VERSION)
 	rbenv global $(RUBY_VERSION)
-
-$(SUBLIME_PATH)/Installed\ Packages/Package\ Control.sublime-package:
-	mkdir -p $(SUBLIME_PATH)/Installed\ Packages
-	curl "https://packagecontrol.io/Package%20Control.sublime-package" > "$@"
-
-$(SUBLIME_PACKAGES): | $(SUBLIME_PATH)/Installed\ Packages/Package\ Control.sublime-package
-	mkdir -p $(SUBLIME_PATH)/Packages
-	ln -s "$(DOTFILES)/sublime-packages/$$(basename "$@")" "$@"
 
 /usr/local/bin/brew:
 	/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
