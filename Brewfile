@@ -20,7 +20,6 @@ brew 'hashicorp/tap/terraform', link: true
 
 tap 'homebrew/cask'
 cask '1password'
-cask 'battle-net'
 cask 'dash'
 cask 'discord'
 cask 'dropbox'
