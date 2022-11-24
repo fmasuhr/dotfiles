@@ -10,4 +10,3 @@
 --type-set=markdown=.md
 --type-set=plain=.txt
 --type-set=mustache=.mustache
---type-set=coffee=.coffee

@@ -6,7 +6,6 @@
 	"installed_packages":
 	[
 		"Alignment",
-		"Better CoffeeScript",
 		"Case Conversion",
 		"DashDoc",
 		"Delete Current File",
@@ -20,12 +19,10 @@
 		"Open URL",
 		"Package Control",
 		"Pretty JSON",
-		"Prolog",
 		"Random Everything",
 		"Sass",
 		"SublimeLinter",
 		"SublimeLinter-coffeelint",
-		"SublimeLinter-eslint",
 		"SublimeLinter-mdl",
 		"SublimeLinter-stylelint",
 		"SublimeLinter-rubocop",
