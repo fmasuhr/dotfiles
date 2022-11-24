@@ -15,7 +15,7 @@ default: softwareupdate stow bundle npm gems $(FOLDER) $(NVM_DIR)/versions/node/
 # Tasks
 
 .PHONY: bundle
-bundle: | /usr/local/bin/brew
+bundle: | /opt/homebrew/bin/brew
 	brew update
 	brew bundle
 	mas upgrade
