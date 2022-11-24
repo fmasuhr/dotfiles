@@ -81,5 +81,5 @@ $(NVM_DIR)/versions/node/v$(NODE_VERSION): | nvm
 	rbenv install --skip-existing $(RUBY_VERSION)
 	rbenv global $(RUBY_VERSION)
 
-/usr/local/bin/brew:
-	NONINTERACTIVE=1 /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/opt/homebrew/bin/brew:
+	/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
