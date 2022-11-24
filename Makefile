@@ -45,8 +45,8 @@ nvm: $(NVM_DIR)
 		git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`; \
 		. $(NVM_DIR)/nvm.sh
 
-.PHONY: oh-my-zsh
-oh-my-zsh: | $(ZSH) $(ZSH)/custom/themes/af-magic.zsh-theme
+.PHONY: ohmyzsh
+ohmyzsh: | $(ZSH) $(ZSH)/custom/themes/af-magic.zsh-theme
 	sh $(ZSH)/tools/upgrade.sh
 
 .PHONY: gems
@@ -58,7 +58,7 @@ softwareupdate:
 	softwareupdate -ai --verbose
 
 .PHONY: stow
-stow: | bundle oh-my-zsh
+stow: | bundle ohmyzsh
 	stow -t "$(HOME)" -R dotfiles
 
 # Files
@@ -70,7 +70,7 @@ $(ZSH)/custom/themes/af-magic.zsh-theme:
 	ln -s "$(DOTFILES)/themes/$$(basename "$@")" "$@"
 
 $(ZSH):
-	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 $(NVM_DIR):
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
@@ -94,4 +94,4 @@ $(SUBLIME_PACKAGES): | $(SUBLIME_PATH)/Installed\ Packages/Package\ Control.subl
 	ln -s "$(DOTFILES)/sublime-packages/$$(basename "$@")" "$@"
 
 /usr/local/bin/brew:
-	/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+	/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
