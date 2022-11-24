@@ -3,11 +3,10 @@ tap 'homebrew/bundle'
 brew 'autoconf' # dependency of ruby-build
 brew 'awscli'
 brew 'awslogs'
-brew 'coffeescript'
 brew 'gh'
 brew 'git'
 brew 'go'
-brew 'icu4c' # dependency of coffeescript, node
+brew 'icu4c' # dependency of node
 brew 'jq'
 brew 'mas'
 brew 'mysql'
