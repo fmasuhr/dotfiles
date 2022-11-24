@@ -1,9 +1,9 @@
 NODE_VERSION = $(shell cat .nvmrc)
-NPMS = eslint npm stylelint
+NPMS = npm
 NVM_DIR ?= $(HOME)/.nvm
 
 RUBY_VERSION = $(shell cat .ruby-version)
-GEMS = bundler mdl rubocop
+GEMS = bundler
 
 ZSH ?= ~/.oh-my-zsh
 
