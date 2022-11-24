@@ -33,7 +33,7 @@ cask 'slack'
 cask 'sourcetree'
 cask 'spotify'
 cask 'steam'
-cask 'sublime-text'
+cask 'visual-studio-code'
 
 mas 'Amphetamine', id: 937_984_704
 mas 'Reeder', id: 1_529_448_980
