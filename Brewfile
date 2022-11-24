@@ -1,13 +1,13 @@
 tap 'homebrew/core'
 tap 'homebrew/bundle'
-brew 'autoconf' # dependency of ruby-build
+brew 'autoconf' # required by rbenv and ruby-build
 brew 'awscli'
 brew 'gh'
 brew 'git'
 brew 'jq'
+brew 'libidn2' # required by wget
 brew 'mas'
-brew 'openssl@1.1' # dependency of ruby-build awscli, wget
-brew 'pkg-config' # dependency of rbenv, ruby-build
+brew 'pkg-config' # required by rbenv and ruby-build
 brew 'rbenv'
 brew 'ruby-build'
 brew 'stow'
