@@ -16,7 +16,6 @@ default: softwareupdate stow bundle npm gems $(FOLDER) $(NVM_DIR)/versions/node/
 
 .PHONY: bundle
 bundle: | /opt/homebrew/bin/brew
-	eval "$(/opt/homebrew/bin/brew shellenv)"
 	brew update
 	brew bundle
 	mas upgrade

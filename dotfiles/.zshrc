@@ -23,11 +23,10 @@ plugins=()
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+export PATH="$HOME/.bin.local:$DOTFILES/bin:$PATH"
 
 export HOMEBREW_NO_ANALYTICS=1
 eval "$(/opt/homebrew/bin/brew shellenv)"
-
-export PATH="$HOME/.bin.local:$DOTFILES/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
