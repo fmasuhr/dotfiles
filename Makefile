@@ -5,10 +5,9 @@ NVM_DIR ?= $(HOME)/.nvm
 RUBY_VERSION = $(shell cat .ruby-version)
 GEMS = bundler mdl rubocop
 
-GOPATH ?= ~/golang
 ZSH ?= ~/.oh-my-zsh
 
-FOLDER = ~/github $(GOPATH)/bin $(GOPATH)/pkg $(GOPATH)/src ~/.terraform.d/plugin-cache
+FOLDER = ~/github ~/.terraform.d/plugin-cache
 
 SUBLIME_PATH = $(HOME)/Library/Application\ Support/Sublime\ Text\ 3
 # Find all packages and adjust to sublime packages path

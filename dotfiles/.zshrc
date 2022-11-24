@@ -27,13 +27,6 @@ source $ZSH/oh-my-zsh.sh
 export HOMEBREW_NO_ANALYTICS=1
 export PATH="$HOME/.bin.local:$DOTFILES/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
-# Go Lang configuration
-export GO111MODULE=on
-export GOPATH=$HOME/golang
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$GOROOT/bin:$PATH
-export PATH=$GOPATH/bin:$PATH
-
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR="vim"

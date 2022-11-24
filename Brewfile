@@ -4,7 +4,6 @@ brew 'autoconf' # dependency of ruby-build
 brew 'awscli'
 brew 'gh'
 brew 'git'
-brew 'go'
 brew 'jq'
 brew 'mas'
 brew 'openssl@1.1' # dependency of ruby-build awscli, wget
