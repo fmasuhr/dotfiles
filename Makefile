@@ -82,4 +82,4 @@ $(NVM_DIR)/versions/node/v$(NODE_VERSION): | nvm
 	rbenv global $(RUBY_VERSION)
 
 /usr/local/bin/brew:
-	/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	NONINTERACTIVE=1 /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
