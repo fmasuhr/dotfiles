@@ -23,16 +23,10 @@ plugins=()
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+export PATH="$HOME/.bin.local:$DOTFILES/bin:$PATH"
 
 export HOMEBREW_NO_ANALYTICS=1
-export PATH="$HOME/.bin.local:$DOTFILES/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-
-# Go Lang configuration
-export GO111MODULE=on
-export GOPATH=$HOME/golang
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$GOROOT/bin:$PATH
-export PATH=$GOPATH/bin:$PATH
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -49,15 +43,14 @@ ulimit -n 1024
 export RUBYOPT=rubygems
 eval "$(rbenv init -)"
 
-[[ -f $HOME/.gemrc.local ]] && export GEMRC=$HOME/.gemrc.local
-
 # NVM configuration
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # https://github.com/creationix/nvm#zsh
+autoload -U add-zsh-hook
 load-nvmrc() {
-  local node_version="$(nvm version)"
   local nvmrc_path="$(nvm_find_nvmrc)"
 
   if [ -n "$nvmrc_path" ]; then
@@ -65,14 +58,14 @@ load-nvmrc() {
 
     if [ "$nvmrc_node_version" = "N/A" ]; then
       nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use --silent
+    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
+      nvm use
     fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    nvm use default --silent
+  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
   fi
 }
-autoload -U add-zsh-hook
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
