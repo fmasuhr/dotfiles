@@ -4,7 +4,7 @@ NVM_DIR ?= $(HOME)/.nvm
 RUBY_VERSION = $(shell cat .ruby-version)
 GEMS = bundler
 
-ZSH ?= ~/.oh-my-zsh
+ZSH ?= $(HOME)/.oh-my-zsh
 
 FOLDER = ~/github ~/.terraform.d/plugin-cache
 
