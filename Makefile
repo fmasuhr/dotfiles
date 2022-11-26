@@ -1,5 +1,4 @@
 NODE_VERSION = $(shell cat .nvmrc)
-NPMS = npm
 NVM_DIR ?= $(HOME)/.nvm
 
 RUBY_VERSION = $(shell cat .ruby-version)
@@ -10,7 +9,7 @@ ZSH ?= ~/.oh-my-zsh
 FOLDER = ~/github ~/.terraform.d/plugin-cache
 
 .PHONY: default
-default: softwareupdate stow bundle npm gems $(FOLDER) $(NVM_DIR)/versions/node/v$(NODE_VERSION)
+default: softwareupdate stow bundle gems $(FOLDER) $(NVM_DIR)/versions/node/v$(NODE_VERSION)
 
 # Tasks
 
@@ -27,12 +26,6 @@ macos: macos/*
 .PHONY: macos/*
 macos/*:
 	$@
-
-.PHONY: npm
-npm: | nvm
-	. $(NVM_DIR)/nvm.sh; \
-		nvm use system; \
-		npm install --location=global $(NPMS)
 
 .PHONY: nvm
 nvm: $(NVM_DIR)
