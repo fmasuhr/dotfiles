@@ -19,7 +19,6 @@ tap 'hashicorp/tap'
 brew 'hashicorp/tap/terraform', link: true
 
 tap 'homebrew/cask'
-cask '1password'
 cask 'dash'
 cask 'discord'
 cask 'dropbox'
@@ -32,6 +31,9 @@ cask 'slack'
 cask 'spotify'
 cask 'steam'
 cask 'visual-studio-code'
+
+tap 'homebrew/cask-versions'
+cask '1password7'
 
 mas 'Amphetamine', id: 937_984_704
 mas 'Reeder', id: 1_529_448_980
