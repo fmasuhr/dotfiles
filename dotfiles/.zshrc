@@ -23,8 +23,6 @@ plugins=()
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export PATH="$HOME/.bin.local:$DOTFILES/bin:$PATH"
-
 export HOMEBREW_NO_ANALYTICS=1
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -68,6 +66,8 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
+export PATH="$HOME/.bin.local:$DOTFILES/bin:$PATH"
 
 # Set personal aliases. For a full list of active aliases, run `alias`.
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
