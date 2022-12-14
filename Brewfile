@@ -32,7 +32,7 @@ cask 'spotify'
 cask 'steam'
 cask 'visual-studio-code'
 
-tap 'fmasuhr/cask-versions'
+tap 'homebrew/cask-versions'
 cask '1password7'
 
 mas 'Amphetamine', id: 937_984_704
