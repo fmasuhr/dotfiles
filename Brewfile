@@ -33,6 +33,7 @@ cask 'visual-studio-code'
 
 tap 'homebrew/cask-versions'
 cask '1password7'
+cask 'threema-beta'
 
 mas 'Amphetamine', id: 937_984_704
 mas 'Reeder', id: 1_529_448_980
