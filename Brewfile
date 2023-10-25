@@ -1,4 +1,3 @@
-tap 'homebrew/core'
 tap 'homebrew/bundle'
 brew 'autoconf' # required by rbenv and ruby-build
 brew 'awscli'
@@ -18,7 +17,6 @@ brew 'wget'
 tap 'hashicorp/tap'
 brew 'hashicorp/tap/terraform', link: true
 
-tap 'homebrew/cask'
 cask 'battle-net'
 cask 'dash'
 cask 'discord'
