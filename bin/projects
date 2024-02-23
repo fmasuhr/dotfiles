@@ -4,7 +4,7 @@
 GITHUB_USERNAME=${GITHUB_USERNAME:-$(gh api user | jq -r '.login')}
 
 PROJECTS_PATH=${PROJECTS_PATH:-~/github}
-STARED_REPOSITORIES=$(gh api users/${GITHUB_USERNAME}/starred --paginate | jq -r '.[] | .full_name')
+STARED_REPOSITORIES=$(gh api users/${GITHUB_USERNAME}/starred --paginate | jq -c '.[] | {full_name: .full_name, archived: .archived}')
 
 # Get emails of authenticated github user
 EMAILS=($(gh api user/emails --paginate | jq -r '.[] | .email'))
@@ -16,14 +16,20 @@ reset=`tput sgr0`
 
 for repository in $STARED_REPOSITORIES;
 do
-  repository_path="${PROJECTS_PATH}/${repository}"
+  full_name=$(echo $repository | jq -r '.full_name')
+  archived=$(echo $repository | jq -r '.archived')
+  repository_path="${PROJECTS_PATH}/${full_name}"
+
+  if [ $archived == 'true' ]; then
+    echo "$full_name is archived but still starred"
+  fi
 
   if [ ! -d $repository_path ]; then
     # Clone repository as it does not exist locally yet
 
     # if no 'git config user.email' configure one of the github emails
     if [ $(git -C $PROJECTS_PATH config user.email) == '(none)' ]; then
-      echo "Select the git config user.email for '${repository}'"
+      echo "Select the git config user.email for '${full_name}'"
 
       # List available emails
       for i in "${!EMAILS[@]}"; do
@@ -37,9 +43,9 @@ do
         ! [[ $email_index -ge 1 && $email_index -le ${#EMAILS[@]}  ]] && unset email_index
       done
 
-      gh repo clone "git@github.com:${repository}.git" $repository_path && git -C $repository_path config user.email "${EMAILS[$((email_index - 1))]}" &
+      gh repo clone "git@github.com:${full_name}.git" $repository_path && git -C $repository_path config user.email "${EMAILS[$((email_index - 1))]}" &
     else
-      gh repo clone "git@github.com:${repository}.git" $repository_path &
+      gh repo clone "git@github.com:${full_name}.git" $repository_path &
     fi
   else
     # Pull latest changes into current branch
