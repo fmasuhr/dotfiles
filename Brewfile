@@ -36,6 +36,7 @@ cask '1password7'
 cask 'threema-beta'
 
 mas 'Amphetamine', id: 937_984_704
+mas 'Boop', id: 1_518_425_043
 mas 'Reeder', id: 1_529_448_980
 mas 'Wipr', id: 1_320_666_476
 mas 'Xcode', id: 497_799_835
