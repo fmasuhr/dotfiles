@@ -17,6 +17,7 @@ brew 'wget'
 tap 'hashicorp/tap'
 brew 'hashicorp/tap/terraform', link: true
 
+cask '1password'
 cask 'battle-net'
 cask 'dash'
 cask 'discord'
@@ -32,7 +33,6 @@ cask 'steam'
 cask 'visual-studio-code'
 
 tap 'homebrew/cask-versions'
-cask '1password7'
 cask 'threema-beta'
 
 mas 'Amphetamine', id: 937_984_704
