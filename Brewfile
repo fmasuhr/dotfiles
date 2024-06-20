@@ -30,10 +30,8 @@ cask 'skype'
 cask 'slack'
 cask 'spotify'
 cask 'steam'
+cask 'threema@beta'
 cask 'visual-studio-code'
-
-tap 'homebrew/cask-versions'
-cask 'threema-beta'
 
 mas 'Amphetamine', id: 937_984_704
 mas 'Boop', id: 1_518_425_043
