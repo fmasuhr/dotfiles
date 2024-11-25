@@ -17,23 +17,22 @@ brew 'wget'
 tap 'hashicorp/tap'
 brew 'hashicorp/tap/terraform', link: true
 
+cask '1password'
 cask 'battle-net'
 cask 'dash'
 cask 'discord'
 cask 'dropbox'
 cask 'flux'
 cask 'google-chrome'
+cask 'minecraft'
 cask 'session-manager-plugin'
 cask 'shadow'
 cask 'skype'
 cask 'slack'
 cask 'spotify'
 cask 'steam'
+cask 'threema@beta'
 cask 'visual-studio-code'
-
-tap 'homebrew/cask-versions'
-cask '1password7'
-cask 'threema-beta'
 
 mas 'Amphetamine', id: 937_984_704
 mas 'Boop', id: 1_518_425_043
