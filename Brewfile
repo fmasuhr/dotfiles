@@ -35,6 +35,7 @@ cask 'threema@beta'
 cask 'visual-studio-code'
 
 mas 'Amphetamine', id: 937_984_704
+mas 'AusweisApp', id: 948_660_805
 mas 'Boop', id: 1_518_425_043
 mas 'Reeder', id: 1_529_448_980
 mas 'Wipr', id: 1_320_666_476
