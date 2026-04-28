@@ -24,6 +24,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export HOMEBREW_NO_ANALYTICS=1
+export DO_NOT_TRACK=1
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Preferred editor for local and remote sessions
