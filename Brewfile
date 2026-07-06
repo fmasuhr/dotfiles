@@ -14,7 +14,7 @@ brew 'tflint'
 brew 'the_silver_searcher'
 brew 'wget'
 
-tap 'hashicorp/tap'
+tap 'hashicorp/tap', trusted: true
 brew 'hashicorp/tap/terraform', link: true
 
 cask '1password'
@@ -27,7 +27,6 @@ cask 'google-chrome'
 cask 'minecraft'
 cask 'session-manager-plugin'
 cask 'shadow'
-cask 'skype'
 cask 'slack'
 cask 'spotify'
 cask 'steam'
