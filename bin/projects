@@ -94,11 +94,11 @@ for full_name in "${sorted_repos[@]}";
 do
   if [ $first = true ]; then
     first=false
-    WORKSPACE_CONFIG+=$'\n    {\n\t\t"path": "_local"\n    },\n'
+    WORKSPACE_CONFIG+=$'\n    {\n    "path": "_local"\n    },\n'
   else
     WORKSPACE_CONFIG+=$',\n'
   fi
-  WORKSPACE_CONFIG+=$'    {\n\t\t\t"path": "'$full_name$'"\n    }'
+  WORKSPACE_CONFIG+=$'    {\n      "path": "'$full_name$'"\n    }'
 done
 
 WORKSPACE_CONFIG+=$'\n  ]\n}\n'
