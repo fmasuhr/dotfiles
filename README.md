@@ -18,6 +18,12 @@ Clone the GitHub repository somewhere (i preferer `~/.dotfiles`) on to your mach
 git clone git://github.com/fmasuhr/dotfiles ~/.dotfiles
 ```
 
+Configure email as this is done per repository.
+
+```sh
+git config set user.email "your@email.com"
+```
+
 For the inital setup you need to execute the `dotfiles` executable once inside the cloned repository to setup the complete environment
 
 ```sh
