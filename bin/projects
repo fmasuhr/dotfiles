@@ -62,3 +62,48 @@ done
 wait
 
 echo "${green}All projects are synced${reset}"
+
+# Generate workspace configuration (diff only)
+WORKSPACE_CONFIG=$(cat <<'EOF'
+{
+  "folders": [
+EOF
+)
+
+# Build array of valid repositories
+declare -a valid_repos
+for repository in $STARED_REPOSITORIES;
+do
+  full_name=$(echo $repository | jq -r '.full_name')
+  archived=$(echo $repository | jq -r '.archived')
+  repository_path="${PROJECTS_PATH}/${full_name}"
+
+  # Only include repositories that exist locally and are not archived
+  if [ -d "$repository_path" ] && [ $archived != 'true' ]; then
+    valid_repos+=("$full_name")
+  fi
+done
+
+# Sort the repositories alphabetically
+IFS=$'\n' sorted_repos=($(sort <<<"${valid_repos[*]}"))
+unset IFS
+
+# Build workspace config from sorted repos
+first=true
+for full_name in "${sorted_repos[@]}";
+do
+  if [ $first = true ]; then
+    first=false
+    WORKSPACE_CONFIG+=$'\n    {\n    "path": "_local"\n    },\n'
+  else
+    WORKSPACE_CONFIG+=$',\n'
+  fi
+  WORKSPACE_CONFIG+=$'    {\n      "path": "'$full_name$'"\n    }'
+done
+
+WORKSPACE_CONFIG+=$'\n  ]\n}\n'
+
+echo ""
+echo "${bold}VS Code Workspace Configuration Diff:${reset}"
+echo ""
+echo "$WORKSPACE_CONFIG"
