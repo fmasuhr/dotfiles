@@ -47,3 +47,11 @@ export PATH="$HOME/.bin.local:$DOTFILES/bin:$PATH"
 
 # Local configuration
 [[ -f $HOME/.zshrc.local ]] && source $HOME/.zshrc.local
+
+# BEGIN sb-infra-general shell setup
+# Managed by `mise run setup-shell` — re-running replaces this block.
+source <(mise completion zsh)
+autoload -Uz bashcompinit && bashcompinit
+complete -o nospace -C terraform terraform
+# END sb-infra-general shell setup
+eval "$(mise activate zsh)"
