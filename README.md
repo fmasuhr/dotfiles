@@ -21,7 +21,9 @@ git clone git://github.com/fmasuhr/dotfiles ~/.dotfiles
 Configure email as this is done per repository.
 
 ```sh
-git config set user.email "your@email.com"
+# ~/.gitconfig.local
+[user]
+	email = your@email.com
 ```
 
 For the inital setup you need to execute the `dotfiles` executable once inside the cloned repository to setup the complete environment
@@ -72,6 +74,7 @@ Make your own customizations locally by placing one of the following files into 
 
 * `~/.aliases.local`
 * `~/.functions.local`
+* `~/.gitconfig.local`
 * `~/.zshrc.local`
 * `~/.bin.local`
 
