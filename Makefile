@@ -49,7 +49,7 @@ $(FOLDER): | stow
 	mkdir -p $@
 
 $(ZSH)/custom/themes/af-magic.zsh-theme:
-	# ln -s "$(DOTFILES)/themes/$$(basename "$@")" "$@"
+	ln -sf "$(DOTFILES)/themes/$$(basename "$@")" "$@"
 
 $(ZSH):
 	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
