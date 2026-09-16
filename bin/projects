@@ -1,27 +1,41 @@
 #!/usr/bin/env bash
 
 PROJECTS_PATH=${PROJECTS_PATH:-~/github}
-STARRED_LIST_NAME=${STARRED_LIST_NAME:-storyblok}
+STARRED_LIST_NAME=${STARRED_LIST_NAME:-}
 
-STARED_REPOSITORIES=$(gh api graphql -f query='
-  query {
-    viewer {
-      lists(first: 50) {
-        nodes {
-          name
-          items(first: 100) {
-            nodes {
-              ... on Repository {
-                nameWithOwner
-                isArchived
+if [ -z "$STARRED_LIST_NAME" ]; then
+  # No list configured, sync all starred repositories
+  STARED_REPOSITORIES=$(gh api user/starred --paginate | jq -c '.[] | {full_name: .full_name, archived: .archived}')
+else
+  # Only sync starred repositories that are part of the given starred list
+  STARED_REPOSITORIES=$(gh api graphql -f query='
+    query {
+      viewer {
+        lists(first: 50) {
+          nodes {
+            name
+            items(first: 100) {
+              nodes {
+                ... on Repository {
+                  nameWithOwner
+                  isArchived
+                }
               }
             }
           }
         }
       }
     }
-  }
-' | jq -c --arg list "$STARRED_LIST_NAME" '.data.viewer.lists.nodes[] | select(.name == $list) | .items.nodes[] | {full_name: .nameWithOwner, archived: .isArchived}')
+  ' | jq -c --arg list "$STARRED_LIST_NAME" '.data.viewer.lists.nodes[] | select(.name == $list) | .items.nodes[] | {full_name: .nameWithOwner, archived: .isArchived}')
+fi
+
+if [ -z "$STARED_REPOSITORIES" ]; then
+  echo "No starred repositories found${STARRED_LIST_NAME:+ in list \"$STARRED_LIST_NAME\"}, nothing to sync."
+  exit 1
+fi
+
+REPOSITORY_COUNT=$(echo "$STARED_REPOSITORIES" | grep -c .)
+echo "Found ${REPOSITORY_COUNT} starred repositories to sync"
 
 # Get emails of authenticated github user
 EMAILS=($(gh api user/emails --paginate | jq -r '.[] | .email'))
