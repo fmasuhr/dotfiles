@@ -1,10 +1,27 @@
 #!/usr/bin/env bash
 
-# Get authenticated github user as default
-GITHUB_USERNAME=${GITHUB_USERNAME:-$(gh api user | jq -r '.login')}
-
 PROJECTS_PATH=${PROJECTS_PATH:-~/github}
-STARED_REPOSITORIES=$(gh api users/${GITHUB_USERNAME}/starred --paginate | jq -c '.[] | {full_name: .full_name, archived: .archived}')
+STARRED_LIST_NAME=${STARRED_LIST_NAME:-storyblok}
+
+STARED_REPOSITORIES=$(gh api graphql -f query='
+  query {
+    viewer {
+      lists(first: 50) {
+        nodes {
+          name
+          items(first: 100) {
+            nodes {
+              ... on Repository {
+                nameWithOwner
+                isArchived
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+' | jq -c --arg list "$STARRED_LIST_NAME" '.data.viewer.lists.nodes[] | select(.name == $list) | .items.nodes[] | {full_name: .nameWithOwner, archived: .isArchived}')
 
 # Get emails of authenticated github user
 EMAILS=($(gh api user/emails --paginate | jq -r '.[] | .email'))
