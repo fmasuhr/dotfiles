@@ -24,6 +24,12 @@ Configure email as this is done per repository.
 # ~/.gitconfig.local
 [user]
 	email = your@email.com
+
+[includeIf "hasconfig:remote.*.url:git@github.com:fmasuhr/**"]
+	path = ~/.gitconfig.fmasuhr
+[includeIf "hasconfig:remote.*.url:https://github.com/fmasuhr/**"]
+	path = ~/.gitconfig.fmasuhr
+
 ```
 
 For the inital setup you need to execute the `dotfiles` executable once inside the cloned repository to setup the complete environment
