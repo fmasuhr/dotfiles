@@ -9,7 +9,7 @@ ZSH ?= $(HOME)/.oh-my-zsh
 FOLDER = ~/github ~/.terraform.d/plugin-cache
 
 .PHONY: default
-default: softwareupdate stow bundle gems $(FOLDER) $(NVM_DIR)/versions/node/v$(NODE_VERSION)
+default: softwareupdate stow bundle $(FOLDER)
 
 # Tasks
 
@@ -19,13 +19,6 @@ bundle: | /opt/homebrew/bin/brew
 	brew bundle
 	mas upgrade
 	brew cleanup
-
-.PHONY: macos
-macos: macos/*
-
-.PHONY: macos/*
-macos/*:
-	$@
 
 .PHONY: nvm
 nvm: $(NVM_DIR)
@@ -44,7 +37,7 @@ gems: | ~/.rbenv/versions/$(RUBY_VERSION)
 
 .PHONY: softwareupdate
 softwareupdate:
-	softwareupdate -ai --verbose
+	# softwareupdate -ai --verbose
 
 .PHONY: stow
 stow: | bundle ohmyzsh
@@ -56,7 +49,7 @@ $(FOLDER): | stow
 	mkdir -p $@
 
 $(ZSH)/custom/themes/af-magic.zsh-theme:
-	ln -s "$(DOTFILES)/themes/$$(basename "$@")" "$@"
+	# ln -s "$(DOTFILES)/themes/$$(basename "$@")" "$@"
 
 $(ZSH):
 	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
