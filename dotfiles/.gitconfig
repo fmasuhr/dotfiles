@@ -1,10 +1,10 @@
 [user]
-	name = Fionn Masuhr
-	email = (none)
+  name = Fionn Masuhr
+  email = (none)
 [core]
-	excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore_global
 [fetch]
   prune = true
 
 [include]
-	path = ~/.gitconfig.local
+  path = ~/.gitconfig.local
