@@ -74,9 +74,7 @@ export PROJECTS_PATH=~/github
 export STARRED_LIST_NAME="my-projects"
 ```
 
-If `STARRED_LIST_NAME` is empty, the script falls back to syncing every starred repository. If it is set, only repositories that are part of that list are synced. The script also exits early with a helpful message if no repositories are found and prints how many repositories it discovered before syncing.
-
-This keeps local workspaces in sync with the repositories i have starred while still allowing a small filtered set for specific projects.
+If `STARRED_LIST_NAME` is empty, the script falls back to syncing every starred repository. If it is set, only repositories that are part of that list are synced.
 
 ### macOS Preferences
 
