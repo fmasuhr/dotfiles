@@ -58,6 +58,26 @@ Or trigger an update of dotfiles via [stow](https://www.gnu.org/software/stow/)
 dotfiles stow
 ```
 
+### Projects
+
+The `bin/projects` script helps to sync my starred GitHub repositories into a local folder and keeps them up to date. It will clone repositories that do not exist locally and pull changes for anything that already exists.
+
+```sh
+bin/projects
+```
+
+By default it syncs all starred repositories in `~/github`. If you want to sync only a specific starred list you can configure a list name and the script will use that list instead.
+
+```sh
+# ~/.zshrc.local
+export PROJECTS_PATH=~/github
+export STARRED_LIST_NAME="my-projects"
+```
+
+If `STARRED_LIST_NAME` is empty, the script falls back to syncing every starred repository. If it is set, only repositories that are part of that list are synced. The script also exits early with a helpful message if no repositories are found and prints how many repositories it discovered before syncing.
+
+This keeps local workspaces in sync with the repositories i have starred while still allowing a small filtered set for specific projects.
+
 ### macOS Preferences
 
 Setting up a new Mac and all preferences the way i am used to i use the `defaults` command.
