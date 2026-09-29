@@ -73,6 +73,24 @@ To only execute specific preferences e.g. of ther Terminal app you can use:
 dotfiles macos/terminal
 ```
 
+### Projects
+
+The `bin/projects` script helps to sync my starred GitHub repositories into a local folder and keeps them up to date. It will clone repositories that do not exist locally and pull changes for anything that already exists.
+
+```sh
+bin/projects
+```
+
+By default it syncs all starred repositories in `~/github`. If you want to sync only a specific starred list you can configure a list name and the script will use that list instead.
+
+```sh
+# ~/.zshrc.local
+export PROJECTS_PATH=~/github
+export STARRED_LIST_NAME="my-projects"
+```
+
+If `STARRED_LIST_NAME` is empty, the script falls back to syncing every starred repository. If it is set, only repositories that are part of that list are synced.
+
 ## Customization
 
 Make your own customizations locally by placing one of the following files into your home folder
