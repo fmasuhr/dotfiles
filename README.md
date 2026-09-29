@@ -58,6 +58,21 @@ Or trigger an update of dotfiles via [stow](https://www.gnu.org/software/stow/)
 dotfiles stow
 ```
 
+### macOS Preferences
+
+Setting up a new Mac and all preferences the way i am used to i use the `defaults` command.
+This is not included in the environment setup as it is not necessary to execute this regulary
+
+```sh
+dotfiles macos
+```
+
+To only execute specific preferences e.g. of ther Terminal app you can use:
+
+```sh
+dotfiles macos/terminal
+```
+
 ### Projects
 
 The `bin/projects` script helps to sync my starred GitHub repositories into a local folder and keeps them up to date. It will clone repositories that do not exist locally and pull changes for anything that already exists.
@@ -75,21 +90,6 @@ export STARRED_LIST_NAME="my-projects"
 ```
 
 If `STARRED_LIST_NAME` is empty, the script falls back to syncing every starred repository. If it is set, only repositories that are part of that list are synced.
-
-### macOS Preferences
-
-Setting up a new Mac and all preferences the way i am used to i use the `defaults` command.
-This is not included in the environment setup as it is not necessary to execute this regulary
-
-```sh
-dotfiles macos
-```
-
-To only execute specific preferences e.g. of ther Terminal app you can use:
-
-```sh
-dotfiles macos/terminal
-```
 
 ## Customization
 
