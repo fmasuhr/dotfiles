@@ -20,13 +20,6 @@ bundle: | /opt/homebrew/bin/brew
 	mas upgrade
 	brew cleanup
 
-.PHONY: macos
-macos: macos/*
-
-.PHONY: macos/*
-macos/*:
-	$@
-
 .PHONY: nvm
 nvm: $(NVM_DIR)
 	cd $(NVM_DIR); \
