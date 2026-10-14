@@ -9,7 +9,7 @@ ZSH ?= $(HOME)/.oh-my-zsh
 FOLDER = ~/github ~/.terraform.d/plugin-cache
 
 .PHONY: default
-default: softwareupdate stow bundle gems $(FOLDER) $(NVM_DIR)/versions/node/v$(NODE_VERSION)
+default: softwareupdate stow bundle $(FOLDER)
 
 # Tasks
 
@@ -37,11 +37,11 @@ gems: | ~/.rbenv/versions/$(RUBY_VERSION)
 
 .PHONY: softwareupdate
 softwareupdate:
-	softwareupdate -ai --verbose
+	# softwareupdate -ai --verbose
 
 .PHONY: stow
 stow: | bundle ohmyzsh
-	stow -t "$(HOME)" -R dotfiles
+	stow --no-folding -t "$(HOME)" -R dotfiles
 
 # Files
 

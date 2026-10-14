@@ -1,0 +1,14 @@
+{
+  "model": "sonnet",
+  "enabledPlugins": {
+    "i-have-adhd@i-have-adhd": true
+  },
+  "extraKnownMarketplaces": {
+    "i-have-adhd": {
+      "source": {
+        "source": "github",
+        "repo": "ayghri/i-have-adhd"
+      }
+    }
+  }
+}
