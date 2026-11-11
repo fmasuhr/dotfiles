@@ -6,3 +6,7 @@ updates:
       interval: daily
     assignees:
       - fmasuhr
+    groups:
+      github-actions:
+        patterns:
+          - "*"
