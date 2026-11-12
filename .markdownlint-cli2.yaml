@@ -1,0 +1,12 @@
+# Configuration of markdownlint-cli2, run by the `lint` job of
+# .github/workflows/ci.yml. Run it locally with `npx markdownlint-cli2@<version>`,
+# with the version the pinned DavidAnson/markdownlint-cli2-action bundles.
+config:
+  # Line length: prose is written with one sentence or paragraph per line.
+  MD013: false
+
+globs:
+  - "**/*.md"
+
+# Skip files ignored by git.
+gitignore: true
