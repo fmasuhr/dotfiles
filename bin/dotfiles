@@ -3,5 +3,5 @@
 # set dotfiles path for initial execution
 [[ -z "$DOTFILES" ]] && DOTFILES="$(dirname "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)")"
 
-# Run make in dotfiles the folder
-make -C $DOTFILES $1
+# Run make in the dotfiles folder
+make -C "$DOTFILES" "$@"
