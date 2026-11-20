@@ -1,0 +1,39 @@
+# git also reads its default excludes file ~/.config/git/ignore, so core.excludesfile isn't set
+[user]
+  name = Fionn Masuhr
+  email = (none)
+[init]
+  defaultBranch = main
+[fetch]
+  prune = true
+  pruneTags = true
+[pull]
+  ff = only
+[push]
+  autoSetupRemote = true
+  followTags = true
+[rebase]
+  autoSquash = true
+  autoStash = true
+  updateRefs = true
+[merge]
+  conflictStyle = zdiff3
+[diff]
+  algorithm = histogram
+  colorMoved = default
+[rerere]
+  enabled = true
+[commit]
+  verbose = true
+[branch]
+  sort = -committerdate
+[tag]
+  sort = version:refname
+[column]
+  ui = auto
+[help]
+  autocorrect = prompt
+
+# Local settings stay in $HOME next to the other *.local files
+[include]
+  path = ~/.gitconfig.local

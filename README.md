@@ -6,7 +6,7 @@ These are my config files to set a working environment
 
 ### Prequisites
 
-* Mac running OS X El Capitan (10.11) or higher
+* Mac with Apple silicon running a [supported macOS version](https://support.apple.com/en-us/HT201260)
 * Command Line Tools for Xcode: `xcode-select --install`, [download](https://developer.apple.com/downloads)
   or use [Xcode](https://itunes.apple.com/us/app/xcode/id497799835)
 
@@ -15,10 +15,10 @@ These are my config files to set a working environment
 Clone the GitHub repository somewhere (i preferer `~/.dotfiles`) on to your machine
 
 ```sh
-git clone git://github.com/fmasuhr/dotfiles ~/.dotfiles
+git clone https://github.com/fmasuhr/dotfiles.git ~/.dotfiles
 ```
 
-Configure email as this is done per repository.
+Configure email as this is done per repository. The git config lives in `~/.config/git/config` and includes `~/.gitconfig.local` for local settings.
 
 ```sh
 # ~/.gitconfig.local
@@ -57,6 +57,8 @@ Or trigger an update of dotfiles via [stow](https://www.gnu.org/software/stow/)
 ```sh
 dotfiles stow
 ```
+
+Config files live in their [XDG](https://specifications.freedesktop.org/basedir-spec/latest/) location `~/.config/<tool>/` where the tool supports it natively (git, RubyGems), so the home folder stays clean.
 
 ### Projects
 

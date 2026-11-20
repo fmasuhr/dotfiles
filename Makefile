@@ -41,7 +41,7 @@ softwareupdate:
 
 .PHONY: stow
 stow: | bundle ohmyzsh
-	stow -t "$(HOME)" -R dotfiles
+	stow --no-folding -t "$(HOME)" -R dotfiles
 
 # Files
 
