@@ -1,7 +1,3 @@
-NODE_VERSION = $(shell cat .nvmrc)
-NVM_DIR ?= $(HOME)/.nvm
-
-RUBY_VERSION = $(shell cat .ruby-version)
 GEMS = bundler
 
 ZSH ?= $(HOME)/.oh-my-zsh
@@ -9,7 +5,7 @@ ZSH ?= $(HOME)/.oh-my-zsh
 FOLDER = ~/github ~/.terraform.d/plugin-cache
 
 .PHONY: default
-default: softwareupdate stow bundle gems $(FOLDER) $(NVM_DIR)/versions/node/v$(NODE_VERSION)
+default: softwareupdate stow bundle mise gems $(FOLDER)
 
 # Tasks
 
@@ -20,27 +16,24 @@ bundle: | /opt/homebrew/bin/brew
 	mas upgrade
 	brew cleanup
 
-.PHONY: nvm
-nvm: $(NVM_DIR)
-	cd $(NVM_DIR); \
-		git fetch --tags origin; \
-		git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`; \
-		. $(NVM_DIR)/nvm.sh
+.PHONY: mise
+mise: | stow
+	mise install
 
 .PHONY: ohmyzsh
 ohmyzsh: | $(ZSH) $(ZSH)/custom/themes/af-magic.zsh-theme
 	sh $(ZSH)/tools/upgrade.sh
 
 .PHONY: gems
-gems: | ~/.rbenv/versions/$(RUBY_VERSION)
-	gem install $(GEMS)
+gems: | mise
+	mise exec -- gem install $(GEMS)
 
 .PHONY: softwareupdate
 softwareupdate:
 	softwareupdate -ai --verbose
 
 .PHONY: stow
-stow: | bundle ohmyzsh
+stow: | bundle ohmyzsh ~/.config/mise
 	stow -t "$(HOME)" -R dotfiles
 
 # Files
@@ -54,18 +47,10 @@ $(ZSH)/custom/themes/af-magic.zsh-theme:
 $(ZSH):
 	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-$(NVM_DIR):
-	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
-
-$(NVM_DIR)/versions/node/v$(NODE_VERSION): | nvm
-	. $(NVM_DIR)/nvm.sh; \
-		nvm install $(NODE_VERSION); \
-		nvm alias default $(NODE_VERSION)
-
-.PHONY: ~/.rbenv/versions/$(RUBY_VERSION)
-~/.rbenv/versions/$(RUBY_VERSION): | bundle
-	RUBY_CFLAGS="-w" rbenv install --skip-existing $(RUBY_VERSION)
-	rbenv global $(RUBY_VERSION)
+# Created before stow, so stow links config.toml instead of the whole directory
+# and files mise writes there (e.g. config.local.toml) stay out of this repository
+~/.config/mise:
+	mkdir -p $@
 
 /opt/homebrew/bin/brew:
 	/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
