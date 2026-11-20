@@ -2,8 +2,10 @@
 alias afk="open -a ScreenSaverEngine"
 
 # IP addresses
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en0"
+# -4: OpenDNS only answers myip.opendns.com with the IPv4 address the query came from
+alias ip="dig -4 +short myip.opendns.com @resolver1.opendns.com"
+# Address of the interface of the default route (en0 isn't Wi-Fi on every Mac)
+alias localip='ipconfig getifaddr "$(route -n get default | awk "/interface:/ { print \$2 }")"'
 
 # Date/Time
 alias timer="echo 'Timer started. Stop with Ctrl-D.' && date && time cat && date"
