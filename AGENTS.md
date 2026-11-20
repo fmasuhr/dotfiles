@@ -25,7 +25,7 @@ Nothing is deployed automatically. A change reaches a machine when `dotfiles` (`
 
 ## Repository layout
 
-- `dotfiles/` holds the files linked into `$HOME` with [GNU Stow](https://www.gnu.org/software/stow/) (`make stow`, i.e. `stow -t "$HOME" -R dotfiles`). Its directory structure mirrors `$HOME`, so `dotfiles/.config/git/config` becomes `~/.config/git/config`. New config files go here.
+- `dotfiles/` holds the files linked into `$HOME` with [GNU Stow](https://www.gnu.org/software/stow/) (`make stow`, i.e. `stow --no-folding -t "$HOME" -R dotfiles`). Its directory structure mirrors `$HOME`, so `dotfiles/.config/git/config` becomes `~/.config/git/config`. New config files go here, under `dotfiles/.config/` if the tool reads its config from the [XDG](https://specifications.freedesktop.org/basedir-spec/latest/) location (`~/.config/<tool>/`) natively, at the top level otherwise. `--no-folding` makes stow link single files instead of whole directories, so `~/.config` and its subdirectories stay real directories and tools don't write their own files into this repository.
 - `bin/` holds executables. `.zshrc` puts it on the `PATH` (via `$DOTFILES`, the path of this repository, derived from the `~/.zshrc` symlink). `bin/dotfiles` runs `make` with its arguments; `bin/projects` syncs the starred GitHub repositories into `~/github` (see `README.md`).
 - `Makefile` sets up the whole environment; `default` runs every step. Targets that are only run for their side effect are `.PHONY`; targets that create a file or directory are named after it, so they only run when it is missing.
 - `Brewfile` lists everything installed with Homebrew: `brew` formulae first, then other taps with their formulae, then `cask`s, then Mac App Store apps (`mas`), each group sorted alphabetically. A formula that is only there as a dependency of another one gets a trailing comment saying so (e.g. `# required by rbenv and ruby-build`).
@@ -33,7 +33,7 @@ Nothing is deployed automatically. A change reaches a machine when `dotfiles` (`
 - `themes/` holds the zsh prompt theme.
 - Local, machine-specific configuration is never committed: each config file sources its `*.local` counterpart in `$HOME` if it exists (`~/.zshrc.local`, `~/.aliases.local`, `~/.functions.local`, `~/.gitconfig.local`, `~/.bin.local`), as listed in `README.md`, *Customization*. Keep these hooks when changing a file, and add one for new files where it makes sense.
 - Never commit secrets or personal email addresses. Tokens come from environment variables (e.g. `${NPM_GITHUB_TOKEN}` in `.npmrc`), set in a `*.local` file.
-- `user.email = (none)` in `.gitconfig` is on purpose: the email is set per repository or per owner (see `README.md`), and `bin/projects` checks for that value to ask which email to configure after a clone. Keep both in sync.
+- `user.email = (none)` in `dotfiles/.config/git/config` is on purpose: the email is set per repository or per owner (see `README.md`), and `bin/projects` checks for that value to ask which email to configure after a clone. Keep both in sync.
 
 ## Conventions
 

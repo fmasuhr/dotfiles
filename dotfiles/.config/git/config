@@ -1,8 +1,7 @@
+# git also reads its default excludes file ~/.config/git/ignore, so core.excludesfile isn't set
 [user]
   name = Fionn Masuhr
   email = (none)
-[core]
-  excludesfile = ~/.gitignore_global
 [init]
   defaultBranch = main
 [fetch]
@@ -35,5 +34,6 @@
 [help]
   autocorrect = prompt
 
+# Local settings stay in $HOME next to the other *.local files
 [include]
   path = ~/.gitconfig.local

@@ -18,7 +18,7 @@ Clone the GitHub repository somewhere (i preferer `~/.dotfiles`) on to your mach
 git clone https://github.com/fmasuhr/dotfiles.git ~/.dotfiles
 ```
 
-Configure email as this is done per repository.
+Configure email as this is done per repository. The git config lives in `~/.config/git/config` and includes `~/.gitconfig.local` for local settings.
 
 ```sh
 # ~/.gitconfig.local
@@ -57,6 +57,8 @@ Or trigger an update of dotfiles via [stow](https://www.gnu.org/software/stow/)
 ```sh
 dotfiles stow
 ```
+
+Config files live in their [XDG](https://specifications.freedesktop.org/basedir-spec/latest/) location `~/.config/<tool>/` where the tool supports it natively (git, RubyGems), so the home folder stays clean.
 
 ### Projects
 
