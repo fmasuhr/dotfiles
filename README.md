@@ -38,6 +38,16 @@ cd ~/.dotfiles
 ./bin/dotfiles
 ```
 
+### SSH with 1Password
+
+SSH uses the keys stored in [1Password](https://developer.1password.com/docs/ssh/): `~/.ssh/config` points `IdentityAgent` at its agent. After the first run of `dotfiles` (which installs 1Password), open *Settings* → *Developer* in 1Password and turn on *Use the SSH agent*, then create or import an SSH key in 1Password and add its public key to GitHub as an *Authentication key* under [*SSH and GPG keys*](https://github.com/settings/keys).
+
+Machine-specific SSH hosts go into `~/.ssh/config.local`, which is included before the defaults and wins over them. On a machine that already has its own `~/.ssh/config`, move it there before running `dotfiles` (stow refuses to replace an existing file):
+
+```sh
+mv ~/.ssh/config ~/.ssh/config.local
+```
+
 ## Features
 
 After the first initialization there is a shortcut available which can be used to later on to update the complete environment (which should be done e.g. on a daily base)
@@ -83,6 +93,7 @@ Make your own customizations locally by placing one of the following files into 
 * `~/.aliases.local`
 * `~/.functions.local`
 * `~/.gitconfig.local`
+* `~/.ssh/config.local`
 * `~/.zshrc.local`
 * `~/.bin.local`
 
