@@ -32,15 +32,10 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR="vim"
 else
-  export EDITOR="subl -w"
+  export EDITOR="code --wait"
 fi
 
-# Fix terraform 0.12
-# https://github.com/hashicorp/terraform/issues/23615#issuecomment-610944963
-ulimit -n 1024
-
-# Rubygems configuation
-export RUBYOPT=rubygems
+# Ruby configuration
 eval "$(rbenv init -)"
 
 # NVM configuration
@@ -74,6 +69,45 @@ export PATH="$HOME/.bin.local:$DOTFILES/bin:$PATH"
 # Set personal aliases. For a full list of active aliases, run `alias`.
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
 [[ -f $HOME/.functions ]] && source $HOME/.functions
+
+# Command-line tools: fzf, zoxide and direnv (installed via the Brewfile)
+#
+# Their `init` output only changes with the installed version, so it is cached
+# in ~/.cache/zsh instead of running each tool on every new shell. The cache
+# file is named after the resolved binary path, which contains the Homebrew
+# version (/opt/homebrew/Cellar/<tool>/<version>/...), so it is regenerated
+# after `brew upgrade`.
+_dotfiles_source_init() {
+  local tool=$1 bin=${commands[$1]:A}
+  shift
+  [[ -n $bin ]] || return
+  local cache=${XDG_CACHE_HOME:-$HOME/.cache}/zsh/$tool-${${bin:h:h}:t}.zsh
+  if [[ ! -s $cache ]]; then
+    mkdir -p "${cache:h}"
+    rm -f "${cache:h}/$tool"-*.zsh(N)
+    "$bin" "$@" >| "$cache"
+  fi
+  source "$cache"
+}
+
+# fzf: Ctrl-R searches the history, Ctrl-T inserts files, Alt-C changes into a
+# directory, `**<Tab>` completes paths. fd lists the files, which respects
+# .gitignore and includes dotfiles (except .git).
+export FZF_DEFAULT_COMMAND="fd --type file --hidden --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd --type directory --hidden --exclude .git"
+_fzf_compgen_path() { fd --hidden --exclude .git . "$1" }
+_fzf_compgen_dir() { fd --type directory --hidden --exclude .git . "$1" }
+_dotfiles_source_init fzf --zsh
+
+# zoxide: `z <part of a path>` jumps to a visited directory, `zi` picks one
+# with fzf. `cd` is left unchanged.
+_dotfiles_source_init zoxide init zsh
+
+# direnv: loads and unloads the .envrc of a directory (after `direnv allow`)
+_dotfiles_source_init direnv hook zsh
+
+unfunction _dotfiles_source_init
 
 # Local configuration
 [[ -f $HOME/.zshrc.local ]] && source $HOME/.zshrc.local
