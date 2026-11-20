@@ -32,15 +32,10 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR="vim"
 else
-  export EDITOR="subl -w"
+  export EDITOR="code --wait"
 fi
 
-# Fix terraform 0.12
-# https://github.com/hashicorp/terraform/issues/23615#issuecomment-610944963
-ulimit -n 1024
-
-# Rubygems configuation
-export RUBYOPT=rubygems
+# Ruby configuration
 eval "$(rbenv init -)"
 
 # NVM configuration
