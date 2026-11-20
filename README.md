@@ -6,7 +6,7 @@ These are my config files to set a working environment
 
 ### Prequisites
 
-* Mac running OS X El Capitan (10.11) or higher
+* Mac with Apple silicon running a [supported macOS version](https://support.apple.com/en-us/HT201260)
 * Command Line Tools for Xcode: `xcode-select --install`, [download](https://developer.apple.com/downloads)
   or use [Xcode](https://itunes.apple.com/us/app/xcode/id497799835)
 
@@ -15,7 +15,7 @@ These are my config files to set a working environment
 Clone the GitHub repository somewhere (i preferer `~/.dotfiles`) on to your machine
 
 ```sh
-git clone git://github.com/fmasuhr/dotfiles ~/.dotfiles
+git clone https://github.com/fmasuhr/dotfiles.git ~/.dotfiles
 ```
 
 Configure email as this is done per repository.
@@ -58,6 +58,16 @@ Or trigger an update of dotfiles via [stow](https://www.gnu.org/software/stow/)
 dotfiles stow
 ```
 
+### Node.js, Ruby and tflint
+
+Node.js, Ruby and [tflint](https://github.com/terraform-linters/tflint) are installed with [mise](https://mise.jdx.dev). Their global default versions are pinned in [`dotfiles/.config/mise/config.toml`](dotfiles/.config/mise/config.toml) and installed by `dotfiles` (or `dotfiles mise`). Ruby is installed from mise's precompiled builds where one exists, and compiled with ruby-build otherwise.
+
+Inside a project, mise switches to the version the project asks for in `mise.toml`, `.nvmrc`, `.node-version` or `.ruby-version` when you `cd` into it. Install a missing version with
+
+```sh
+mise install
+```
+
 ### Projects
 
 The `bin/projects` script helps to sync my starred GitHub repositories into a local folder and keeps them up to date. It will clone repositories that do not exist locally and pull changes for anything that already exists.
@@ -83,6 +93,7 @@ Make your own customizations locally by placing one of the following files into 
 * `~/.aliases.local`
 * `~/.functions.local`
 * `~/.gitconfig.local`
+* `~/.config/mise/config.local.toml`
 * `~/.zshrc.local`
 * `~/.bin.local`
 
