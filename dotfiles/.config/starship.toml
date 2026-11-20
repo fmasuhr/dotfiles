@@ -1,0 +1,55 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Recreates the former oh-my-zsh theme (based on af-magic):
+#   ~/path(branch*) »                                  1 ↵ 12:34:56
+# Only the modules listed in the formats are run.
+format = '$directory$git_branch$git_commit${custom.git_dirty}$character'
+right_format = '$status $time'
+add_newline = false
+# Leave out a module (e.g. git status in a huge repository) instead of waiting for it
+command_timeout = 300
+scan_timeout = 10
+
+[directory]
+format = '[$path]($style)'
+style = 'blue'
+truncation_length = 0
+truncate_to_repo = false
+read_only = ''
+
+[git_branch]
+format = '[\(](blue)[$branch]($style)'
+style = 'yellow'
+only_attached = true
+
+# Short hash instead of the branch on a detached HEAD
+[git_commit]
+format = '[\(](blue)[$hash]($style)'
+style = 'yellow'
+tag_disabled = true
+
+# A single red * if there are any changes (including untracked files), then the
+# closing parenthesis. The git_status module shows a symbol per kind of change
+# instead, and can't show one symbol for all of them.
+[custom.git_dirty]
+command = 'git --no-optional-locks status --porcelain --untracked-files=normal --ignore-submodules=dirty 2>/dev/null | grep -q . && printf "*"'
+when = true
+require_repo = true
+shell = ['sh']
+format = '([$output](red))[\)](blue)'
+
+[character]
+format = ' $symbol '
+success_symbol = '[»](bold blue)'
+error_symbol = '[»](bold blue)'
+
+[status]
+disabled = false
+format = '[$status ↵]($style)'
+style = 'red'
+
+[time]
+disabled = false
+format = '[$time]($style)'
+style = 'bold blue'
+time_format = '%T'

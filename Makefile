@@ -4,8 +4,6 @@ NVM_DIR ?= $(HOME)/.nvm
 RUBY_VERSION = $(shell cat .ruby-version)
 GEMS = bundler
 
-ZSH ?= $(HOME)/.oh-my-zsh
-
 FOLDER = ~/github ~/.terraform.d/plugin-cache
 
 .PHONY: default
@@ -27,10 +25,6 @@ nvm: $(NVM_DIR)
 		git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`; \
 		. $(NVM_DIR)/nvm.sh
 
-.PHONY: ohmyzsh
-ohmyzsh: | $(ZSH) $(ZSH)/custom/themes/af-magic.zsh-theme
-	sh $(ZSH)/tools/upgrade.sh
-
 .PHONY: gems
 gems: | ~/.rbenv/versions/$(RUBY_VERSION)
 	gem install $(GEMS)
@@ -40,19 +34,13 @@ softwareupdate:
 	softwareupdate -ai --verbose
 
 .PHONY: stow
-stow: | bundle ohmyzsh
+stow: | bundle
 	stow -t "$(HOME)" -R dotfiles
 
 # Files
 
 $(FOLDER): | stow
 	mkdir -p $@
-
-$(ZSH)/custom/themes/af-magic.zsh-theme:
-	ln -sf "$(DOTFILES)/themes/$$(basename "$@")" "$@"
-
-$(ZSH):
-	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 $(NVM_DIR):
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
