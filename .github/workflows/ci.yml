@@ -17,3 +17,53 @@ jobs:
         persist-credentials: false
     - name: Run Markdown Lint
       uses: DavidAnson/markdownlint-cli2-action@696eb3f2509270d7b882d2aa68347bc676e7af34 # v25.0.0
+    - name: Run ShellCheck
+      # The scripts in bin/ are bash; shellcheck is preinstalled on the runner.
+      run: shellcheck bin/*
+    - name: Install zsh
+      run: sudo apt-get update && sudo apt-get install -y --no-install-recommends zsh
+    - name: Check zsh syntax
+      # One file per call: `zsh -n a b` only checks `a` and passes `b` as an argument.
+      run: git ls-files -z -- '*.zsh' '*.zsh-theme' '*.zshrc' '*.zshenv' '*.zprofile' '*.aliases' '*.functions' | xargs -0 -n 1 -t zsh -n
+    - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+      with:
+        python-version: '3.14'
+    - name: Install Python tools
+      run: pip install -r requirements-lint.txt
+    - name: Run zizmor
+      run: zizmor --format=github .
+      env:
+        # Enables zizmor's online audits, e.g. that pinned SHAs belong to the action's repository.
+        GH_TOKEN: ${{ github.token }}
+
+  brewfile:
+    # Validates the Brewfile without installing it: it parses, and every tap,
+    # formula and cask exists. Mac App Store apps (`mas`) are skipped, since
+    # runners have no App Store login.
+    runs-on: macos-15
+
+    permissions:
+      contents: read
+
+    env:
+      HOMEBREW_NO_AUTO_UPDATE: 1
+      HOMEBREW_NO_ANALYTICS: 1
+
+    steps:
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      with:
+        persist-credentials: false
+    - name: Parse Brewfile
+      run: brew bundle list --all --file Brewfile
+    - name: Check taps
+      run: brew bundle list --tap --file Brewfile | xargs -n 1 -t brew tap
+    - name: Check formulae and casks
+      # One `brew info` per entry, so every missing one is reported, not just the first.
+      run: |
+        missing=0
+        for type in formula cask; do
+          while IFS= read -r name; do
+            brew info "--$type" "$name" >/dev/null || missing=1
+          done < <(brew bundle list "--$type" --file Brewfile)
+        done
+        exit "$missing"
