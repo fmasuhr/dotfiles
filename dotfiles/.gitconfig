@@ -3,6 +3,7 @@
   email = (none)
 [core]
   excludesfile = ~/.gitignore_global
+  pager = delta
 [init]
   defaultBranch = main
 [fetch]
@@ -34,6 +35,10 @@
   ui = auto
 [help]
   autocorrect = prompt
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true
 
 [include]
   path = ~/.gitconfig.local
