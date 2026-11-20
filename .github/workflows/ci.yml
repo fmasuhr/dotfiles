@@ -57,7 +57,13 @@ jobs:
       run: brew bundle list --all --file Brewfile
     - name: Check taps
       run: brew bundle list --tap --file Brewfile | xargs -n 1 -t brew tap
-    - name: Check formulae
-      run: brew bundle list --formula --file Brewfile | xargs brew info --formula >/dev/null
-    - name: Check casks
-      run: brew bundle list --cask --file Brewfile | xargs brew info --cask >/dev/null
+    - name: Check formulae and casks
+      # One `brew info` per entry, so every missing one is reported, not just the first.
+      run: |
+        missing=0
+        for type in formula cask; do
+          while IFS= read -r name; do
+            brew info "--$type" "$name" >/dev/null || missing=1
+          done < <(brew bundle list "--$type" --file Brewfile)
+        done
+        exit "$missing"
