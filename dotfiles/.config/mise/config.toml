@@ -8,6 +8,9 @@
 [tools]
 node = "26.13.1"
 ruby = "4.0.10"
+# Not in homebrew-core any more (BUSL licence); installed from its GitHub
+# releases with mise's aqua backend
+tflint = "0.66.0"
 
 [settings]
 # Read per-project .nvmrc, .node-version and .ruby-version files; they are off

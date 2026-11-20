@@ -35,7 +35,7 @@ else
   export EDITOR="code --wait"
 fi
 
-# Node.js and Ruby versions (https://mise.jdx.dev)
+# Node.js, Ruby and tflint (https://mise.jdx.dev)
 eval "$(mise activate zsh)"
 
 export PATH="$HOME/.bin.local:$DOTFILES/bin:$PATH"

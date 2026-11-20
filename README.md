@@ -58,9 +58,9 @@ Or trigger an update of dotfiles via [stow](https://www.gnu.org/software/stow/)
 dotfiles stow
 ```
 
-### Node.js and Ruby
+### Node.js, Ruby and tflint
 
-Node.js and Ruby are installed with [mise](https://mise.jdx.dev). The global default versions are pinned in [`dotfiles/.config/mise/config.toml`](dotfiles/.config/mise/config.toml) and installed by `dotfiles` (or `dotfiles mise`). Ruby is installed from mise's precompiled builds where one exists, and compiled with ruby-build otherwise.
+Node.js, Ruby and [tflint](https://github.com/terraform-linters/tflint) are installed with [mise](https://mise.jdx.dev). Their global default versions are pinned in [`dotfiles/.config/mise/config.toml`](dotfiles/.config/mise/config.toml) and installed by `dotfiles` (or `dotfiles mise`). Ruby is installed from mise's precompiled builds where one exists, and compiled with ruby-build otherwise.
 
 Inside a project, mise switches to the version the project asks for in `mise.toml`, `.nvmrc`, `.node-version` or `.ruby-version` when you `cd` into it. Install a missing version with
 
