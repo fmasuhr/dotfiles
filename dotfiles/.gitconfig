@@ -3,41 +3,14 @@
   email = (none)
 [core]
   excludesfile = ~/.gitignore_global
-[init]
-  defaultBranch = main
 [fetch]
   prune = true
-  pruneTags = true
-[pull]
-  ff = only
-[push]
-  autoSetupRemote = true
-  followTags = true
-[rebase]
-  autoSquash = true
-  autoStash = true
-  updateRefs = true
-[merge]
-  conflictStyle = zdiff3
-[diff]
-  algorithm = histogram
-  colorMoved = default
-[rerere]
-  enabled = true
-[commit]
-  verbose = true
-  gpgsign = true
-[branch]
-  sort = -committerdate
-[tag]
-  sort = version:refname
-  gpgsign = true
-[column]
-  ui = auto
-[help]
-  autocorrect = prompt
 # Sign commits and tags with an SSH key from 1Password. The public key is set
 # per machine in ~/.gitconfig.local (user.signingkey), see README.md.
+[commit]
+  gpgsign = true
+[tag]
+  gpgsign = true
 [gpg]
   format = ssh
 [gpg "ssh"]
