@@ -11,7 +11,7 @@ Open work is tracked in `BACKLOG.md` (create it if it doesn't exist): pick up it
 - Always assign `fmasuhr` to every pull request you open.
 - Keep unrelated changes in separate pull requests (e.g. CI or tooling fixes go into their own PR, opened before the PR that needs them). One topic per pull request keeps the review easy.
 - Pull requests are merged with merge commits, not squash or rebase.
-- Post Dependabot commands (e.g. `@dependabot rebase`, `@dependabot recreate`) as comments containing only the command text, with no footer or other text, so Dependabot picks them up.
+- In the description, say what you verified and how, and list what you could not test (see [Applying changes](#applying-changes)).
 
 ## Applying changes
 
