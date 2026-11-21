@@ -2,11 +2,13 @@
 # Machine-specific tools and settings go into ~/.config/mise/config.local.toml,
 # which mise loads next to this file.
 
-# Global default versions, installed by `dotfiles` (`mise install`).
-# Use full versions and keep them on supported releases (Node.js LTS, a
-# maintained Ruby series).
+# Global default versions, installed and upgraded by `dotfiles`. Keep them on
+# supported releases (Node.js LTS, a maintained Ruby series).
 [tools]
-node = "26.13.1"
+# The LTS major only: `mise upgrade` installs its newest patch release, moving
+# to the next LTS major stays a deliberate change
+node = "26"
+# Exact versions, bumped by hand
 ruby = "4.0.10"
 # Not in homebrew-core any more (BUSL licence); installed from its GitHub
 # releases with mise's aqua backend

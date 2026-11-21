@@ -19,6 +19,7 @@ bundle: | /opt/homebrew/bin/brew
 .PHONY: mise
 mise: | stow
 	mise install
+	mise upgrade --global
 
 .PHONY: ohmyzsh
 ohmyzsh: | $(ZSH) $(ZSH)/custom/themes/af-magic.zsh-theme
