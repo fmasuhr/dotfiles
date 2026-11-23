@@ -20,7 +20,3 @@ updates:
       default-days: 7
     assignees:
       - fmasuhr
-    groups:
-      pip:
-        patterns:
-          - "*"
