@@ -6,6 +6,7 @@ brew 'libidn2' # required by wget
 brew 'mas'
 brew 'mise'
 brew 'stow'
+brew 'tflint'
 brew 'the_silver_searcher'
 brew 'wget'
 

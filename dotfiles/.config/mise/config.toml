@@ -8,11 +8,8 @@
 # The LTS major only: `mise upgrade` installs its newest patch release, moving
 # to the next LTS major stays a deliberate change
 node = "26"
-# Exact versions, bumped by hand
+# Exact version, bumped by hand
 ruby = "4.0.10"
-# Not in homebrew-core any more (BUSL licence); installed from its GitHub
-# releases with mise's aqua backend
-tflint = "0.66.0"
 
 [settings]
 # Read per-project .nvmrc, .node-version and .ruby-version files; they are off
