@@ -1,4 +1,3 @@
-tap 'homebrew/bundle'
 brew 'autoconf' # required by rbenv and ruby-build
 brew 'awscli'
 brew 'gh'
