@@ -18,6 +18,7 @@ brew 'hashicorp/tap/terraform', link: true
 # tflint was removed from homebrew-core (BUSL license, Homebrew/homebrew-core#282587),
 # upstream ships it as a cask in its own tap.
 tap 'terraform-linters/tap', trusted: true
+cask 'terraform-linters/tap/tflint'
 
 cask '1password'
 cask 'battle-net'
@@ -31,7 +32,6 @@ cask 'session-manager-plugin'
 cask 'slack'
 cask 'spotify'
 cask 'steam'
-cask 'terraform-linters/tap/tflint'
 cask 'threema@beta'
 cask 'visual-studio-code'
 
