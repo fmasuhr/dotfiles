@@ -34,8 +34,13 @@ jobs:
         persist-credentials: false
     - name: Parse Brewfile
       run: brew bundle list --all --file Brewfile
-    - name: Check taps
-      run: brew bundle list --tap --file Brewfile | xargs -n 1 -t brew tap
+    - name: Tap the taps
+      # Through `brew bundle`, so the Brewfile's `trusted: true` applies as on a Mac.
+      # Plain `brew tap` doesn't trust a tap, and Homebrew then refuses to load
+      # its formulae and casks. Only the `tap` lines, so nothing else is installed.
+      run: |
+        grep '^tap ' Brewfile > "$RUNNER_TEMP/Brewfile.taps" || true
+        brew bundle install --file "$RUNNER_TEMP/Brewfile.taps"
     - name: Check formulae and casks
       # One `brew info` per entry, so every missing one is reported, not just the first.
       run: |
