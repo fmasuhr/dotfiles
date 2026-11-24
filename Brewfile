@@ -15,8 +15,6 @@ brew 'wget'
 tap 'hashicorp/tap', trusted: true
 brew 'hashicorp/tap/terraform', link: true
 
-# tflint was removed from homebrew-core (BUSL license, Homebrew/homebrew-core#282587),
-# upstream ships it as a cask in its own tap.
 tap 'terraform-linters/tap', trusted: true
 cask 'terraform-linters/tap/tflint'
 
