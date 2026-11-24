@@ -1,8 +1,7 @@
 name: Brewfile
 
 # Checks the Brewfile when it changes, and weekly, since formulae and casks can
-# be removed upstream without a change here (e.g. tflint, removed from
-# homebrew-core for its BUSL licence).
+# be removed upstream without a change here.
 on:
   push:
     paths:
