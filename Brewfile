@@ -9,12 +9,14 @@ brew 'pkg-config' # required by rbenv and ruby-build
 brew 'rbenv'
 brew 'ruby-build'
 brew 'stow'
-brew 'tflint'
 brew 'the_silver_searcher'
 brew 'wget'
 
 tap 'hashicorp/tap', trusted: true
 brew 'hashicorp/tap/terraform', link: true
+
+tap 'terraform-linters/tap', trusted: true
+cask 'terraform-linters/tap/tflint'
 
 cask '1password'
 cask 'battle-net'
