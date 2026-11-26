@@ -58,6 +58,17 @@ Or trigger an update of dotfiles via [stow](https://www.gnu.org/software/stow/)
 dotfiles stow
 ```
 
+### Shell
+
+The shell is plain [zsh](https://www.zsh.org) without a framework, set up in `~/.zprofile` (Homebrew, for login shells) and `~/.zshrc`:
+
+* Prompt: [Starship](https://starship.rs), configured in `~/.config/starship.toml`. It shows the path and the git branch (a red `*` if there are changes) and, on the right, the exit code of a failed command and the time.
+* Plugins, installed with Homebrew: [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) (accept a suggestion with `→` or `End`) and [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting).
+* `↑`/`↓` search the history for commands starting with what is already typed, a shared history of 10000 entries is kept in `~/.zsh_history` (commands starting with a space are not recorded).
+* Completion is case-insensitive with a menu. New completions (e.g. of a newly installed formula) are picked up once a day; to pick them up right away, run `rm ~/.cache/zsh/zcompdump-*` and open a new shell.
+
+Machines that used the earlier oh-my-zsh setup can remove it once: `rm -rf ~/.oh-my-zsh ~/.zcompdump*`.
+
 ### Projects
 
 The `bin/projects` script helps to sync my starred GitHub repositories into a local folder and keeps them up to date. It will clone repositories that do not exist locally and pull changes for anything that already exists.
@@ -83,6 +94,7 @@ Make your own customizations locally by placing one of the following files into 
 * `~/.aliases.local`
 * `~/.functions.local`
 * `~/.gitconfig.local`
+* `~/.zprofile.local` (login shells, e.g. environment variables)
 * `~/.zshrc.local`
 
 Executables in the directory `~/.bin.local` are on the `PATH`, before the ones in `bin/`.

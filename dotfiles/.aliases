@@ -1,3 +1,16 @@
+# Directories
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -- -='cd -'
+alias md='mkdir -p'
+alias l='ls -lah'
+alias ll='ls -lh'
+alias la='ls -lAh'
+
+# Colored grep that skips VCS and virtualenv directories
+alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,.venv,venv}'
+
 # macOS
 alias afk="open -a ScreenSaverEngine"
 

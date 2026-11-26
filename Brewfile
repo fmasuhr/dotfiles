@@ -8,9 +8,12 @@ brew 'mas'
 brew 'pkg-config' # required by rbenv and ruby-build
 brew 'rbenv'
 brew 'ruby-build'
+brew 'starship'
 brew 'stow'
 brew 'the_silver_searcher'
 brew 'wget'
+brew 'zsh-autosuggestions'
+brew 'zsh-syntax-highlighting'
 
 tap 'hashicorp/tap', trusted: true
 brew 'hashicorp/tap/terraform', link: true
