@@ -3,8 +3,13 @@
   email = (none)
 [core]
   excludesfile = ~/.gitignore_global
+  pager = delta
 [fetch]
   prune = true
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true
 
 [include]
   path = ~/.gitconfig.local

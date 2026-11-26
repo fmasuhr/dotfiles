@@ -1,16 +1,23 @@
 brew 'autoconf' # required by rbenv and ruby-build
 brew 'awscli'
+brew 'bat'
+brew 'direnv'
+brew 'eza'
+brew 'fd'
+brew 'fzf'
 brew 'gh'
 brew 'git'
+brew 'git-delta'
 brew 'jq'
 brew 'libidn2' # required by wget
 brew 'mas'
 brew 'pkg-config' # required by rbenv and ruby-build
 brew 'rbenv'
+brew 'ripgrep'
 brew 'ruby-build'
 brew 'stow'
-brew 'the_silver_searcher'
 brew 'wget'
+brew 'zoxide'
 
 tap 'hashicorp/tap', trusted: true
 brew 'hashicorp/tap/terraform', link: true

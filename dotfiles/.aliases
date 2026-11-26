@@ -11,5 +11,10 @@ alias timer="echo 'Timer started. Stop with Ctrl-D.' && date && time cat && date
 alias timestamp="date +%Y%m%d%H%M%S"
 alias week='date +%V'
 
+# Listing files with eza (`ls` itself is left unchanged, as its flags differ)
+alias ll="eza --long --git --group-directories-first"
+alias la="eza --long --all --git --group-directories-first"
+alias lt="eza --tree --level=2 --git-ignore"
+
 # Local configuration
 [[ -f $HOME/.aliases.local ]] && source $HOME/.aliases.local

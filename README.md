@@ -76,6 +76,30 @@ export STARRED_LIST_NAME="my-projects"
 
 If `STARRED_LIST_NAME` is empty, the script falls back to syncing every starred repository. If it is set, only repositories that are part of that list are synced.
 
+### Command-line tools
+
+The `Brewfile` installs these tools in addition to the standard ones. Standard commands like `ls`, `cat`, `find`, `grep` and `cd` are not aliased to them, so scripts and existing habits keep working.
+
+* [ripgrep](https://github.com/BurntSushi/ripgrep) (`rg`) searches file contents, respecting `.gitignore`. It replaces `the_silver_searcher` (`ag`).
+* [fd](https://github.com/sharkdp/fd) finds files by name, respecting `.gitignore`.
+* [fzf](https://github.com/junegunn/fzf) is a fuzzy finder, with its shell integration enabled in `.zshrc`:
+  * `Ctrl-R` searches the shell history
+  * `Ctrl-T` inserts the selected files or directories into the command line
+  * `Alt-C` changes into the selected directory
+  * `**<Tab>` completes paths, e.g. `vim **<Tab>`
+
+  Files and directories are listed with `fd`, including hidden ones but not `.git`.
+* [zoxide](https://github.com/ajeetdsouza/zoxide) remembers visited directories: `z <part of a path>` jumps to the best match, `zi` picks one with fzf.
+* [direnv](https://direnv.net) loads the environment variables of an `.envrc` file when you enter its directory and unloads them when you leave. Run `direnv allow` once per `.envrc` (and after each change to it).
+* [bat](https://github.com/sharkdp/bat) is a `cat` with syntax highlighting and Git changes, e.g. `bat file.rb` (`bat --paging=never` prints without a pager).
+* [eza](https://eza.rocks) is an `ls` with colours and Git status, used by these aliases:
+  * `ll` lists files in long format with their Git status, directories first
+  * `la` like `ll`, including hidden files
+  * `lt` shows a tree two levels deep, without files ignored by Git
+* [delta](https://github.com/dandavison/delta) (`git-delta`) is the pager for `git diff`, `git log -p`, `git show` and `git add -p`, with syntax highlighting. Press `n` and `N` to jump between files.
+
+The shell integrations of fzf, zoxide and direnv are cached in `~/.cache/zsh` to keep the shell startup fast, and regenerated when a tool is upgraded. Remove the directory to regenerate them manually.
+
 ## Customization
 
 Make your own customizations locally by placing one of the following files into your home folder
