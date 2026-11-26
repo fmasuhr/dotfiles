@@ -1,10 +1,6 @@
-# Check GitHub API rate limit
+# Check GitHub API rate limit, for the gh login or the token given as argument
 github-ratelimit() {
-    if [ "$1" ]; then
-        curl --silent -H "Authorization: token $1" https://api.github.com/rate_limit | jq '.rate'
-    else
-        curl --silent https://api.github.com/rate_limit | jq '.rate'
-    fi
+    GH_TOKEN=${1:-$GH_TOKEN} gh api rate_limit | jq '.resources.core'
 }
 
 # Local configuration
