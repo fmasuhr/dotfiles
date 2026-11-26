@@ -10,7 +10,6 @@ brew 'rbenv'
 brew 'ruby-build'
 brew 'starship'
 brew 'stow'
-brew 'tflint'
 brew 'the_silver_searcher'
 brew 'wget'
 brew 'zsh-autosuggestions'
@@ -18,6 +17,9 @@ brew 'zsh-syntax-highlighting'
 
 tap 'hashicorp/tap', trusted: true
 brew 'hashicorp/tap/terraform', link: true
+
+tap 'terraform-linters/tap', trusted: true
+cask 'terraform-linters/tap/tflint'
 
 cask '1password'
 cask 'battle-net'

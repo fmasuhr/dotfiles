@@ -1,0 +1,2 @@
+# Python tools used by the `lint` job of .github/workflows/lint.yml, updated by Dependabot.
+zizmor==1.32.0

@@ -1,2 +1,27 @@
-*~
+# Global gitignore: only files created by this machine's OS, editors and tools,
+# never project files that teams commit (e.g. `.vscode/`, `.idea/`, `.envrc`).
+# Project-specific build output belongs into the project's own `.gitignore`.
+
+# macOS
 .DS_Store
+._*
+.AppleDouble
+.LSOverride
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Editor backup and swap files
+*~
+*.swp
+*.swo
+
+# direnv: local overrides and layout caches (`.envrc` itself is usually committed)
+.direnv/
+.envrc.local
+
+# Claude Code: personal settings (`.claude/settings.json` is shared)
+.claude/settings.local.json

@@ -52,7 +52,7 @@ $(NVM_DIR)/versions/node/v$(NODE_VERSION): | nvm
 
 .PHONY: ~/.rbenv/versions/$(RUBY_VERSION)
 ~/.rbenv/versions/$(RUBY_VERSION): | bundle
-	RUBY_CFLAGS="-w" rbenv install --skip-existing $(RUBY_VERSION)
+	rbenv install --skip-existing $(RUBY_VERSION)
 	rbenv global $(RUBY_VERSION)
 
 /opt/homebrew/bin/brew:
