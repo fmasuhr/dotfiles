@@ -1,0 +1,52 @@
+name: Brewfile
+
+# Checks the Brewfile when it changes, and weekly, since formulae and casks can
+# be removed upstream without a change here.
+on:
+  push:
+    paths:
+      - Brewfile
+      - .github/workflows/brewfile.yml
+  schedule:
+    - cron: '17 5 * * 1' # Mondays, 05:17 UTC
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  brewfile:
+    # Validates the Brewfile without installing it: it parses, and every tap,
+    # formula and cask exists. Mac App Store apps (`mas`) are skipped, since
+    # runners have no App Store login.
+    runs-on: macos-15
+
+    permissions:
+      contents: read
+
+    env:
+      HOMEBREW_NO_AUTO_UPDATE: 1
+      HOMEBREW_NO_ANALYTICS: 1
+
+    steps:
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      with:
+        persist-credentials: false
+    - name: Parse Brewfile
+      run: brew bundle list --all --file Brewfile
+    - name: Tap the taps
+      # Through `brew bundle`, so the Brewfile's `trusted: true` applies as on a Mac.
+      # Plain `brew tap` doesn't trust a tap, and Homebrew then refuses to load
+      # its formulae and casks. Only the `tap` lines, so nothing else is installed.
+      run: |
+        grep '^tap ' Brewfile > "$RUNNER_TEMP/Brewfile.taps" || true
+        brew bundle install --file "$RUNNER_TEMP/Brewfile.taps"
+    - name: Check formulae and casks
+      # One `brew info` per entry, so every missing one is reported, not just the first.
+      run: |
+        missing=0
+        for type in formula cask; do
+          while IFS= read -r name; do
+            brew info "--$type" "$name" >/dev/null || missing=1
+          done < <(brew bundle list "--$type" --file Brewfile)
+        done
+        exit "$missing"

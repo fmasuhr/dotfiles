@@ -4,15 +4,15 @@ These are my config files to set a working environment
 
 ## Getting Started
 
-### Prequisites
+### Prerequisites
 
 * Mac with Apple silicon running a [supported macOS version](https://support.apple.com/en-us/HT201260)
-* Command Line Tools for Xcode: `xcode-select --install`, [download](https://developer.apple.com/downloads)
-  or use [Xcode](https://itunes.apple.com/us/app/xcode/id497799835)
+* Command Line Tools for Xcode: `xcode-select --install`, [download](https://developer.apple.com/download/all/)
+  or use [Xcode](https://apps.apple.com/app/xcode/id497799835)
 
 ### Installation
 
-Clone the GitHub repository somewhere (i preferer `~/.dotfiles`) on to your machine
+Clone the GitHub repository somewhere on your machine (I prefer `~/.dotfiles`)
 
 ```sh
 git clone https://github.com/fmasuhr/dotfiles.git ~/.dotfiles
@@ -31,7 +31,7 @@ Configure email as this is done per repository.
   path = ~/.gitconfig.fmasuhr
 ```
 
-For the inital setup you need to execute the `dotfiles` executable once inside the cloned repository to setup the complete environment
+For the initial setup, run the `dotfiles` executable once inside the cloned repository to set up the complete environment
 
 ```sh
 cd ~/.dotfiles
@@ -40,7 +40,7 @@ cd ~/.dotfiles
 
 ## Features
 
-After the first initialization there is a shortcut available which can be used to later on to update the complete environment (which should be done e.g. on a daily base)
+After the first initialization the `dotfiles` command is on your `PATH` and updates the complete environment (run it regularly, e.g. daily)
 
 ```sh
 dotfiles
@@ -108,9 +108,10 @@ Make your own customizations locally by placing one of the following files into 
 * `~/.functions.local`
 * `~/.gitconfig.local`
 * `~/.zshrc.local`
-* `~/.bin.local`
+
+Executables in the directory `~/.bin.local` are on the `PATH`, before the ones in `bin/`.
 
 ## Credits
 
-* Mathias Bynens [macOS Defaults](https://mths.be/macos)
+* Mathias Bynens' [dotfiles](https://github.com/mathiasbynens/dotfiles), where some of the aliases come from
 * <https://github.com/joeyhoer/starter>
