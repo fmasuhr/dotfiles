@@ -38,28 +38,34 @@ REPOSITORY_COUNT=$(echo "$STARED_REPOSITORIES" | grep -c .)
 echo "Found ${REPOSITORY_COUNT} starred repositories to sync"
 
 # Get emails of authenticated github user
-EMAILS=($(gh api user/emails --paginate | jq -r '.[] | .email'))
+# (with a read loop, as the bash 3.2 that comes with macOS has no mapfile)
+EMAILS=()
+while IFS= read -r email; do
+  EMAILS+=("$email")
+done < <(gh api user/emails --paginate | jq -r '.[] | .email')
 
 # Configure formating sequences
-bold=`tput bold`
-green=`tput setaf 2`
-reset=`tput sgr0`
+bold=$(tput bold)
+green=$(tput setaf 2)
+reset=$(tput sgr0)
 
+# Word splitting is intended: one compact JSON object per line, without spaces.
+# (Not a while-read loop, as the loop body reads the email choice from stdin.)
 for repository in $STARED_REPOSITORIES;
 do
-  full_name=$(echo $repository | jq -r '.full_name')
-  archived=$(echo $repository | jq -r '.archived')
+  full_name=$(echo "$repository" | jq -r '.full_name')
+  archived=$(echo "$repository" | jq -r '.archived')
   repository_path="${PROJECTS_PATH}/${full_name}"
 
-  if [ $archived == 'true' ]; then
+  if [ "$archived" == 'true' ]; then
     echo "$full_name is archived but still starred"
   fi
 
-  if [ ! -d $repository_path ]; then
+  if [ ! -d "$repository_path" ]; then
     # Clone repository as it does not exist locally yet
 
     # if no 'git config user.email' configure one of the github emails
-    if [ $(git -C $PROJECTS_PATH config user.email) == '(none)' ]; then
+    if [ "$(git -C "$PROJECTS_PATH" config user.email)" == '(none)' ]; then
       echo "Select the git config user.email for '${full_name}'"
 
       # List available emails
@@ -70,18 +76,18 @@ do
       # Get email index input until correct (within range)
       unset email_index # reset after each repository
       while [[ ! $email_index =~ ^[0-9]+$ ]]; do
-        read -p "Choose the email to be configured in 'git config user.email' [1-${#EMAILS[@]}]: " email_index
+        read -r -p "Choose the email to be configured in 'git config user.email' [1-${#EMAILS[@]}]: " email_index
         ! [[ $email_index -ge 1 && $email_index -le ${#EMAILS[@]}  ]] && unset email_index
       done
 
-      gh repo clone "git@github.com:${full_name}.git" $repository_path && git -C $repository_path config user.email "${EMAILS[$((email_index - 1))]}" &
+      gh repo clone "git@github.com:${full_name}.git" "$repository_path" && git -C "$repository_path" config user.email "${EMAILS[$((email_index - 1))]}" &
     else
-      gh repo clone "git@github.com:${full_name}.git" $repository_path &
+      gh repo clone "git@github.com:${full_name}.git" "$repository_path" &
     fi
   else
     # Pull latest changes into current branch
 
-    if ! error=$(git -C $repository_path pull --rebase=false --quiet 2>&1); then \
+    if ! error=$(git -C "$repository_path" pull --rebase=false --quiet 2>&1); then \
       echo -e "\
 ${bold} ==> ${repository_path}${reset}\n\
 ${error}\n"; \
