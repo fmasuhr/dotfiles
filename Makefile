@@ -40,13 +40,18 @@ softwareupdate:
 	softwareupdate -ai --verbose
 
 .PHONY: stow
-stow: | bundle ohmyzsh
+stow: | bundle ohmyzsh ~/.ssh
 	stow -t "$(HOME)" -R dotfiles
 
 # Files
 
 $(FOLDER): | stow
 	mkdir -p $@
+
+# Created before stow, so stow links only ~/.ssh/config instead of linking the
+# whole directory into this repository (where keys and known_hosts would land).
+~/.ssh:
+	mkdir -m 700 $@
 
 $(ZSH)/custom/themes/af-magic.zsh-theme:
 	ln -sf "$(DOTFILES)/themes/$$(basename "$@")" "$@"

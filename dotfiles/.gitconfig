@@ -5,6 +5,17 @@
   excludesfile = ~/.gitignore_global
 [fetch]
   prune = true
+# Sign commits and tags with an SSH key from 1Password. The public key is set
+# per machine in ~/.gitconfig.local (user.signingkey), see README.md.
+[commit]
+  gpgsign = true
+[tag]
+  gpgsign = true
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+  allowedSignersFile = ~/.ssh/allowed_signers
 
 [include]
   path = ~/.gitconfig.local

@@ -38,6 +38,44 @@ cd ~/.dotfiles
 ./bin/dotfiles
 ```
 
+### SSH and commit signing with 1Password
+
+SSH uses the keys stored in [1Password](https://developer.1password.com/docs/ssh/) (`~/.ssh/config` points `IdentityAgent` at its agent), and git signs every commit and tag with an SSH key from 1Password. After the first run of `dotfiles` (which installs 1Password), set this up once per machine:
+
+1. In 1Password, open *Settings* → *Developer* and turn on *Use the SSH agent*.
+2. Create or import an SSH key in 1Password and add its public key to GitHub twice under [*SSH and GPG keys*](https://github.com/settings/keys): once as an *Authentication key* and once as a *Signing key*.
+3. Configure the public key for signing:
+
+   ```sh
+   # ~/.gitconfig.local
+   [user]
+     signingkey = ssh-ed25519 AAAA...
+   ```
+
+   If you use a different key per owner, set `user.signingkey` in that owner's file (e.g. `~/.gitconfig.fmasuhr`) instead.
+
+Until a signing key is configured, every `git commit` fails with `either user.signingkey or gpg.ssh.defaultKeyCommand needs to be configured`. To not sign on a machine, turn it off locally:
+
+```sh
+# ~/.gitconfig.local
+[commit]
+  gpgsign = false
+[tag]
+  gpgsign = false
+```
+
+To verify signatures locally (`git log --show-signature`), list the trusted keys in `~/.ssh/allowed_signers`, one `email key` per line:
+
+```sh
+echo "your@email.com ssh-ed25519 AAAA..." >> ~/.ssh/allowed_signers
+```
+
+Machine-specific SSH hosts go into `~/.ssh/config.local`, which is included before the defaults and wins over them. On a machine that already has its own `~/.ssh/config`, move it there before running `dotfiles` (stow refuses to replace an existing file):
+
+```sh
+mv ~/.ssh/config ~/.ssh/config.local
+```
+
 ## Features
 
 After the first initialization the `dotfiles` command is on your `PATH` and updates the complete environment (run it regularly, e.g. daily)
@@ -83,6 +121,7 @@ Make your own customizations locally by placing one of the following files into 
 * `~/.aliases.local`
 * `~/.functions.local`
 * `~/.gitconfig.local`
+* `~/.ssh/config.local`
 * `~/.zshrc.local`
 
 Executables in the directory `~/.bin.local` are on the `PATH`, before the ones in `bin/`.
