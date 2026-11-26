@@ -58,6 +58,16 @@ Or trigger an update of dotfiles via [stow](https://www.gnu.org/software/stow/)
 dotfiles stow
 ```
 
+### Node.js and Ruby
+
+Node.js and Ruby are installed with [mise](https://mise.jdx.dev). Their global default versions are pinned in [`dotfiles/.config/mise/config.toml`](dotfiles/.config/mise/config.toml) and installed by `dotfiles` (or `dotfiles mise`). Node.js is pinned to its LTS major (`26`), so `dotfiles` upgrades it to the newest patch release and removes the old one a day later; Ruby is pinned to an exact version. Global npm packages are installed per Node.js version, so they don't survive a Node.js upgrade: add CLI tools you need everywhere to `~/.config/mise/config.local.toml` instead (e.g. `"npm:typescript" = "latest"`). Ruby is installed from mise's precompiled builds where one exists, and compiled with ruby-build otherwise.
+
+Inside a project, mise switches to the version the project asks for in `mise.toml`, `.nvmrc`, `.node-version` or `.ruby-version` when you `cd` into it. Install a missing version with
+
+```sh
+mise install
+```
+
 ### Projects
 
 The `bin/projects` script helps to sync my starred GitHub repositories into a local folder and keeps them up to date. It will clone repositories that do not exist locally and pull changes for anything that already exists.
@@ -83,6 +93,7 @@ Make your own customizations locally by placing one of the following files into 
 * `~/.aliases.local`
 * `~/.functions.local`
 * `~/.gitconfig.local`
+* `~/.config/mise/config.local.toml`
 * `~/.zshrc.local`
 
 Executables in the directory `~/.bin.local` are on the `PATH`, before the ones in `bin/`.

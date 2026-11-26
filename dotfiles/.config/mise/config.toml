@@ -1,0 +1,17 @@
+# Global mise config (https://mise.jdx.dev/configuration.html#global-config).
+# Machine-specific tools and settings go into ~/.config/mise/config.local.toml,
+# which mise loads next to this file.
+
+# Global default versions, installed and upgraded by `dotfiles`. Keep them on
+# supported releases (Node.js LTS, a maintained Ruby series).
+[tools]
+# The LTS major only: `mise upgrade` installs its newest patch release, moving
+# to the next LTS major stays a deliberate change
+node = "26"
+# Exact version, bumped by hand
+ruby = "4.0.10"
+
+[settings]
+# Read per-project .nvmrc, .node-version and .ruby-version files; they are off
+# by default (https://mise.jdx.dev/dev-tools/versions.html#idiomatic-version-files).
+idiomatic_version_file_enable_tools = ["node", "ruby"]
